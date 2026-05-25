@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Maze Chase</title>
+  <link rel="stylesheet" href="default.css" />
+</head>
+<body>
+
+  <button id="music-toggle">🔊</button>
+
+  <header class="header">
+    <h1 class="game-title">Space Maze Chase</h1>
+    <a class="api-link" href="../docs/module-game.html" target="_blank">
+      API Documentation
+    </a>
+  </header>
+
+  <main class="game-container">
+
+    <!-- HUD: hearts + steps + cookie icons -->
+    <section class="hud" aria-label="Game status">
+
+      <div class="hud__group">
+        <span class="hud__label">Lives</span>
+        <div class="hud__icons" id="hud-lives" aria-label="Lives"></div>
+      </div>
+
+      <div class="hud__group">
+        <span class="hud__label">Steps</span>
+        <strong id="steps-count" aria-live="polite">40</strong>
+      </div>
+
+      <div class="hud__group">
+        <span class="hud__label">Cookies</span>
+        <div class="hud__icons" id="hud-cookies" aria-label="Cookies collected"></div>
+      </div>
+
+    </section>
+
+    <!-- Board + end-game overlay wrapped together -->
+    <div class="board-wrapper">
+
+      <section
+        class="board"
+        id="board"
+        role="grid"
+        aria-label="Game board"
+        tabindex="0"
+      ></section>
+
+      <!-- Overlay shown on win / lose -->
+      <div class="overlay" id="overlay" aria-live="assertive" aria-atomic="true">
+        <p class="overlay__title" id="overlay-title"></p>
+        <div class="overlay__cookies" id="overlay-cookies"></div>
+        <p class="overlay__sub" id="overlay-sub"></p>
+      </div>
+
+    </div>
+
+    <p class="hint" aria-label="Controls hint">
+      Use arrow keys to move. Avoid the alien and collect cookies.
+    </p>
+
+    <!-- keep for aria fallback; hidden via CSS -->
+    <p
+      class="status-message"
+      id="status-message"
+      role="status"
+      aria-live="assertive"
+      aria-atomic="true"
+    ></p>
+
+    <button id="reset-button" type="button">New Game</button>
+
+  </main>
+
+  <script src="main-bundled.js"></script>
+</body>
+</html>

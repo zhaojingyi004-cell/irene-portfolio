@@ -1,0 +1,2984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irene Zhao — Design Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ── CSS Variables ── */
+  :root {
+    --bg: #FAFAF8;
+    --text: #1a1a1a;
+    --text-muted: #888888;
+    --accent: #B8D4E8;
+    --accent-dark: #8ab6d0;
+    --dark-bg: #3a3a3a;
+    --dark-text: #f0ede8;
+    --border: #e0ddd8;
+    --font-display: 'Poltawski Nowy', serif;
+    --font-body: 'Poppins', sans-serif;
+    --radius: 12px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── INTRO ANIMATION ── */
+  #intro {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    pointer-events: none;
+  }
+
+  #intro.hidden {
+    animation: introFade 0.8s ease forwards;
+    animation-delay: 0.1s;
+  }
+
+  @keyframes introFade {
+    to { opacity: 0; visibility: hidden; }
+  }
+
+  .intro-svg {
+    width: min(500px, 90vw);
+    height: auto;
+    display: none;
+  }
+
+  .intro-word {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    position: absolute;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  #intro-word-zh {
+    animation: introWordIn 0.55s ease 0.2s forwards, introWordOut 0.45s ease 1.25s forwards;
+  }
+
+  #intro-word-en {
+    animation: introWordIn 0.55s ease 1.65s forwards, introWordOut 0.45s ease 2.7s forwards;
+  }
+
+  @keyframes introWordIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes introWordOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-10px); }
+  }
+
+  /* handwriting SVG path animation */
+  .intro-path {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: drawPath 1.8s ease forwards;
+  }
+
+  @keyframes drawPath {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo img {
+    width: 94px;
+    height: auto;
+    display: block;
+    pointer-events: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    transition: color var(--transition);
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .lang-toggle {
+    display: flex;
+    background: var(--border);
+    border-radius: 50px;
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: all var(--transition);
+  }
+
+  .lang-btn.active {
+    background: var(--bg);
+    color: var(--text);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    min-height: 100vh;
+    padding: 8rem 3rem 5rem;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding-top: 6rem;
+    min-height: 100vh;
+  }
+
+  .hero-left { padding-top: 2rem; }
+
+  .hero-greeting {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.75;
+    max-width: 420px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    padding: 0.85rem 1.8rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(184, 212, 232, 0.5);
+  }
+
+  .btn-secondary {
+    background: none;
+    color: var(--text);
+    border: 1.5px solid var(--border);
+    padding: 0.85rem 1.8rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  /* CV dropdown */
+  .cv-dropdown-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .cv-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    overflow: hidden;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: all var(--transition);
+    z-index: 10;
+  }
+
+  .cv-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .cv-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.2rem;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.85rem;
+    transition: background var(--transition);
+  }
+
+  .cv-dropdown a:hover { background: var(--bg); }
+
+  .cv-dropdown a span { font-size: 1rem; }
+
+  /* Hero photo collage */
+  .hero-right {
+    position: relative;
+    height: 760px;
+    align-self: start;
+    overflow: visible;
+  }
+
+  .photo-collage {
+    position: relative;
+    width: min(100%, 760px);
+    aspect-ratio: 760 / 990;
+    height: auto;
+    margin-left: auto;
+    margin-right: 0;
+    overflow: visible;
+  }
+
+  .photo-item {
+    position: absolute;
+    background: #d8d5d0;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  }
+
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* 1: IMG_5847.JPG */
+  .photo-item:nth-child(1) {
+    width: 28.8%;
+    height: 28.3%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  /* 2: IMG_7719.JPG */
+  .photo-item:nth-child(2) {
+    width: 52.2%;
+    height: 22.7%;
+    top: 3.8%;
+    left: 45.9%;
+    z-index: 1;
+  }
+
+  /* 3: IMG_6021.JPG */
+  .photo-item:nth-child(3) {
+    width: 56.7%;
+    height: 51.1%;
+    top: 23.1%;
+    left: 6.4%;
+    z-index: 3;
+  }
+
+  /* 4: IMG_4509.JPG */
+  .photo-item:nth-child(4) {
+    width: 29.3%;
+    height: 30.2%;
+    top: 31.4%;
+    left: 69.1%;
+    z-index: 1;
+  }
+
+  /* 5: IMG_8743.JPG */
+  .photo-item:nth-child(5) {
+    width: 50.5%;
+    height: 25.2%;
+    top: 70.6%;
+    left: 1.2%;
+    z-index: 1;
+  }
+
+  /* 6: IMG_2892.JPG */
+  .photo-item:nth-child(6) {
+    width: 40.3%;
+    height: 36.4%;
+    top: 63.4%;
+    left: 59.7%;
+    z-index: 2;
+  }
+
+  .photo-item:hover {
+    transform: scale(1.04);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+    z-index: 10;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .about-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 640px;
+    margin-bottom: 3rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .about-text p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .about-text .bold-statement {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.5;
+    margin-top: 1.5rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 2px solid var(--bg);
+    transition: all var(--transition);
+  }
+
+  .timeline-item:hover::before {
+    background: var(--accent-dark);
+    transform: scale(1.3);
+  }
+
+  .timeline-item:hover { transform: translateX(4px); }
+
+  .timeline-year {
+    font-size: 0.75rem;
+    color: var(--accent-dark);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+  }
+
+  .timeline-title {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .timeline-sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  /* Skills tags */
+  .skills-section { margin-top: 3rem; }
+
+  .skills-group { margin-bottom: 1rem; }
+
+  .skills-group-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
+    border: 1.5px solid;
+    transition: all var(--transition);
+  }
+
+  .tag:hover { transform: translateY(-2px); }
+
+  .tag-design {
+    background: rgba(184, 212, 232, 0.2);
+    border-color: rgba(184, 212, 232, 0.6);
+    color: #4a7a9b;
+  }
+
+  .tag-tech {
+    background: rgba(180, 220, 180, 0.2);
+    border-color: rgba(150, 200, 150, 0.6);
+    color: #4a7a4a;
+  }
+
+  .tag-engineering {
+    background: rgba(220, 200, 180, 0.2);
+    border-color: rgba(200, 180, 150, 0.6);
+    color: #7a5a3a;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .exp-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-subline {
+    font-style: italic;
+    font-family: var(--font-display);
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Filter tabs */
+  .filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .filter-tab {
+    background: none;
+    border: 1.5px solid var(--border);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all var(--transition);
+  }
+
+  .filter-tab.active,
+  .filter-tab:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  /* Cards grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .exp-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+  }
+
+  .exp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    border-color: var(--accent);
+  }
+
+  .exp-card-img {
+    width: 100%;
+    height: 180px;
+    background: #e8e5e0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .exp-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .exp-card:hover .exp-card-img img { transform: scale(1.04); }
+
+  .exp-card-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #e8e5e0 0%, #d8d5d0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--text-muted);
+  }
+
+  .exp-card-body { padding: 1.4rem; }
+
+  .exp-card-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.6rem;
+  }
+
+  .tag-internship {
+    background: rgba(184, 212, 232, 0.3);
+    color: #4a7a9b;
+  }
+
+  .tag-project {
+    background: rgba(180, 220, 180, 0.3);
+    color: #4a7a4a;
+  }
+
+  .exp-card-title {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-card-sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-card-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .exp-card-arrow {
+    position: absolute;
+    bottom: 1.4rem;
+    right: 1.4rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: all var(--transition);
+    color: var(--text-muted);
+  }
+
+  .exp-card:hover .exp-card-arrow {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text);
+    transform: rotate(45deg);
+  }
+
+  /* hidden card */
+  .exp-card.hidden { display: none; }
+
+  /* ── DRAWER ── */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.42);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition);
+    backdrop-filter: blur(4px);
+  }
+
+  .drawer-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .drawer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: min(980px, calc(100vw - 4rem));
+    max-height: calc(100vh - 4rem);
+    background: var(--bg);
+    z-index: 201;
+    transform: translate(-50%, -46%) scale(0.96);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0.25s ease;
+    overflow-y: auto;
+    padding: 3rem;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.22);
+  }
+
+  .drawer.open {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .drawer-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: 1px solid var(--border);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--text-muted);
+    transition: all var(--transition);
+  }
+
+  .drawer-close:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+
+  .drawer-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .drawer-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    line-height: 1.1;
+  }
+
+  .drawer-date {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .drawer-media {
+    width: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #e0ddd8;
+    margin-bottom: 2rem;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .drawer-media img,
+  .drawer-media iframe,
+  .drawer-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+  }
+
+  .drawer-media-placeholder {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .drawer-desc {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .drawer-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .drawer-section-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .drawer-section-text {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+  }
+
+  .drawer-section-placeholder {
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    background: rgba(255,255,255,0.5);
+  }
+
+  .drawer-section-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.2rem;
+    padding: 0.7rem 1rem;
+    border-radius: 50px;
+    background: var(--accent);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: all var(--transition);
+  }
+
+  .drawer-section-link:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+
+  .drawer-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.8rem;
+  }
+
+  .drawer-image-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: #e0ddd8;
+  }
+
+  .drawer-figma-embed {
+    width: 100%;
+    aspect-ratio: 9 / 12;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #e0ddd8;
+    margin-top: 0.8rem;
+  }
+
+  .drawer-figma-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .drawer-system-map {
+    background: #f4f1ed;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  .drawer-system-map ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .drawer-system-map li {
+    font-size: 0.82rem;
+    color: #444;
+    line-height: 1.55;
+    margin: 0.35rem 0;
+  }
+
+  .drawer-system-map > ul > li {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .drawer-system-map ul ul {
+    border-left: 1px solid var(--border);
+    margin: 0.35rem 0 0.7rem 0.35rem;
+    padding-left: 0.8rem;
+  }
+
+  .game-logic-map {
+    margin-top: 0.9rem;
+    overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1px solid #293052;
+    background: #090d1a;
+    padding: 1rem;
+  }
+
+  .game-map-canvas {
+    position: relative;
+    width: 860px;
+    height: 620px;
+    color: #dfe8ff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  .game-map-node {
+    position: absolute;
+    border: 1.5px solid #293052;
+    background: #101428;
+    border-radius: 8px;
+    padding: 0.65rem 0.8rem;
+    text-align: center;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.02);
+  }
+
+  .game-map-node strong {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .game-map-node span {
+    display: block;
+    color: #8d99bd;
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .game-map-node.setup {
+    left: 330px;
+    top: 26px;
+    width: 200px;
+    background: #6558ee;
+    border-color: #6558ee;
+  }
+
+  .game-map-node.setup span,
+  .game-map-node.setup strong { color: white; }
+
+  .game-map-node.player {
+    left: 20px;
+    top: 210px;
+    width: 245px;
+    border-color: #6b5cff;
+    background: #17163b;
+  }
+
+  .game-map-node.mechanics {
+    left: 315px;
+    top: 210px;
+    width: 245px;
+    border-color: #19d8ff;
+    background: #102a35;
+  }
+
+  .game-map-node.enemy {
+    left: 610px;
+    top: 210px;
+    width: 230px;
+    border-color: #ff6a72;
+    background: #321822;
+  }
+
+  .game-map-node.state {
+    left: 175px;
+    top: 365px;
+    width: 250px;
+    border-color: #15d6a8;
+    background: #102c2c;
+  }
+
+  .game-map-node.win {
+    left: 485px;
+    top: 365px;
+    width: 130px;
+    border-color: #15d6a8;
+    background: #102c2c;
+  }
+
+  .game-map-node.lose {
+    left: 645px;
+    top: 365px;
+    width: 130px;
+    border-color: #ff6a72;
+    background: #321822;
+  }
+
+  .game-map-node.feedback {
+    left: 175px;
+    top: 500px;
+    width: 520px;
+    border-color: #5266a4;
+    background: #151a35;
+  }
+
+  .game-map-node.small {
+    width: 170px;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .game-map-node.wall { left: 20px; top: 300px; border-color: #293052; }
+  .game-map-node.item { left: 315px; top: 300px; border-color: #ffd05c; }
+  .game-map-node.move { left: 610px; top: 300px; border-color: #ff6a72; }
+  .game-map-node.sfx { left: 95px; top: 570px; border-color: #ffd05c; }
+  .game-map-node.hud { left: 690px; top: 570px; border-color: #8b80ff; }
+
+  .game-map-line {
+    position: absolute;
+    height: 1.5px;
+    background: #5266a4;
+    transform-origin: left center;
+    opacity: 0.75;
+  }
+
+  .game-map-line.dashed {
+    background: repeating-linear-gradient(90deg, #6b5cff 0 8px, transparent 8px 15px);
+  }
+
+  .game-map-line.l1 { left: 430px; top: 92px; width: 330px; transform: rotate(20deg); }
+  .game-map-line.l2 { left: 430px; top: 92px; width: 290px; transform: rotate(160deg); }
+  .game-map-line.l3 { left: 430px; top: 92px; width: 118px; transform: rotate(90deg); }
+  .game-map-line.l4 { left: 265px; top: 250px; width: 50px; }
+  .game-map-line.l5 { left: 560px; top: 250px; width: 50px; }
+  .game-map-line.l6 { left: 140px; top: 270px; width: 112px; transform: rotate(52deg); }
+  .game-map-line.l7 { left: 440px; top: 270px; width: 100px; transform: rotate(62deg); }
+  .game-map-line.l8 { left: 685px; top: 270px; width: 88px; transform: rotate(90deg); }
+  .game-map-line.l9 { left: 425px; top: 402px; width: 60px; }
+  .game-map-line.l10 { left: 615px; top: 402px; width: 30px; }
+  .game-map-line.l11 { left: 300px; top: 438px; width: 78px; transform: rotate(90deg); }
+  .game-map-line.l12 { left: 550px; top: 438px; width: 83px; transform: rotate(125deg); }
+  .game-map-line.l13 { left: 705px; top: 438px; width: 98px; transform: rotate(140deg); }
+
+  .game-map-legend {
+    position: absolute;
+    left: 18px;
+    bottom: 8px;
+    color: #8d99bd;
+    font-size: 0.68rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .drawer-game-embed {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #050507;
+    margin-top: 0.9rem;
+  }
+
+  .drawer-game-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .drawer-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .drawer-bullets li {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .drawer-bullets li::before {
+    content: '–';
+    color: var(--accent-dark);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .drawer-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .drawer-tech-tag {
+    background: var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+  }
+
+  /* ── HUMAN BEHIND CV ── */
+  #human {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    max-width: none;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  #human .section-label {
+    color: rgba(240,237,232,0.4);
+    width: 100%;
+    text-align: left;
+  }
+
+  #human .section-label::after {
+    background: rgba(240,237,232,0.15);
+  }
+
+  .human-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .human-subline {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: rgba(240,237,232,0.5);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .photos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1280px;
+    justify-content: center;
+  }
+
+  .photo-card {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #4d4d4d;
+    cursor: pointer;
+    border: 1px solid rgba(240,237,232,0.08);
+  }
+
+  .photo-card img,
+  .photo-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+
+  .photo-card video {
+    transform: scale(1.04);
+  }
+
+  .photo-card:hover img,
+  .photo-card:hover video { transform: scale(1.08); }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #555, #464646);
+    color: rgba(240,237,232,0.88);
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-align: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+  .photo-card:hover .photo-placeholder {
+    transform: scale(1.04);
+    filter: brightness(0.72);
+  }
+
+  .fitness-collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    gap: 3px;
+    background: #2f332e;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+  .fitness-collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-card:hover .fitness-collage {
+    transform: scale(1.04);
+    filter: brightness(0.72);
+  }
+
+  .ski-collage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #465461;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+  .ski-collage img {
+    position: absolute;
+    width: 66%;
+    height: 56%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  }
+
+  .ski-collage img:first-child {
+    top: 7%;
+    left: 8%;
+  }
+
+  .ski-collage img:last-child {
+    right: 8%;
+    bottom: 8%;
+  }
+
+  .photo-card:hover .ski-collage {
+    transform: scale(1.04);
+    filter: brightness(0.72);
+  }
+
+  .photo-placeholder-dance {
+    background: linear-gradient(135deg, #5a5a5a, #3f4f57);
+  }
+
+  .photo-placeholder-fitness {
+    background: linear-gradient(135deg, #565656, #4d5749);
+  }
+
+  .photo-placeholder-ski {
+    background: linear-gradient(135deg, #5a5a5a, #465461);
+  }
+
+  .photo-placeholder-travel {
+    background: linear-gradient(135deg, #5a5a5a, #574f45);
+  }
+
+  .photo-tooltip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.82));
+    padding: 2.6rem 1.15rem 1.15rem;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .photo-card:hover .photo-tooltip { transform: translateY(0); }
+
+  .photo-tooltip-location {
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .photo-tooltip-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .contact-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-left-headline {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-left-sub {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .contact-link:hover { color: var(--text); }
+
+  .contact-link-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: background var(--transition);
+  }
+
+  .contact-link-icon svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+  }
+
+  .contact-link:hover .contact-link-icon { background: var(--accent); }
+
+  /* Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .form-input,
+  .form-textarea {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color var(--transition);
+    resize: none;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: var(--accent-dark);
+  }
+
+  .form-textarea { min-height: 130px; }
+
+  .btn-submit {
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    padding: 1rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.02em;
+  }
+
+  .btn-submit:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(184, 212, 232, 0.5);
+  }
+
+  .btn-submit:disabled {
+    cursor: wait;
+    opacity: 0.75;
+    transform: none;
+  }
+
+  .form-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(0,0,0,0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+  }
+
+  .form-modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .form-modal {
+    width: min(390px, 100%);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+    box-shadow: 0 18px 60px rgba(0,0,0,0.18);
+    text-align: center;
+  }
+
+  .form-modal-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.9rem;
+    font-size: 1.1rem;
+  }
+
+  .form-modal-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-modal-text {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .form-modal-close {
+    background: var(--accent);
+    border: none;
+    border-radius: 50px;
+    padding: 0.7rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Scroll Fade In ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* staggered delay for children */
+  .fade-in:nth-child(1) { transition-delay: 0s; }
+  .fade-in:nth-child(2) { transition-delay: 0.1s; }
+  .fade-in:nth-child(3) { transition-delay: 0.2s; }
+  .fade-in:nth-child(4) { transition-delay: 0.3s; }
+  .fade-in:nth-child(5) { transition-delay: 0.4s; }
+  .fade-in:nth-child(6) { transition-delay: 0.5s; }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  /* ── i18n hidden ── */
+  /* lang visibility handled by JS */
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 6rem 1.5rem 4rem; }
+    #hero { grid-template-columns: 1fr; gap: 2rem; min-height: auto; padding-top: 5rem; }
+    .hero-right {
+      height: auto;
+      min-height: 520px;
+    }
+    .photo-collage {
+      width: min(100%, 520px);
+      margin: 0 auto;
+    }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .photos-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .drawer {
+      width: calc(100vw - 1.5rem);
+      max-height: calc(100vh - 1.5rem);
+      padding: 1.5rem;
+      border-radius: 14px;
+    }
+    .drawer-close {
+      top: 0.9rem;
+      right: 0.9rem;
+    }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── INTRO ANIMATION ── -->
+<div id="intro">
+  <div style="position:relative; display:flex; align-items:center; justify-content:center; width:300px; height:150px;">
+    <svg class="intro-svg" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+      <!-- Hello path (shown in EN) -->
+      <path id="path-en" class="intro-path"
+        d="M 20 80 L 20 30
+           M 20 55 L 55 55
+           M 55 30 L 55 80
+           M 75 45 Q 75 35 88 35 Q 100 35 100 50 L 100 80
+           M 75 60 L 100 60
+           M 118 35 L 118 80
+           M 118 35 Q 118 25 108 28
+           M 135 35 L 135 80
+           M 135 35 Q 145 35 145 50 L 145 65 Q 145 80 135 80 Q 125 80 125 65 L 125 50 Q 125 35 135 35
+           M 160 35 L 160 80 Q 160 88 170 88 Q 180 88 180 80"
+        fill="none" stroke="var(--text)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="800" stroke-dashoffset="800"
+      />
+      <!-- 你好 path (shown in ZH) -->
+      <path id="path-zh" class="intro-path"
+        d="M 80 25 L 80 95
+           M 50 40 L 110 40
+           M 50 60 L 110 60
+           M 60 25 L 60 95
+           M 100 25 L 100 95
+           M 150 30 Q 170 30 170 50 L 170 70 Q 170 90 150 90 Q 130 90 130 70 L 130 50 Q 130 30 150 30
+           M 145 60 L 155 60"
+        fill="none" stroke="var(--text)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="800" stroke-dashoffset="800"
+        style="display:none;"
+      />
+    </svg>
+    <div class="intro-word" id="intro-word-zh">你好</div>
+    <div class="intro-word" id="intro-word-en">Hello</div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="irene-logo.png" alt="Irene Zhao" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" data-nav="about"><span data-lang="en">About</span><span data-lang="zh">关于</span></a></li>
+    <li><a href="#experience" data-nav="experience"><span data-lang="en">Experience</span><span data-lang="zh">经历</span></a></li>
+    <li><a href="#human" data-nav="human"><span data-lang="en">Human behind CV</span><span data-lang="zh">简历背后的我</span></a></li>
+    <li><a href="#contact" data-nav="contact"><span data-lang="en">Contact</span><span data-lang="zh">联系</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-greeting">
+      <span data-lang="en">Hi, I'm</span>
+      <span data-lang="zh">你好，我是</span>
+    </p>
+    <h1 class="hero-name">Irene Zhao</h1>
+    <p class="hero-title">
+      <span data-lang="en">MEng Design Engineering · Imperial College London</span>
+      <span data-lang="zh">设计工程硕士 · 帝国理工学院</span>
+    </p>
+    <p class="hero-desc">
+      <span data-lang="en">I work across interaction, systems, and digital experiences — creating products that are thoughtful, intelligent, and grounded in human needs.</span>
+      <span data-lang="zh">我的工作横跨交互设计、系统思维与数字体验——致力于创造有温度、有智慧、以人为本的产品。</span>
+    </p>
+    <div class="hero-actions">
+      <div class="cv-dropdown-wrap">
+        <button class="btn-primary" onclick="toggleCvDropdown(event)">
+          <span data-lang="en">Download CV ▾</span>
+          <span data-lang="zh">下载简历 ▾</span>
+        </button>
+        <div class="cv-dropdown" id="cv-dropdown">
+          <a href="irene-cv-en.pdf" download>
+            <span>📄</span> English CV
+          </a>
+          <a href="赵婧伊简历.pdf" download>
+            <span>📄</span> 中文简历
+          </a>
+        </div>
+      </div>
+      <a href="#contact" class="btn-secondary">
+        <span data-lang="en">Contact me</span>
+        <span data-lang="zh">联系我</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="photo-collage">
+      <div class="photo-item"><img src="IMG_5847.JPG" alt="photo" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="photo-item"><img src="IMG_7719.JPG" alt="photo" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="photo-item"><img src="IMG_6021.JPG" alt="photo" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="photo-item"><img src="IMG_4509.JPG" alt="photo" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="photo-item"><img src="IMG_8743.JPG" alt="photo" style="width:100%;height:100%;object-fit:cover;" /></div>
+      <div class="photo-item"><img src="IMG_2892.JPG" alt="photo" style="width:100%;height:100%;object-fit:cover;" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" style="padding-left:3rem;padding-right:3rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label fade-in">
+      <span data-lang="en">ABOUT ME</span>
+      <span data-lang="zh">关于我</span>
+    </div>
+
+    <h2 class="about-headline fade-in">
+      <span data-lang="en">Designing Human-Centred AI.<br>Where Technology Meets Human Needs.</span>
+      <span data-lang="zh">设计以人为本的AI。<br>让技术真正服务于人。</span>
+    </h2>
+
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>
+          <span data-lang="en">I'm a Design Engineering student exploring the space between <strong>systems, technology, and human experiences</strong> — combining physical products, digital interaction, and emerging AI.</span>
+          <span data-lang="zh">我是一名设计工程在读生，探索<strong>系统、技术与人类体验</strong>之间的交汇地带——融合实体产品、数字交互与前沿AI。</span>
+        </p>
+        <p>
+          <span data-lang="en">From circular systems and engineering analysis to wellbeing technology and digital products, I work across disciplines to design solutions grounded in both logic and empathy.</span>
+          <span data-lang="zh">从循环经济系统与工程分析，到健康科技与数字产品，我跨学科设计兼具逻辑与同理心的解决方案。</span>
+        </p>
+        <p class="bold-statement">
+          <span data-lang="en">I don't just build technology — I explore how people live with it.</span>
+          <span data-lang="zh">我不只是在构建技术——我在探索人与技术共处的方式。</span>
+        </p>
+
+        <div class="skills-section">
+          <div class="skills-group">
+            <div class="skills-group-label">
+              <span data-lang="en">Design</span><span data-lang="zh">设计</span>
+            </div>
+            <div class="tags">
+              <span class="tag tag-design"><span data-lang="en">AI Product Design</span><span data-lang="zh">AI产品设计</span></span>
+              <span class="tag tag-design"><span data-lang="en">Human-Centred Design</span><span data-lang="zh">以人为本设计</span></span>
+              <span class="tag tag-design"><span data-lang="en">Interaction Design</span><span data-lang="zh">交互设计</span></span>
+              <span class="tag tag-design"><span data-lang="en">Digital Wellbeing</span><span data-lang="zh">数字健康</span></span>
+              <span class="tag tag-design"><span data-lang="en">Rapid Prototyping</span><span data-lang="zh">快速原型</span></span>
+            </div>
+          </div>
+          <div class="skills-group" style="margin-top:0.8rem;">
+            <div class="skills-group-label">
+              <span data-lang="en">Tech</span><span data-lang="zh">技术</span>
+            </div>
+            <div class="tags">
+              <span class="tag tag-tech"><span data-lang="en">Python</span><span data-lang="zh">Python</span></span>
+              <span class="tag tag-tech"><span data-lang="en">JavaScript</span><span data-lang="zh">JavaScript</span></span>
+              <span class="tag tag-tech"><span data-lang="en">HTML/CSS</span><span data-lang="zh">HTML/CSS</span></span>
+              <span class="tag tag-tech"><span data-lang="en">AI-Assisted Prototyping</span><span data-lang="zh">AI辅助原型</span></span>
+              <span class="tag tag-tech"><span data-lang="en">Systems Thinking</span><span data-lang="zh">系统思维</span></span>
+            </div>
+          </div>
+          <div class="skills-group" style="margin-top:0.8rem;">
+            <div class="skills-group-label">
+              <span data-lang="en">Engineering</span><span data-lang="zh">工程</span>
+            </div>
+            <div class="tags">
+              <span class="tag tag-engineering"><span data-lang="en">MATLAB</span><span data-lang="zh">MATLAB</span></span>
+              <span class="tag tag-engineering"><span data-lang="en">ANSYS</span><span data-lang="zh">ANSYS</span></span>
+              <span class="tag tag-engineering"><span data-lang="en">CFD Analysis</span><span data-lang="zh">CFD流体分析</span></span>
+              <span class="tag tag-engineering"><span data-lang="en">Simulation & Engineering</span><span data-lang="zh">仿真与工程</span></span>
+              <span class="tag tag-engineering"><span data-lang="en">Sustainability</span><span data-lang="zh">可持续设计</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="timeline">
+          <div class="timeline-item fade-in" onclick="jumpToExperience('mora')">
+            <div class="timeline-year">2026 – Present</div>
+            <div class="timeline-title">
+              <span data-lang="en">Mora / AI Wellbeing Companion</span>
+              <span data-lang="zh">Mora / AI情绪陪伴产品</span>
+            </div>
+            <div class="timeline-sub">
+              <span data-lang="en">AI Product + Emotional Technology</span>
+              <span data-lang="zh">AI产品 + 情感科技</span>
+            </div>
+          </div>
+          <div class="timeline-item fade-in" onclick="jumpToExperience('arcus')">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">
+              <span data-lang="en">UI/UX Design Intern</span>
+              <span data-lang="zh">UI/UX 设计实习生</span>
+            </div>
+            <div class="timeline-sub">
+              <span data-lang="en">Arcus Health · Healthcare Startup</span>
+              <span data-lang="zh">Arcus Health · 医疗初创公司</span>
+            </div>
+          </div>
+          <div class="timeline-item fade-in" onclick="jumpToExperience('cimc')">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">
+              <span data-lang="en">Industrial Design Intern</span>
+              <span data-lang="zh">工业设计实习生</span>
+            </div>
+            <div class="timeline-sub">
+              <span data-lang="en">CIMC Group</span>
+              <span data-lang="zh">中集集团</span>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-year">2024 – Present</div>
+            <div class="timeline-title">
+              <span data-lang="en">Imperial College London</span>
+              <span data-lang="zh">帝国理工学院</span>
+            </div>
+            <div class="timeline-sub">
+              <span data-lang="en">MEng Design Engineering</span>
+              <span data-lang="zh">设计工程 本硕连读</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience" style="padding-left:3rem;padding-right:3rem;background:#F2F0ED;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label fade-in">
+      <span data-lang="en">EXPERIENCE</span>
+      <span data-lang="zh">经历</span>
+    </div>
+
+    <h2 class="exp-headline fade-in">
+      <span data-lang="en">What I've built.</span>
+      <span data-lang="zh">我做过的事。</span>
+    </h2>
+    <p class="exp-subline fade-in">
+      <span data-lang="en">Learn more about my Experience</span>
+      <span data-lang="zh">了解我的项目与实习经历</span>
+    </p>
+
+    <div class="filter-tabs fade-in">
+      <button class="filter-tab active" onclick="filterCards('all', this)">
+        <span data-lang="en">All</span><span data-lang="zh">全部</span>
+      </button>
+      <button class="filter-tab" onclick="filterCards('internship', this)">
+        <span data-lang="en">Internship</span><span data-lang="zh">实习</span>
+      </button>
+      <button class="filter-tab" onclick="filterCards('project', this)">
+        <span data-lang="en">Project</span><span data-lang="zh">项目</span>
+      </button>
+    </div>
+
+    <div class="cards-grid">
+      <!-- Card 1: Arcus -->
+      <div class="exp-card fade-in" data-type="internship" data-id="arcus" id="card-arcus" onclick="openDrawer('arcus')">
+        <div class="exp-card-img">
+          <img src="arcus-hero.jpeg" alt="Arcus Health mobile app screens" />
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-internship">
+            <span data-lang="en">Internship</span><span data-lang="zh">实习</span>
+          </span>
+          <div class="exp-card-title">
+            <span data-lang="en">Arcus Health — UI/UX Design Intern</span>
+            <span data-lang="zh">Arcus Health — UI/UX 设计实习生</span>
+          </div>
+          <div class="exp-card-sub">
+            <span data-lang="en">Healthcare Startup · London</span>
+            <span data-lang="zh">医疗初创 · 伦敦</span>
+          </div>
+          <div class="exp-card-date">2025.7 – 2025.9</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Card 2: CIMC -->
+      <div class="exp-card fade-in" data-type="internship" data-id="cimc" id="card-cimc" onclick="openDrawer('cimc')">
+        <div class="exp-card-img">
+          <div class="exp-card-placeholder">🚢</div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-internship">
+            <span data-lang="en">Internship</span><span data-lang="zh">实习</span>
+          </span>
+          <div class="exp-card-title">
+            <span data-lang="en">CIMC Group — Industrial Design Intern</span>
+            <span data-lang="zh">中集集团 — 工业设计实习生</span>
+          </div>
+          <div class="exp-card-sub">
+            <span data-lang="en">Logistics & Transport · Dalian</span>
+            <span data-lang="zh">物流运输 · 大连</span>
+          </div>
+          <div class="exp-card-date">2025.9 – 2025.10</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Card 3: Space Maze Chase -->
+      <div class="exp-card fade-in" data-type="project" data-id="maze" id="card-maze" onclick="openDrawer('maze')">
+        <div class="exp-card-img">
+          <img src="space-maze-chase-hero.png" alt="Space Maze Chase game screen" />
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-project">
+            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
+          </span>
+          <div class="exp-card-title">
+            <span data-lang="en">Space Maze Chase</span>
+            <span data-lang="zh">Space Maze Chase</span>
+          </div>
+          <div class="exp-card-sub">
+            <span data-lang="en">Interactive Web Game · AI Behaviour System</span>
+            <span data-lang="zh">交互式网页游戏 · AI行为系统</span>
+          </div>
+          <div class="exp-card-date">2026.5 – 2026.6</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Card 4: Circular Economy -->
+      <div class="exp-card fade-in" data-type="project" data-id="circular" id="card-circular" onclick="openDrawer('circular')">
+        <div class="exp-card-img">
+          <div class="exp-card-placeholder">✈️</div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-project">
+            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
+          </span>
+          <div class="exp-card-title">
+            <span data-lang="en">Circular Economy Aircraft Seat</span>
+            <span data-lang="zh">循环经济航空座椅系统</span>
+          </div>
+          <div class="exp-card-sub">
+            <span data-lang="en">Modular Design · Sustainability Systems</span>
+            <span data-lang="zh">模块化设计 · 循环系统</span>
+          </div>
+          <div class="exp-card-date">2025.10 – 2026.1</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Card 5: Bloom -->
+      <div class="exp-card fade-in" data-type="project" data-id="bloom" id="card-bloom" onclick="openDrawer('bloom')">
+        <div class="exp-card-img">
+          <div class="exp-card-placeholder">🌸</div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-project">
+            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
+          </span>
+          <div class="exp-card-title">
+            <span data-lang="en">Bloom — AI Wellbeing Product</span>
+            <span data-lang="zh">Bloom — 智能情绪疗愈产品</span>
+          </div>
+          <div class="exp-card-sub">
+            <span data-lang="en">Wearable · Emotional Technology</span>
+            <span data-lang="zh">可穿戴 · 情感科技</span>
+          </div>
+          <div class="exp-card-date">2026.5 – Present</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Card 6: Placeholder -->
+      <div class="exp-card fade-in" data-type="project" data-id="tbd" id="card-tbd" onclick="openDrawer('tbd')">
+        <div class="exp-card-img">
+          <div class="exp-card-placeholder">✦</div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-project">
+            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
+          </span>
+          <div class="exp-card-title">
+            <span data-lang="en">Coming Soon</span>
+            <span data-lang="zh">即将更新</span>
+          </div>
+          <div class="exp-card-sub">
+            <span data-lang="en">New project in progress...</span>
+            <span data-lang="zh">新项目进行中...</span>
+          </div>
+          <div class="exp-card-date">2026</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DRAWER OVERLAY ── -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  <div id="drawer-content"></div>
+</div>
+
+<!-- ── HUMAN BEHIND CV ── -->
+<section id="human">
+  <div class="section-label fade-in">
+    <span data-lang="en">HUMAN BEHIND THE CV</span>
+    <span data-lang="zh">简历背后的我</span>
+  </div>
+
+  <h2 class="human-headline fade-in">
+    <span data-lang="en">Work is what I do.</span>
+    <span data-lang="zh">工作是我做的事。</span>
+  </h2>
+  <p class="human-subline fade-in">
+    <span data-lang="en">This is who I am.</span>
+    <span data-lang="zh">但这才是真实的我。</span>
+  </p>
+
+  <div class="photos-grid">
+    <div class="photo-card fade-in">
+      <video src="dance.mp4" muted loop playsinline preload="metadata"></video>
+      <div class="photo-tooltip">
+        <div class="photo-tooltip-location">
+          <span data-lang="en">Dance</span>
+          <span data-lang="zh">跳舞</span>
+        </div>
+        <div class="photo-tooltip-desc">
+          <span data-lang="en">I love dancing because it lets me express emotion through rhythm, movement, and energy.</span>
+          <span data-lang="zh">我喜欢跳舞，因为它让我用节奏、身体和能量去表达情绪。</span>
+        </div>
+      </div>
+    </div>
+    <div class="photo-card fade-in">
+      <div class="fitness-collage">
+        <img src="IMG_6318.png" alt="Fitness climbing" />
+        <img src="IMG_5910.png" alt="Fitness gym" />
+      </div>
+      <div class="photo-tooltip">
+        <div class="photo-tooltip-location">
+          <span data-lang="en">Fitness</span>
+          <span data-lang="zh">健身</span>
+        </div>
+        <div class="photo-tooltip-desc">
+          <span data-lang="en">Fitness keeps me grounded. I like the quiet discipline of getting stronger, little by little.</span>
+          <span data-lang="zh">健身让我保持稳定。我喜欢一点点变强的过程，也喜欢这种安静的自律感。</span>
+        </div>
+      </div>
+    </div>
+    <div class="photo-card fade-in">
+      <div class="ski-collage">
+        <img src="skii2.JPG" alt="Skiing on the slope" />
+        <img src="skii1.JPG" alt="Skiing selfie" />
+      </div>
+      <div class="photo-tooltip">
+        <div class="photo-tooltip-location">
+          <span data-lang="en">Skiing</span>
+          <span data-lang="zh">滑雪</span>
+        </div>
+        <div class="photo-tooltip-desc">
+          <span data-lang="en">Skiing is my reset button: speed, snow, fresh air, and the feeling of being fully present.</span>
+          <span data-lang="zh">滑雪像是我的重启键：速度、雪地、冷空气，还有完全活在当下的感觉。</span>
+        </div>
+      </div>
+    </div>
+    <div class="photo-card fade-in">
+      <video src="travel.mp4" muted loop playsinline preload="metadata"></video>
+      <div class="photo-tooltip">
+        <div class="photo-tooltip-location">
+          <span data-lang="en">Travel</span>
+          <span data-lang="zh">旅行</span>
+        </div>
+        <div class="photo-tooltip-desc">
+          <span data-lang="en">Travel feeds my curiosity. I love discovering new places, tiny details, and different ways of living.</span>
+          <span data-lang="zh">旅行会不断激发我的好奇心。我喜欢探索新的地方、细小的生活细节和不同的生活方式。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" style="padding-left:3rem;padding-right:3rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label fade-in">
+      <span data-lang="en">CONTACT</span>
+      <span data-lang="zh">联系我</span>
+    </div>
+
+    <h2 class="contact-headline fade-in">
+      <span data-lang="en">Let's build something.</span>
+      <span data-lang="zh">一起创造些什么。</span>
+    </h2>
+
+    <div class="contact-grid fade-in">
+      <div>
+        <h3 class="contact-left-headline">
+          <span data-lang="en">Open to conversations.</span>
+          <span data-lang="zh">欢迎交流。</span>
+        </h3>
+        <p class="contact-left-sub">
+          <span data-lang="en">Whether you're hiring, collaborating, or just curious — I'd love to hear from you.</span>
+          <span data-lang="zh">无论你是在招聘、寻求合作，还是只是想聊聊——都欢迎联系我。</span>
+        </p>
+        <div class="contact-links">
+          <a
+            href="mailto:zhaojingyi004@gmail.com"
+            class="contact-link js-lang-href"
+            data-href-en="mailto:zhaojingyi004@gmail.com"
+            data-href-zh="mailto:jingyi_zhao1212@163.com"
+          >
+            <div class="contact-link-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+              </svg>
+            </div>
+            <span data-lang="en">zhaojingyi004@gmail.com</span>
+            <span data-lang="zh">jingyi_zhao1212@163.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/jingyi-zhao-5b7781347" class="contact-link" target="_blank" rel="noopener">
+            <div class="contact-link-icon">in</div>
+            <span data-lang="en">LinkedIn</span><span data-lang="zh">领英</span>
+          </a>
+          <a href="javascript:void(0)" class="contact-link">
+            <div class="contact-link-icon">💬</div>
+            <span data-lang="en">WeChat: oo_J13</span>
+            <span data-lang="zh">微信：oo_J13</span>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/xpqnjrzv" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">
+              <span data-lang="en">NAME</span><span data-lang="zh">姓名</span>
+            </label>
+            <input type="text" class="form-input" name="name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              <span data-lang="en">EMAIL</span><span data-lang="zh">邮箱</span>
+            </label>
+            <input type="email" class="form-input" name="email" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            <span data-lang="en">MESSAGE</span><span data-lang="zh">留言</span>
+          </label>
+          <textarea class="form-textarea" name="message" required></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="New portfolio message from Irene Zhao website" />
+        <button class="btn-submit" type="submit">
+          <span data-lang="en">Send Message</span>
+          <span data-lang="zh">发送消息</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="form-modal-overlay" id="form-modal-overlay" onclick="closeFormModal()">
+  <div class="form-modal" onclick="event.stopPropagation()">
+    <div class="form-modal-icon" id="form-modal-icon">✓</div>
+    <h3 class="form-modal-title" id="form-modal-title">Message sent</h3>
+    <p class="form-modal-text" id="form-modal-text">Thank you for reaching out. I will get back to you soon.</p>
+    <button class="form-modal-close" type="button" onclick="closeFormModal()">
+      <span data-lang="en">Close</span>
+      <span data-lang="zh">关闭</span>
+    </button>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span>© 2026 Irene Zhao</span>
+  <span>
+    <span data-lang="en">Made with ♥ in London</span>
+    <span data-lang="zh">用心制作于伦敦 ♥</span>
+  </span>
+</footer>
+
+<script>
+// ── DRAWER DATA ──
+const drawerData = {
+  arcus: {
+    type: 'internship',
+    titleEn: 'Arcus Health',
+    titleZh: 'Arcus Health',
+    roleEn: 'UI/UX Design Intern',
+    roleZh: 'UI/UX 设计实习生',
+    date: '2025.7 – 2025.9',
+    media: 'arcus-hero.jpeg',
+    descEn: 'Designing a companion mobile experience to support at-home dental scanning and patient confidence.',
+    descZh: '设计一款配套移动端体验，帮助用户完成居家牙齿扫描，并提升患者的信心与清晰感。',
+    sectionsEn: [
+      {
+        title: 'Challenge',
+        text: 'Home dental scanning can feel unfamiliar and intimidating for first-time users.',
+        bullets: ['Scan anxiety', 'Technical unfamiliarity', 'Remote communication', 'Confidence & clarity'],
+      },
+      {
+        title: 'User Flow + Product Logic',
+        text: 'Mapped the scanning journey from onboarding to device connection, scan guidance, review, and remote communication.',
+        figmaEmbed: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fboard%2Ffv0CygLtn0iENMvPBO9iXc%2FUser-flowchart%3Fnode-id%3D0-1%26t%3DmXgDEwvjeDeKBQJQ-1',
+        link: 'https://www.figma.com/board/fv0CygLtn0iENMvPBO9iXc/User-flowchart?node-id=0-1&t=mXgDEwvjeDeKBQJQ-1',
+        linkLabel: 'View user flowchart in Figma',
+      },
+      {
+        title: 'Workshop / User Feedback',
+        text: 'Used workshop feedback and user observations to understand where people felt uncertain, confused, or unsupported.',
+        images: ['IMG_1919.png', 'IMG_1929.png'],
+      },
+      {
+        title: 'Final UI Experience',
+        text: 'Designed a clear mobile interface that guides patients step by step and makes the scanning process feel more manageable.',
+        figmaEmbed: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FaYkWyyXsGOQn9MYTfB3pHs%2FUntitled%3Fnode-id%3D0-1%26t%3DEKuXInnkSOjcMQQF-1',
+        link: 'https://www.figma.com/proto/aYkWyyXsGOQn9MYTfB3pHs/Untitled?node-id=0-1&t=EKuXInnkSOjcMQQF-1',
+        linkLabel: 'Open interactive prototype in Figma',
+      },
+    ],
+    sectionsZh: [
+      {
+        title: '挑战',
+        text: '对于第一次使用的用户来说，居家牙齿扫描可能会显得陌生、复杂，甚至有些令人紧张。',
+        bullets: ['扫描焦虑', '对技术流程不熟悉', '远程沟通不确定', '需要更强的信心与清晰指引'],
+      },
+      {
+        title: '用户流程 + 产品逻辑',
+        text: '梳理从新手引导、设备连接、扫描指导、结果查看到远程沟通的完整使用流程。',
+        figmaEmbed: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fboard%2Ffv0CygLtn0iENMvPBO9iXc%2FUser-flowchart%3Fnode-id%3D0-1%26t%3DmXgDEwvjeDeKBQJQ-1',
+        link: 'https://www.figma.com/board/fv0CygLtn0iENMvPBO9iXc/User-flowchart?node-id=0-1&t=mXgDEwvjeDeKBQJQ-1',
+        linkLabel: '在 Figma 中查看 user flowchart',
+      },
+      {
+        title: 'Workshop / 用户反馈',
+        text: '通过 workshop 反馈和用户观察，理解用户在哪些环节会感到不确定、困惑或缺少支持。',
+        images: ['IMG_1919.png', 'IMG_1929.png'],
+      },
+      {
+        title: '最终 UI 体验',
+        text: '设计清晰的移动端界面，一步步引导患者完成扫描，让整个过程更可理解、更有掌控感。',
+        figmaEmbed: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FaYkWyyXsGOQn9MYTfB3pHs%2FUntitled%3Fnode-id%3D0-1%26t%3DEKuXInnkSOjcMQQF-1',
+        link: 'https://www.figma.com/proto/aYkWyyXsGOQn9MYTfB3pHs/Untitled?node-id=0-1&t=EKuXInnkSOjcMQQF-1',
+        linkLabel: '在 Figma 中打开交互原型',
+      },
+    ],
+    bulletsEn: [],
+    bulletsZh: [],
+    tech: ['Figma', 'UX Research', 'Prototyping', 'Usability Testing'],
+  },
+  cimc: {
+    type: 'internship',
+    titleEn: 'CIMC Group',
+    titleZh: '中集集团',
+    roleEn: 'Industrial Design Intern',
+    roleZh: '工业设计实习生',
+    date: '2025.9 – 2025.10',
+    media: null,
+    descEn: 'Contributed to industrial design for logistics container products within a large-scale transport and logistics system.',
+    descZh: '参与大型运输物流系统背景下的物流集装箱产品工业设计工作。',
+    bulletsEn: [
+      'Assisted in 3D modelling and development of logistics container products',
+      'Completed 3D design modelling and optimisation of container structures and components',
+      'Collaborated with designers and engineers, balancing functional requirements, manufacturability and visual design',
+      'Participated in design discussions on structural layouts, user experience and logistics application scenarios',
+    ],
+    bulletsZh: [
+      '协助工业设计团队参与物流集装箱产品的建模与开发',
+      '完成集装箱结构及组件概念的3D设计建模与优化',
+      '与设计师及工程师协作，在功能需求、可制造性与视觉设计之间进行平衡',
+      '参与关于结构布局、使用体验以及物流行业应用场景的设计讨论',
+    ],
+    tech: ['Fusion 360', 'Rhino', '3D Modelling', 'Industrial Design'],
+  },
+  maze: {
+    type: 'project',
+    titleEn: 'Space Maze Chase',
+    titleZh: 'Space Maze Chase',
+    roleEn: 'Interactive Web Game · AI Behaviour System',
+    roleZh: '交互式网页游戏 · AI行为系统',
+    date: '2026.5 – 2026.6',
+    media: 'space-maze-chase-hero.png',
+    descEn: 'A retro pixel-style browser maze game designed as an interaction system: movement, enemy behaviour, reward, risk, and feedback are connected through turn-based logic.',
+    descZh: '一款复古像素风浏览器迷宫游戏，将移动、敌人行为、奖励、风险与反馈整合成一个回合制交互系统。',
+    sectionsEn: [
+      {
+        title: 'Product Overview',
+        text: 'Space Maze Chase is a JavaScript and HTML5 Canvas game where the player navigates a maze, collects cookies, avoids aliens, and reaches the exit. The design goal was to create a compact but readable challenge system where every move produces a clear system response.',
+        bullets: ['Design goal: make maze navigation feel tactical, playful, and responsive', 'Target experience: quick tension, visible progress, retro charm, and satisfying feedback'],
+      },
+      {
+        title: 'Core Gameplay Loop',
+        text: 'Player input drives movement, movement triggers system checks, enemies react on their turn, and feedback communicates progress, risk, or failure.',
+        bullets: ['Player input: arrow-key movement across the maze grid', 'System response: validate move, update steps, collect items, check collisions', 'Enemy behaviour: aliens move turn-by-turn in response to player progression', 'Feedback: audio cues, UI counters, lives, cookies, win and game-over states'],
+      },
+      {
+        title: 'System Logic Map',
+        text: 'The game was structured as a small rule-based system where player action, enemy movement, state changes, and feedback operate together.',
+        mapType: 'game',
+        html: `
+          <div class="drawer-system-map">
+            <ul>
+              <li>Game Setup
+                <ul>
+                  <li>Generate maze grid, walls, cookies, aliens, player start, and exit</li>
+                  <li>Initialize lives, step limit, cookie count, freeze state, and audio assets</li>
+                </ul>
+              </li>
+              <li>Player Interaction
+                <ul>
+                  <li>Listen for keyboard input</li>
+                  <li>Validate movement against maze boundaries and obstacles</li>
+                  <li>Update player position and movement opportunity count</li>
+                </ul>
+              </li>
+              <li>Game Mechanics
+                <ul>
+                  <li>Collect cookies/items</li>
+                  <li>Trigger temporary alien freeze when special items are collected</li>
+                  <li>Apply collision penalties when player meets aliens</li>
+                </ul>
+              </li>
+              <li>Enemy Behaviour
+                <ul>
+                  <li>Aliens react after player movement</li>
+                  <li>Movement is turn-based to create readable tension</li>
+                  <li>Freeze effect pauses alien movement for a limited window</li>
+                </ul>
+              </li>
+              <li>State Management
+                <ul>
+                  <li>Track lives, steps, cookies, freeze timer, player position, and enemy positions</li>
+                  <li>Re-render canvas after each state update</li>
+                </ul>
+              </li>
+              <li>Win / Lose Conditions
+                <ul>
+                  <li>Win: reach the exit after navigating the maze objective</li>
+                  <li>Lose: lives are depleted or movement opportunities run out</li>
+                </ul>
+              </li>
+              <li>Feedback System
+                <ul>
+                  <li>Audio: item collection, win sound, game-over sound</li>
+                  <li>UI: lives, steps, cookies, visual maze state, and end-state messaging</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        `,
+      },
+      {
+        title: 'UX + Interaction Design Thinking',
+        text: 'The experience balances clarity and tension. Immediate feedback helps players understand cause and effect, while limited lives and movement opportunities create pressure. Cookies reward exploration, freeze items create relief, and alien reactions keep each decision meaningful.',
+      },
+      {
+        title: 'Reflection',
+        text: 'This project explores how interaction design, systems thinking, and digital experience design can shape a simple game into a readable feedback loop. Beyond implementation, the focus was designing rules, states, pacing, and feedback so the player can learn the system through play.',
+      },
+      {
+        title: 'Play Space Maze Chase',
+        text: 'The playable browser game is embedded below. Open it in a new tab for the best keyboard-control experience.',
+        gameEmbed: 'Computing-2-Submission_副本/web-app/index.html',
+        link: 'Computing-2-Submission_副本/web-app/index.html',
+        linkLabel: 'Open game in new tab',
+      },
+    ],
+    sectionsZh: [
+      {
+        title: '产品概述',
+        text: 'Space Maze Chase 是一款使用 JavaScript 和 HTML5 Canvas 构建的复古像素风迷宫游戏。玩家需要在迷宫中移动、收集 cookies、躲避 alien，并最终到达出口。设计目标是让每一次移动都带来清晰的系统反馈。',
+        bullets: ['设计目标：让迷宫移动具有策略性、趣味性和即时反馈', '目标体验：轻量紧张感、清晰进度、复古视觉和有满足感的反馈'],
+      },
+      {
+        title: '核心玩法循环',
+        text: '玩家输入触发移动，系统检查移动结果，敌人根据回合逻辑响应，最后通过视觉与声音反馈传达进展、风险或失败。',
+        bullets: ['玩家输入：通过方向键在迷宫网格中移动', '系统响应：检查移动、更新步数、收集物品、判断碰撞', '敌人行为：alien 根据玩家移动进行回合制反应', '反馈：音效、生命值、步数、cookies、胜利与失败状态'],
+      },
+      {
+        title: '系统逻辑图',
+        text: '游戏被设计成一个小型规则系统：玩家行动、敌人移动、状态变化和反馈机制相互连接。',
+        mapType: 'game',
+        html: `
+          <div class="drawer-system-map">
+            <ul>
+              <li>Game Setup
+                <ul>
+                  <li>生成迷宫网格、障碍、cookies、alien、玩家起点和出口</li>
+                  <li>初始化生命值、步数限制、收集数量、冻结状态和音频资源</li>
+                </ul>
+              </li>
+              <li>Player Interaction
+                <ul>
+                  <li>监听键盘方向输入</li>
+                  <li>判断移动是否越界或撞墙</li>
+                  <li>更新玩家位置和剩余移动机会</li>
+                </ul>
+              </li>
+              <li>Game Mechanics
+                <ul>
+                  <li>收集 cookies / items</li>
+                  <li>特殊物品触发 alien 暂时冻结</li>
+                  <li>与 alien 碰撞时触发惩罚或生命损失</li>
+                </ul>
+              </li>
+              <li>Enemy Behaviour
+                <ul>
+                  <li>alien 在玩家行动后进行反应</li>
+                  <li>回合制移动让风险更容易被玩家理解</li>
+                  <li>冻结效果在有限时间内暂停 alien 行动</li>
+                </ul>
+              </li>
+              <li>State Management
+                <ul>
+                  <li>追踪生命值、步数、cookies、冻结时间、玩家位置和敌人位置</li>
+                  <li>每次状态更新后重新渲染 Canvas</li>
+                </ul>
+              </li>
+              <li>Win / Lose Conditions
+                <ul>
+                  <li>胜利：完成迷宫目标并到达出口</li>
+                  <li>失败：生命值耗尽或移动机会用完</li>
+                </ul>
+              </li>
+              <li>Feedback System
+                <ul>
+                  <li>声音：收集物品、胜利、游戏结束音效</li>
+                  <li>界面：生命值、步数、cookies、迷宫状态和结局提示</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        `,
+      },
+      {
+        title: 'UX + 交互设计思考',
+        text: '这个游戏体验的关键是清晰反馈与紧张感的平衡。即时反馈帮助玩家理解因果关系，有限生命和步数制造压力，cookies 提供探索奖励，冻结道具提供短暂缓冲，而 alien 的反应让每一次移动都更有意义。',
+      },
+      {
+        title: 'Reflection',
+        text: '这个项目探索了交互设计、系统思维和数字体验设计如何把一个简单小游戏变成可学习、可反馈、可推进的体验系统。重点不只是实现代码，而是设计规则、状态、节奏和反馈，让玩家能在游玩中理解系统。',
+      },
+      {
+        title: '试玩 Space Maze Chase',
+        text: '可玩的浏览器游戏嵌入在下方。如果想获得更好的键盘操作体验，可以在新标签页中打开。',
+        gameEmbed: 'Computing-2-Submission_副本/web-app/index.html',
+        link: 'Computing-2-Submission_副本/web-app/index.html',
+        linkLabel: '在新标签页打开游戏',
+      },
+    ],
+    bulletsEn: [],
+    bulletsZh: [],
+    tech: ['JavaScript', 'HTML5 Canvas', 'CSS', 'Game AI'],
+  },
+  circular: {
+    type: 'project',
+    titleEn: 'Circular Economy Aircraft Seat',
+    titleZh: '循环经济航空座椅系统',
+    roleEn: 'Systems Design · Sustainability',
+    roleZh: '系统设计 · 可持续',
+    date: '2025.10 – 2026.1',
+    media: null,
+    descEn: 'Designed a modular aircraft seat system for short-haul aviation scenarios, improving circularity, maintenance efficiency and material recovery.',
+    descZh: '面向短途航空场景设计模块化飞机座椅系统，提升循环性、维护效率与材料回收能力。',
+    bulletsEn: [
+      'Designed modular aircraft seat system improving circularity, maintenance and material recovery',
+      'Used Flowmapper and stakeholder systems analysis to map material flows, maintenance and reverse logistics',
+      'Developed replaceable soft layers and structural components for rapid repair, replacement and disassembly',
+      'Evaluated circular economy feasibility using MCI, LCA, single-material strategy and competitive research',
+    ],
+    bulletsZh: [
+      '面向短途航空场景设计模块化飞机座椅系统，提升循环型、维护效率与材料回收能力',
+      '运用Flowmapper与利益相关者系统分析，对材料流、维护流程及逆向物流进行系统映射',
+      '开发可替换软层与结构组件，实现快速维修、更换、拆解与回收流程',
+      '结合单一材料策略、生命周期分析、竞品研究与MCI评估循环经济方案可行性',
+    ],
+    tech: ['Fusion 360', 'Flowmapper', 'LCA', 'Systems Thinking', 'Circular Design'],
+  },
+  bloom: {
+    type: 'project',
+    titleEn: 'Bloom — AI Wellbeing Product',
+    titleZh: 'Bloom — 智能情绪疗愈产品',
+    roleEn: 'Product System Design · Emotional Technology',
+    roleZh: '产品系统设计 · 情感科技',
+    date: '2026.5 – Present',
+    media: 'video', // replace with actual video URL
+    descEn: 'An emotional health product system combining wearable and desktop interaction for stress sensing and emotional relief.',
+    descZh: '设计结合可穿戴设备与桌面交互产品的情绪健康产品系统，用于压力感知与情绪舒缓。',
+    bulletsEn: [
+      'Designed emotional health product system combining wearable and desktop interaction',
+      'Developed multi-sensory interaction flow based on heart rate monitoring, breathing guidance, light feedback, vibration and haptic interaction',
+      'Applied user-centred design methods including scenario analysis, iterative prototyping and experience testing',
+      'Created physical prototypes, interaction flows and system concept proposals',
+    ],
+    bulletsZh: [
+      '设计结合可穿戴设备与桌面交互产品的情绪健康产品系统',
+      '基于心率监测、呼吸引导、灯光反馈、震动马达与触觉交互设计多感官互动流程',
+      '运用以用户为中心的设计方法，包括用户场景分析、迭代原型设计与体验测试',
+      '制作实体原型、交互流程与系统概念方案',
+    ],
+    tech: ['Figma', 'Physical Prototyping', 'User Research', 'Interaction Design', 'Wearable Tech'],
+  },
+  tbd: {
+    type: 'project',
+    titleEn: 'Coming Soon',
+    titleZh: '即将更新',
+    roleEn: 'New project in progress',
+    roleZh: '新项目进行中',
+    date: '2026',
+    media: null,
+    descEn: 'This project is currently in progress. Check back soon!',
+    descZh: '这个项目正在进行中，敬请期待！',
+    bulletsEn: [],
+    bulletsZh: [],
+    tech: [],
+  },
+};
+
+// ── LANGUAGE ──
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    if (el.getAttribute('data-lang') === lang) {
+      el.style.removeProperty('display');
+    } else {
+      el.style.display = 'none';
+    }
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中'));
+  });
+  document.querySelectorAll('.js-lang-href').forEach(link => {
+    const nextHref = link.getAttribute(`data-href-${lang}`);
+    if (nextHref) link.setAttribute('href', nextHref);
+  });
+}
+
+// init lang — hide zh on load
+document.querySelectorAll('[data-lang="zh"]').forEach(el => el.style.display = 'none');
+document.querySelectorAll('.js-lang-href').forEach(link => {
+  const nextHref = link.getAttribute('data-href-en');
+  if (nextHref) link.setAttribute('href', nextHref);
+});
+
+// ── INTRO ──
+window.addEventListener('load', () => {
+  const intro = document.getElementById('intro');
+  setTimeout(() => {
+    intro.classList.add('hidden');
+    setTimeout(() => { intro.style.display = 'none'; }, 900);
+  }, 3300);
+});
+
+// ── CV DROPDOWN ──
+function toggleCvDropdown(e) {
+  e.stopPropagation();
+  document.getElementById('cv-dropdown').classList.toggle('open');
+}
+
+document.addEventListener('click', () => {
+  document.getElementById('cv-dropdown').classList.remove('open');
+});
+
+// ── FILTER CARDS ──
+function filterCards(type, btn) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.exp-card').forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+// ── DRAWER ──
+function getGameLogicMapHtml(isEn) {
+  return `
+    <div class="game-logic-map">
+      <div class="game-map-canvas">
+        <div class="game-map-line l1"></div>
+        <div class="game-map-line l2"></div>
+        <div class="game-map-line l3"></div>
+        <div class="game-map-line l4"></div>
+        <div class="game-map-line l5"></div>
+        <div class="game-map-line l6"></div>
+        <div class="game-map-line l7"></div>
+        <div class="game-map-line l8"></div>
+        <div class="game-map-line l9"></div>
+        <div class="game-map-line l10"></div>
+        <div class="game-map-line l11"></div>
+        <div class="game-map-line l12"></div>
+        <div class="game-map-line l13"></div>
+        <div class="game-map-line dashed" style="left:30px;top:255px;width:360px;transform:rotate(90deg);"></div>
+
+        <div class="game-map-node setup">
+          <strong>Game Setup</strong>
+          <span>${isEn ? 'maze · state · assets' : '迷宫 · 状态 · 资源'}</span>
+        </div>
+        <div class="game-map-node small" style="left:70px;top:125px;">
+          <strong>Maze Generation</strong>
+          <span>${isEn ? 'walls · items · exit' : '墙体 · 道具 · 出口'}</span>
+        </div>
+        <div class="game-map-node small" style="left:345px;top:125px;">
+          <strong>State Init</strong>
+          <span>${isEn ? 'lives · steps · freeze' : '生命 · 步数 · 冻结'}</span>
+        </div>
+        <div class="game-map-node small" style="left:620px;top:125px;">
+          <strong>Audio Load</strong>
+          <span>${isEn ? 'collect · win · game over' : '收集 · 胜利 · 失败'}</span>
+        </div>
+
+        <div class="game-map-node player">
+          <strong>Player Interaction</strong>
+          <span>${isEn ? 'keyboard input · move request' : '键盘输入 · 移动请求'}</span>
+        </div>
+        <div class="game-map-node mechanics">
+          <strong>Game Mechanics</strong>
+          <span>${isEn ? 'items · lives · score · freeze timer' : '道具 · 生命 · 分数 · 冻结计时'}</span>
+        </div>
+        <div class="game-map-node enemy">
+          <strong>Enemy Behaviour</strong>
+          <span>${isEn ? 'reactive · turn-based · freeze-aware' : '响应式 · 回合制 · 可冻结'}</span>
+        </div>
+
+        <div class="game-map-node small wall">
+          <strong>Wall Check</strong>
+          <span>${isEn ? 'valid move?' : '移动是否合法'}</span>
+        </div>
+        <div class="game-map-node small" style="left:170px;top:300px;">
+          <strong>Position Update</strong>
+          <span>${isEn ? 'player grid state' : '玩家网格状态'}</span>
+        </div>
+        <div class="game-map-node small item">
+          <strong>Item Collect</strong>
+          <span>${isEn ? '+score · freeze trigger' : '+分数 · 冻结触发'}</span>
+        </div>
+        <div class="game-map-node small" style="left:465px;top:300px;border-color:#ffd05c;">
+          <strong>Life Deduct</strong>
+          <span>${isEn ? 'alien collision' : '碰撞惩罚'}</span>
+        </div>
+        <div class="game-map-node small move">
+          <strong>Move Logic</strong>
+          <span>${isEn ? 'pathfind / patrol' : '寻路 / 巡逻'}</span>
+        </div>
+
+        <div class="game-map-node state">
+          <strong>State Management</strong>
+          <span>${isEn ? 'playing · frozen · game-over · win' : '进行中 · 冻结 · 失败 · 胜利'}</span>
+        </div>
+        <div class="game-map-node win">
+          <strong>Win</strong>
+          <span>${isEn ? 'reach exit tile' : '到达出口'}</span>
+        </div>
+        <div class="game-map-node lose">
+          <strong>Lose</strong>
+          <span>${isEn ? 'lives = 0' : '生命耗尽'}</span>
+        </div>
+        <div class="game-map-node feedback">
+          <strong>Feedback System</strong>
+          <span>${isEn ? 'audio · visual · HUD · state triggers' : '音效 · 视觉 · HUD · 状态触发'}</span>
+        </div>
+        <div class="game-map-node small sfx">
+          <strong>Collect SFX</strong>
+          <span>${isEn ? 'item pickup' : '物品拾取'}</span>
+        </div>
+        <div class="game-map-node small" style="left:315px;top:570px;border-color:#ffd05c;">
+          <strong>Win Sound</strong>
+          <span>${isEn ? 'exit reached' : '到达出口'}</span>
+        </div>
+        <div class="game-map-node small" style="left:535px;top:570px;border-color:#ff6a72;">
+          <strong>Game Over</strong>
+          <span>${isEn ? 'lives exhausted' : '生命耗尽'}</span>
+        </div>
+        <div class="game-map-node small hud">
+          <strong>HUD Update</strong>
+          <span>${isEn ? 'lives · score · timer' : '生命 · 分数 · 计时'}</span>
+        </div>
+        <div class="game-map-legend">
+          <span>${isEn ? 'solid = control flow' : '实线 = 控制流'}</span>
+          <span>${isEn ? 'dashed = restart loop' : '虚线 = 重启循环'}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function openDrawer(id) {
+  const data = drawerData[id];
+  if (!data) return;
+
+  const lang = currentLang;
+  const isEn = lang === 'en';
+
+  const tagClass = data.type === 'internship' ? 'tag-internship' : 'tag-project';
+  const tagLabel = isEn
+    ? (data.type === 'internship' ? 'Internship' : 'Project')
+    : (data.type === 'internship' ? '实习' : '项目');
+
+  let mediaHtml = '';
+  if (data.media === 'game') {
+    mediaHtml = `<div class="drawer-media">
+      <div class="drawer-media-placeholder">
+        🎮 ${isEn ? 'Game embed coming soon — paste your deployed URL here' : '游戏嵌入即将上线'}
+      </div>
+    </div>`;
+  } else if (data.media === 'video') {
+    mediaHtml = `<div class="drawer-media">
+      <div class="drawer-media-placeholder">
+        🎬 ${isEn ? 'Video coming soon — replace with your video URL' : '视频即将上线'}
+      </div>
+    </div>`;
+  } else if (data.media) {
+    mediaHtml = `<div class="drawer-media">
+      <img src="${data.media}" alt="${isEn ? data.titleEn : data.titleZh}" />
+    </div>`;
+  } else {
+    mediaHtml = `<div class="drawer-media">
+      <div class="drawer-media-placeholder">
+        ${isEn ? '📁 Add images or media here' : '📁 在此添加图片或媒体'}
+      </div>
+    </div>`;
+  }
+
+  const bullets = isEn ? data.bulletsEn : data.bulletsZh;
+  const bulletsHtml = bullets.length
+    ? `<ul class="drawer-bullets">${bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
+    : '';
+
+  const sections = isEn ? data.sectionsEn : data.sectionsZh;
+  const sectionsHtml = sections?.length
+    ? sections.map(section => {
+        const sectionBullets = section.bullets?.length
+          ? `<ul class="drawer-bullets">${section.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
+          : '';
+        const sectionPlaceholder = section.placeholder
+          ? `<div class="drawer-section-placeholder">${section.placeholder}</div>`
+          : '';
+        const sectionLink = section.link
+          ? `<a class="drawer-section-link" href="${section.link}" target="_blank" rel="noopener">${section.linkLabel}</a>`
+          : '';
+        const sectionImages = section.images?.length
+          ? `<div class="drawer-image-grid">${section.images.map(src => `<img src="${src}" alt="${section.title}" />`).join('')}</div>`
+          : '';
+        const sectionFigma = section.figmaEmbed
+          ? `<div class="drawer-figma-embed"><iframe src="${section.figmaEmbed}" allowfullscreen></iframe></div>`
+          : '';
+        const sectionGame = section.gameEmbed
+          ? `<div class="drawer-game-embed"><iframe src="${section.gameEmbed}" title="${section.title}"></iframe></div>`
+          : '';
+        const sectionHtml = section.mapType === 'game'
+          ? getGameLogicMapHtml(isEn)
+          : (section.html || '');
+        return `
+          <div class="drawer-section">
+            <h3 class="drawer-section-title">${section.title}</h3>
+            <p class="drawer-section-text">${section.text}</p>
+            ${sectionBullets}
+            ${sectionHtml}
+            ${sectionPlaceholder}
+            ${sectionLink}
+            ${sectionImages}
+            ${sectionFigma}
+            ${sectionGame}
+          </div>
+        `;
+      }).join('')
+    : '';
+
+  const techHtml = data.tech.length
+    ? `<div class="drawer-tech">${data.tech.map(t => `<span class="drawer-tech-tag">${t}</span>`).join('')}</div>`
+    : '';
+
+  document.getElementById('drawer-content').innerHTML = `
+    <span class="drawer-tag exp-card-tag ${tagClass}">${tagLabel}</span>
+    <h2 class="drawer-title">${isEn ? data.titleEn : data.titleZh}</h2>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.2rem;">${isEn ? data.roleEn : data.roleZh}</p>
+    <p class="drawer-date">${data.date}</p>
+    ${mediaHtml}
+    <p class="drawer-desc">${isEn ? data.descEn : data.descZh}</p>
+    ${sectionsHtml}
+    ${bulletsHtml}
+    ${techHtml}
+  `;
+
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── TIMELINE JUMP ──
+function jumpToExperience(id) {
+  document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => openDrawer(id), 600);
+}
+
+// ── SCROLL FADE IN ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── KEYBOARD CLOSE ──
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeDrawer();
+    closeFormModal();
+  }
+});
+
+// ── CONTACT FORM ──
+const contactForm = document.querySelector('.contact-form');
+const formModalOverlay = document.getElementById('form-modal-overlay');
+const formModalIcon = document.getElementById('form-modal-icon');
+const formModalTitle = document.getElementById('form-modal-title');
+const formModalText = document.getElementById('form-modal-text');
+
+function showFormModal(type) {
+  const isEn = currentLang === 'en';
+  const isSuccess = type === 'success';
+  formModalIcon.textContent = isSuccess ? '✓' : '!';
+  formModalTitle.textContent = isSuccess
+    ? (isEn ? 'Message sent' : '发送成功')
+    : (isEn ? 'Message not sent' : '发送失败');
+  formModalText.textContent = isSuccess
+    ? (isEn ? 'Thank you for reaching out. I will get back to you soon.' : '谢谢你的留言，我会尽快回复。')
+    : (isEn ? 'Something went wrong. Please try again or email me directly.' : '提交时出了点问题，请稍后再试，或直接发邮件给我。');
+  formModalOverlay.classList.add('open');
+}
+
+function closeFormModal() {
+  formModalOverlay.classList.remove('open');
+}
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector('.btn-submit');
+    const originalHtml = submitButton.innerHTML;
+    submitButton.disabled = true;
+    submitButton.textContent = currentLang === 'en' ? 'Sending...' : '发送中...';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (!response.ok) throw new Error('Form submission failed');
+      contactForm.reset();
+      showFormModal('success');
+    } catch (error) {
+      showFormModal('error');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalHtml;
+      setLang(currentLang);
+    }
+  });
+}
+
+// ── HUMAN SECTION VIDEO PREVIEW ──
+const humanSection = document.getElementById('human');
+const humanVideos = document.querySelectorAll('#human .photo-card video');
+
+function setHumanVideosPlaying(shouldPlay) {
+  humanVideos.forEach(video => {
+    if (shouldPlay) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}
+
+if (humanSection && humanVideos.length) {
+  const humanVideoObserver = new IntersectionObserver((entries) => {
+    const isVisible = entries.some(entry => entry.isIntersecting);
+    setHumanVideosPlaying(isVisible);
+  }, { threshold: 0.35 });
+
+  humanVideoObserver.observe(humanSection);
+}
+</script>
+</body>
+</html>
