@@ -375,7 +375,7 @@
   .photo-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -802,6 +802,43 @@
     visibility: visible;
   }
 
+  .drawer.ev-dark {
+    background: #0d0d0f;
+    color: #f5f5f7;
+    border-color: rgba(255,255,255,0.08);
+  }
+
+  .drawer.ev-dark .drawer-title,
+  .drawer.ev-dark .drawer-section-title {
+    color: #f5f5f7;
+  }
+
+  .drawer.ev-dark .drawer-date,
+  .drawer.ev-dark .drawer-desc,
+  .drawer.ev-dark .drawer-section-text,
+  .drawer.ev-dark .drawer-bullets li {
+    color: rgba(245,245,247,0.58);
+  }
+
+  .drawer.ev-dark .case-card {
+    background: rgba(255,255,255,0.055);
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  .drawer.ev-dark .case-card-title {
+    color: #f5f5f7;
+  }
+
+  .drawer.ev-dark .case-card p,
+  .drawer.ev-dark .case-visual-caption {
+    color: rgba(245,245,247,0.6);
+  }
+
+  .drawer.ev-dark .drawer-tech-tag {
+    background: rgba(255,255,255,0.1);
+    color: rgba(245,245,247,0.66);
+  }
+
   .drawer-close {
     position: absolute;
     top: 1.5rem;
@@ -976,6 +1013,1095 @@
     color: var(--text-muted);
     font-size: 0.76rem;
     line-height: 1.5;
+  }
+
+  .ev-aero-hero {
+    margin-top: 1.4rem;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 14px;
+    display: block;
+    text-align: center;
+    border: none;
+    background: transparent;
+    color: rgba(0,0,0,0.38);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    overflow: hidden;
+  }
+
+  .ev-aero-hero img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    background: transparent;
+    border-radius: 12px;
+  }
+
+  .ev-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .ev-metric {
+    min-height: 138px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.055);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .ev-metric strong {
+    font-family: var(--font-body);
+    font-size: clamp(1.7rem, 3.7vw, 3rem);
+    line-height: 1;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .ev-metric strong .ev-cd-sub {
+    color: #3aa4ff;
+    font-size: 0.78em;
+  }
+
+  .ev-metric > span {
+    margin-top: 0.7rem;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .ev-white-section {
+    margin-top: 1rem;
+    margin-left: -3rem;
+    margin-right: -3rem;
+    padding: clamp(1.6rem, 3vw, 2.4rem) 3rem;
+    background: #fff;
+    color: #1d1d1f;
+  }
+
+  .ev-project-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+    gap: clamp(1.2rem, 4vw, 3rem);
+    align-items: center;
+    padding: 0;
+  }
+
+  .ev-project-label {
+    margin-bottom: 1.1rem;
+    color: #006fe6;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .ev-project-content h3 {
+    max-width: 460px;
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+    font-size: clamp(1.75rem, 3.6vw, 3rem);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-project-content p {
+    max-width: 520px;
+    color: #55565b;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .ev-project-image-placeholder {
+    min-height: 300px;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #d8d8d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0,0,0,0.36);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .ev-project-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
+  }
+
+  .ev-benchmark-study {
+    margin-top: clamp(1.6rem, 4vw, 2.6rem);
+    padding: 0;
+  }
+
+  .ev-benchmark-title {
+    margin-bottom: 1.25rem;
+  }
+
+  .ev-benchmark-title .ev-project-label {
+    margin-bottom: 0.65rem;
+  }
+
+  .ev-benchmark-title h3 {
+    font-family: var(--font-body);
+    font-size: clamp(1.7rem, 3.3vw, 2.75rem);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-benchmark-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .ev-benchmark-card {
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #f4f5f8;
+  }
+
+  .ev-benchmark-image {
+    min-height: 210px;
+    background: #d8d8d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0,0,0,0.34);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ev-benchmark-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 210px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .ev-benchmark-body {
+    padding: 1.1rem;
+  }
+
+  .ev-benchmark-body h4 {
+    margin-bottom: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .ev-benchmark-highlight {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: #2f7df0;
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  .ev-benchmark-body p {
+    color: #52545b;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .ev-benchmark-takeaway {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(1rem, 3vw, 2rem);
+    align-items: center;
+    margin-top: 1.25rem;
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border-radius: 20px;
+    border: 1px solid rgba(47,125,240,0.28);
+    background: linear-gradient(105deg, rgba(47,125,240,0.13), rgba(255,132,77,0.13));
+  }
+
+  .ev-benchmark-takeaway-icon {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1;
+  }
+
+  .ev-benchmark-takeaway p {
+    color: #1d1d1f;
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    line-height: 1.65;
+    font-weight: 700;
+  }
+
+  .ev-concept-development {
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .ev-concept-divider {
+    width: 58px;
+    height: 2px;
+    margin: 0.85rem 0 1.6rem;
+    background: linear-gradient(90deg, #006fe6 0%, #006fe6 65%, #ff6535 65%, #ff6535 100%);
+  }
+
+  .ev-concept-development h3 {
+    margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+    font-family: var(--font-body);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-concept-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .ev-concept-card {
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid #e1e3e8;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.04);
+  }
+
+  .ev-concept-card.selected {
+    border: 1.5px solid #1476f2;
+    box-shadow: 0 16px 38px rgba(20,118,242,0.16);
+  }
+
+  .ev-concept-image {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    background: #f5f6f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0,0,0,0.24);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ev-concept-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+    display: block;
+    padding: 0.65rem;
+  }
+
+  .ev-concept-body {
+    padding: 1.05rem 1.15rem 1.25rem;
+  }
+
+  .ev-concept-kicker {
+    margin-bottom: 0.65rem;
+    color: #8e9098;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .ev-concept-body h4 {
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+    line-height: 1.18;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-concept-list {
+    display: grid;
+    gap: 0.5rem;
+    list-style: none;
+  }
+
+  .ev-concept-list li {
+    font-size: 0.88rem;
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  .ev-concept-list .good {
+    color: #20c94b;
+  }
+
+  .ev-concept-list .bad {
+    color: #ff6535;
+  }
+
+  .ev-concept-selected-note {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(1rem, 3vw, 1.6rem);
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: clamp(1.2rem, 2.5vw, 1.8rem);
+    border-radius: 18px;
+    border: 1px solid rgba(47,125,240,0.28);
+    background: linear-gradient(105deg, rgba(47,125,240,0.14), rgba(47,125,240,0.04));
+  }
+
+  .ev-concept-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1.25rem;
+    border-radius: 999px;
+    background: #0071e3;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .ev-concept-selected-note p {
+    color: #3b3d43;
+    font-size: clamp(0.95rem, 1.8vw, 1.18rem);
+    line-height: 1.55;
+  }
+
+  .ev-integrated-solution {
+    margin-top: clamp(3rem, 6vw, 4.8rem);
+  }
+
+  .ev-integrated-solution h3 {
+    margin: 0 0 0.8rem;
+    font-family: var(--font-body);
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #18191d;
+  }
+
+  .ev-integrated-solution > p {
+    max-width: 760px;
+    margin: 0 0 1.6rem;
+    color: #55585f;
+    font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+    line-height: 1.65;
+  }
+
+  .ev-integrated-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
+
+  .ev-integrated-card {
+    overflow: hidden;
+    border: 1px solid #e2e3e7;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+  }
+
+  .ev-integrated-card img {
+    width: 100%;
+    aspect-ratio: 16 / 8.5;
+    object-fit: contain;
+    display: block;
+    background: #fff;
+  }
+
+  .ev-integrated-caption {
+    padding: 1rem 1.1rem 1.15rem;
+    border-top: 1px solid #ececf0;
+  }
+
+  .ev-integrated-caption h4 {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #18191d;
+  }
+
+  .ev-integrated-caption p {
+    margin: 0;
+    color: #6a6d74;
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .ev-final-design {
+    margin-top: clamp(2.6rem, 6vw, 4.5rem);
+    margin-left: -3rem;
+    margin-right: -3rem;
+    padding: clamp(3rem, 7vw, 5rem) 3rem;
+    background: #101010;
+    color: #fff;
+    text-align: center;
+  }
+
+  .ev-final-design .ev-project-label {
+    color: #4aa2ff;
+  }
+
+  .ev-final-design .ev-concept-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ev-final-design h3 {
+    max-width: 920px;
+    margin: 0 auto 1.35rem;
+    font-family: var(--font-body);
+    font-size: clamp(2.4rem, 5.2vw, 4.8rem);
+    line-height: 1.02;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-final-design p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.48);
+    font-size: clamp(0.95rem, 1.8vw, 1.18rem);
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  .ev-final-image-placeholder {
+    width: min(860px, 100%);
+    min-height: 260px;
+    margin: clamp(2rem, 5vw, 3.5rem) auto 0;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0,0,0,0.36);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    overflow: hidden;
+  }
+
+  .ev-final-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .ev-final-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: clamp(2rem, 4vw, 3rem) auto 0;
+    max-width: 1000px;
+  }
+
+  .ev-final-feature strong {
+    display: block;
+    margin-bottom: 0.65rem;
+    color: #4aa2ff;
+    font-family: var(--font-body);
+    font-size: clamp(1.65rem, 3.2vw, 2.8rem);
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .ev-final-feature span {
+    display: block;
+    max-width: 210px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.46);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  .ev-cfd-analysis {
+    margin-left: -3rem;
+    margin-right: -3rem;
+    padding: clamp(3rem, 7vw, 5rem) 3rem;
+    background: #101010;
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .ev-cfd-analysis .ev-project-label {
+    color: #4aa2ff;
+  }
+
+  .ev-cfd-analysis h3 {
+    max-width: 820px;
+    margin: 0 0 1.4rem;
+    font-family: var(--font-body);
+    font-size: clamp(2.2rem, 5vw, 4.4rem);
+    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-cfd-analysis > p {
+    max-width: 760px;
+    margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+    color: rgba(255,255,255,0.45);
+    font-size: clamp(0.98rem, 1.9vw, 1.24rem);
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  .ev-cfd-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+  }
+
+  .ev-cfd-card {
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.09);
+    background: #121212;
+  }
+
+  .ev-cfd-image {
+    min-height: 260px;
+    background: #d8d8d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0,0,0,0.36);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .ev-cfd-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ev-cfd-card-title {
+    padding: 1.15rem 1.25rem;
+    color: rgba(255,255,255,0.48);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .ev-cfd-note {
+    max-width: 860px;
+    margin: clamp(1.8rem, 4vw, 2.5rem) auto 0;
+    color: rgba(255,255,255,0.42);
+    text-align: center;
+    font-size: clamp(0.92rem, 1.8vw, 1.1rem);
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .ev-validation {
+    margin-left: -3rem;
+    margin-right: -3rem;
+    padding: clamp(3rem, 7vw, 5rem) 3rem;
+    background: #eef0f4;
+    color: #1d1d1f;
+  }
+
+  .ev-validation h3 {
+    max-width: 900px;
+    margin: 0 0 1.4rem;
+    font-family: var(--font-body);
+    font-size: clamp(2.2rem, 5vw, 4.4rem);
+    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-validation > p {
+    max-width: 820px;
+    margin: 0 0 clamp(2.4rem, 5vw, 4rem);
+    color: #4f5056;
+    font-size: clamp(1rem, 1.9vw, 1.25rem);
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  .ev-validation-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2rem;
+    margin: 0 auto clamp(2.2rem, 5vw, 3.5rem);
+    max-width: 1120px;
+  }
+
+  .ev-validation-steps::before {
+    content: '';
+    position: absolute;
+    top: 47px;
+    left: 7%;
+    right: 7%;
+    height: 2px;
+    background: linear-gradient(90deg, #006fe6, #ff6535);
+  }
+
+  .ev-validation-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .ev-validation-icon {
+    width: 94px;
+    height: 94px;
+    margin: 0 auto 1.05rem;
+    border-radius: 50%;
+    border: 2px solid #e4e5ec;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8f929b;
+    font-size: 1.45rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  }
+
+  .ev-validation-step h4 {
+    margin-bottom: 0.55rem;
+    font-family: var(--font-body);
+    font-size: 0.96rem;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-validation-step p {
+    max-width: 180px;
+    margin: 0 auto;
+    color: #8b8d94;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    font-weight: 500;
+  }
+
+  .ev-validation-finding {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(1.2rem, 3vw, 1.8rem);
+    border-radius: 18px;
+    border: 1px solid rgba(255,101,53,0.28);
+    background: linear-gradient(105deg, rgba(255,101,53,0.09), rgba(255,101,53,0.03));
+  }
+
+  .ev-validation-warning {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255,101,53,0.14);
+    color: #ff6535;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .ev-validation-finding p {
+    color: #1d1d1f;
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    line-height: 1.55;
+    font-weight: 600;
+  }
+
+  .ev-results {
+    margin-left: -3rem;
+    margin-right: -3rem;
+    padding: clamp(3rem, 7vw, 5rem) 3rem;
+    background: #fff;
+    color: #1d1d1f;
+  }
+
+  .ev-results h3 {
+    margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+    font-family: var(--font-body);
+    font-size: clamp(2.2rem, 5vw, 4.4rem);
+    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.3rem, 4vw, 2.5rem);
+  }
+
+  .ev-result-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid #e2e4ea;
+    background: #fff;
+  }
+
+  .ev-result-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.4rem;
+    background: #101010;
+    color: #fff;
+  }
+
+  .ev-result-card.experimental .ev-result-card-header {
+    background: #18213d;
+  }
+
+  .ev-result-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(74,162,255,0.2);
+    color: #4aa2ff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .ev-result-card.experimental .ev-result-pill {
+    background: rgba(255,101,53,0.24);
+    color: #ff9b72;
+  }
+
+  .ev-result-card-header h4 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-result-image {
+    min-height: 250px;
+    background: #d8d8d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0,0,0,0.36);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .ev-result-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ev-result-metrics {
+    display: grid;
+    gap: 1.1rem;
+    padding: 1.45rem 1.4rem 1.6rem;
+  }
+
+  .ev-result-row {
+    display: grid;
+    grid-template-columns: minmax(130px, 0.9fr) minmax(110px, 1.2fr) auto;
+    gap: 0.9rem;
+    align-items: center;
+  }
+
+  .ev-result-label {
+    color: #8d9098;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .ev-result-bar {
+    height: 5px;
+    border-radius: 999px;
+    background: #e3e5eb;
+    overflow: hidden;
+  }
+
+  .ev-result-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #006fe6, #4aa2ff);
+  }
+
+  .ev-result-card.experimental .ev-result-fill {
+    background: linear-gradient(90deg, #ff6535, #ff9b72);
+  }
+
+  .ev-result-value {
+    min-width: 72px;
+    color: #1d1d1f;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .ev-result-conclusion {
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+    padding: clamp(1.4rem, 3vw, 2rem);
+    border-radius: 20px;
+    border-left: 4px solid #006fe6;
+    background: #f3f4f8;
+  }
+
+  .ev-result-conclusion p {
+    color: #4d4f56;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    line-height: 1.65;
+    font-weight: 500;
+  }
+
+  .ev-result-conclusion strong {
+    color: #2f3035;
+    font-weight: 700;
+  }
+
+  .ev-takeaways {
+    margin-left: -3rem;
+    margin-right: -3rem;
+    padding: clamp(3rem, 7vw, 5rem) 3rem;
+    background: #fff;
+    color: #1d1d1f;
+    text-align: center;
+    border-top: 1px solid #eef0f4;
+  }
+
+  .ev-takeaways .ev-concept-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ev-takeaways h3 {
+    margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+    font-family: var(--font-body);
+    font-size: clamp(2.1rem, 4.8vw, 4.1rem);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-takeaway-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+
+  .ev-takeaway-card {
+    min-height: 360px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 20px;
+    border: 1px solid #e2e4ea;
+    background: #f8f9fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ev-takeaway-number {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 1.4rem;
+    border-radius: 50%;
+    background: #eef5ff;
+    color: #006fe6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .ev-takeaway-card h4 {
+    max-width: 260px;
+    margin-bottom: 1.05rem;
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    line-height: 1.18;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .ev-takeaway-card p {
+    max-width: 270px;
+    color: #62656d;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    font-weight: 500;
+  }
+
+  .ev-takeaway-summary {
+    max-width: 920px;
+    margin: clamp(2.4rem, 5vw, 3.8rem) auto 0;
+    color: #55575f;
+    font-size: clamp(1.15rem, 2.4vw, 1.7rem);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .ev-takeaway-summary strong {
+    color: #1d1d1f;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .ev-aero-hero {
+      max-width: none;
+    }
+    .ev-metric-grid {
+      grid-template-columns: 1fr;
+    }
+    .ev-metric {
+      min-height: 104px;
+    }
+    .ev-project-content {
+      grid-template-columns: 1fr;
+    }
+    .ev-white-section {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .ev-project-image-placeholder {
+      min-height: 220px;
+    }
+    .ev-benchmark-grid {
+      grid-template-columns: 1fr;
+    }
+    .ev-benchmark-takeaway {
+      grid-template-columns: 1fr;
+    }
+    .ev-concept-grid {
+      grid-template-columns: 1fr;
+    }
+    .ev-concept-selected-note {
+      grid-template-columns: 1fr;
+    }
+    .ev-integrated-grid {
+      grid-template-columns: 1fr;
+    }
+    .ev-final-design {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .ev-final-image-placeholder {
+      min-height: 180px;
+    }
+    .ev-final-feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ev-cfd-analysis {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .ev-cfd-grid {
+      grid-template-columns: 1fr;
+    }
+    .ev-cfd-image {
+      min-height: 190px;
+    }
+    .ev-validation {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .ev-validation-steps {
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+    }
+    .ev-validation-steps::before {
+      display: none;
+    }
+    .ev-validation-finding {
+      grid-template-columns: 1fr;
+    }
+    .ev-results {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .ev-results-grid {
+      grid-template-columns: 1fr;
+    }
+    .ev-result-row {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+    .ev-result-value {
+      text-align: left;
+    }
+    .ev-takeaways {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .ev-takeaway-grid {
+      grid-template-columns: 1fr;
+    }
+    .ev-takeaway-card {
+      min-height: 260px;
+    }
   }
 
   .case-image-stack {
@@ -1581,6 +2707,27 @@
     height: 100%;
     border: 0;
     display: block;
+  }
+
+  .drawer-case-embed {
+    width: 100%;
+    height: min(760px, 82vh);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #0d0d0f;
+    margin-top: 0.9rem;
+  }
+
+  .drawer-case-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .drawer-case-embed.ev-full-case {
+    height: min(920px, 88vh);
   }
 
   .drawer-bullets {
@@ -2384,17 +3531,9 @@
           <img src="arcus-hero.jpeg" alt="Arcus Health mobile app screens" />
         </div>
         <div class="exp-card-body">
-          <span class="exp-card-tag tag-internship">
-            <span data-lang="en">Internship</span><span data-lang="zh">实习</span>
-          </span>
-          <div class="exp-card-title">
-            <span data-lang="en">Arcus Health — UI/UX Design Intern</span>
-            <span data-lang="zh">Arcus Health — UI/UX 设计实习生</span>
-          </div>
-          <div class="exp-card-sub">
-            <span data-lang="en">Healthcare Startup · London</span>
-            <span data-lang="zh">医疗初创 · 伦敦</span>
-          </div>
+          <span class="exp-card-tag tag-internship"><span data-lang="en">Internship</span><span data-lang="zh">实习</span></span>
+          <div class="exp-card-title"><span data-lang="en">Arcus Health — UI/UX Design Intern</span><span data-lang="zh">Arcus Health — UI/UX 设计实习生</span></div>
+          <div class="exp-card-sub"><span data-lang="en">Healthcare Startup · London</span><span data-lang="zh">医疗初创 · 伦敦</span></div>
           <div class="exp-card-date">2025.7 – 2025.9</div>
         </div>
         <div class="exp-card-arrow">↗</div>
@@ -2402,131 +3541,83 @@
 
       <!-- Card 2: CIMC -->
       <div class="exp-card fade-in" data-type="internship" data-id="cimc" id="card-cimc" onclick="openDrawer('cimc')">
-        <div class="exp-card-img">
-          <div class="exp-card-placeholder">🚢</div>
-        </div>
+        <div class="exp-card-img"><div class="exp-card-placeholder">🚢</div></div>
         <div class="exp-card-body">
-          <span class="exp-card-tag tag-internship">
-            <span data-lang="en">Internship</span><span data-lang="zh">实习</span>
-          </span>
-          <div class="exp-card-title">
-            <span data-lang="en">CIMC Group — Industrial Design Intern</span>
-            <span data-lang="zh">中集集团 — 工业设计实习生</span>
-          </div>
-          <div class="exp-card-sub">
-            <span data-lang="en">Logistics & Transport · Dalian</span>
-            <span data-lang="zh">物流运输 · 大连</span>
-          </div>
+          <span class="exp-card-tag tag-internship"><span data-lang="en">Internship</span><span data-lang="zh">实习</span></span>
+          <div class="exp-card-title"><span data-lang="en">CIMC Group — Industrial Design Intern</span><span data-lang="zh">中集集团 — 工业设计实习生</span></div>
+          <div class="exp-card-sub"><span data-lang="en">Logistics & Transport · Dalian</span><span data-lang="zh">物流运输 · 大连</span></div>
           <div class="exp-card-date">2025.9 – 2025.10</div>
         </div>
         <div class="exp-card-arrow">↗</div>
       </div>
 
-      <!-- Card 3: Space Maze Chase -->
-      <div class="exp-card fade-in" data-type="project" data-id="maze" id="card-maze" onclick="openDrawer('maze')">
-        <div class="exp-card-img">
-          <img src="space-maze-chase-hero.png" alt="Space Maze Chase game screen" />
-        </div>
-        <div class="exp-card-body">
-          <span class="exp-card-tag tag-project">
-            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
-          </span>
-          <div class="exp-card-title">
-            <span data-lang="en">Space Maze Chase</span>
-            <span data-lang="zh">Space Maze Chase</span>
-          </div>
-          <div class="exp-card-sub">
-            <span data-lang="en">Interactive Web Game · AI Behaviour System</span>
-            <span data-lang="zh">交互式网页游戏 · AI行为系统</span>
-          </div>
-          <div class="exp-card-date">2026.5 – 2026.6</div>
-        </div>
-        <div class="exp-card-arrow">↗</div>
-      </div>
-
-      <!-- Card 4: Circular Economy -->
-      <div class="exp-card fade-in" data-type="project" data-id="circular" id="card-circular" onclick="openDrawer('circular')">
-        <div class="exp-card-img">
-          <img src="circular-final-render.png" alt="Circular Economy Aircraft Seat" />
-        </div>
-        <div class="exp-card-body">
-          <span class="exp-card-tag tag-project">
-            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
-          </span>
-          <div class="exp-card-title">
-            <span data-lang="en">Circular Economy Aircraft Seat</span>
-            <span data-lang="zh">循环经济航空座椅系统</span>
-          </div>
-          <div class="exp-card-sub">
-            <span data-lang="en">Modular Design · Sustainability Systems</span>
-            <span data-lang="zh">模块化设计 · 循环系统</span>
-          </div>
-          <div class="exp-card-date">2025.10 – 2026.1</div>
-        </div>
-        <div class="exp-card-arrow">↗</div>
-      </div>
-
-      <!-- Card 5: Bloom -->
+      <!-- Project 1: Bloom -->
       <div class="exp-card fade-in" data-type="project" data-id="bloom" id="card-bloom" onclick="openDrawer('bloom')">
-        <div class="exp-card-img">
-          <div class="exp-card-placeholder">🌸</div>
-        </div>
+        <div class="exp-card-img"><div class="exp-card-placeholder">🌸</div></div>
         <div class="exp-card-body">
-          <span class="exp-card-tag tag-project">
-            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
-          </span>
-          <div class="exp-card-title">
-            <span data-lang="en">Bloom — AI Wellbeing Product</span>
-            <span data-lang="zh">Bloom — 智能情绪疗愈产品</span>
-          </div>
-          <div class="exp-card-sub">
-            <span data-lang="en">Wearable · Emotional Technology</span>
-            <span data-lang="zh">可穿戴 · 情感科技</span>
-          </div>
+          <span class="exp-card-tag tag-project"><span data-lang="en">Project</span><span data-lang="zh">项目</span></span>
+          <div class="exp-card-title"><span data-lang="en">Bloom — AI Wellbeing Product</span><span data-lang="zh">Bloom — 智能情绪疗愈产品</span></div>
+          <div class="exp-card-sub"><span data-lang="en">Wearable · Emotional Technology</span><span data-lang="zh">可穿戴 · 情感科技</span></div>
           <div class="exp-card-date">2026.5 – Present</div>
         </div>
         <div class="exp-card-arrow">↗</div>
       </div>
 
-      <!-- Card 6: EV Hatchback CFD -->
-      <div class="exp-card fade-in" data-type="project" data-id="evcfd" id="card-evcfd" onclick="openDrawer('evcfd')">
-        <div class="exp-card-img">
-          <img src="ev-cfd-hero.png" alt="EV Hatchback CFD and battery cooling study" />
-        </div>
+      <!-- Project 2: Space Maze Chase -->
+      <div class="exp-card fade-in" data-type="project" data-id="maze" id="card-maze" onclick="openDrawer('maze')">
+        <div class="exp-card-img"><img src="space-maze-chase-hero.png" alt="Space Maze Chase game screen" /></div>
         <div class="exp-card-body">
-          <span class="exp-card-tag tag-project">
-            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
-          </span>
-          <div class="exp-card-title">
-            <span data-lang="en">EV Hatchback CFD Study</span>
-            <span data-lang="zh">EV 掀背车 CFD 分析</span>
-          </div>
-          <div class="exp-card-sub">
-            <span data-lang="en">Aerodynamics · Battery Cooling</span>
-            <span data-lang="zh">空气动力学 · 电池冷却</span>
-          </div>
+          <span class="exp-card-tag tag-project"><span data-lang="en">Project</span><span data-lang="zh">项目</span></span>
+          <div class="exp-card-title"><span data-lang="en">Space Maze Chase</span><span data-lang="zh">Space Maze Chase</span></div>
+          <div class="exp-card-sub"><span data-lang="en">Interactive Web Game · AI Behaviour System</span><span data-lang="zh">交互式网页游戏 · AI行为系统</span></div>
+          <div class="exp-card-date">2026.5 – 2026.6</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Project 3: Circular Economy -->
+      <div class="exp-card fade-in" data-type="project" data-id="circular" id="card-circular" onclick="openDrawer('circular')">
+        <div class="exp-card-img"><img src="circular-final-render.png" alt="Circular Economy Aircraft Seat" /></div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-project"><span data-lang="en">Project</span><span data-lang="zh">项目</span></span>
+          <div class="exp-card-title"><span data-lang="en">Circular Economy Aircraft Seat</span><span data-lang="zh">循环经济航空座椅系统</span></div>
+          <div class="exp-card-sub"><span data-lang="en">Modular Design · Sustainability Systems</span><span data-lang="zh">模块化设计 · 循环系统</span></div>
+          <div class="exp-card-date">2025.10 – 2026.1</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Project 4: DreamCore House -->
+      <div class="exp-card fade-in" data-type="project" data-id="gizmo" id="card-gizmo" onclick="openDrawer('gizmo')">
+        <div class="exp-card-img"><img src="gizmo-hero-page.png" alt="DreamCore House physical computing project profile" /></div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-project"><span data-lang="en">Project</span><span data-lang="zh">项目</span></span>
+          <div class="exp-card-title"><span data-lang="en">DreamCore House</span><span data-lang="zh">DreamCore House</span></div>
+          <div class="exp-card-sub"><span data-lang="en">Physical Computing · Interactive Prototype</span><span data-lang="zh">实体计算 · 交互原型</span></div>
           <div class="exp-card-date">2025</div>
         </div>
         <div class="exp-card-arrow">↗</div>
       </div>
 
-      <!-- Card 7: Gizmo Physical Computing -->
-      <div class="exp-card fade-in" data-type="project" data-id="gizmo" id="card-gizmo" onclick="openDrawer('gizmo')">
-        <div class="exp-card-img">
-          <img src="gizmo-hero-page.png" alt="DreamCore House physical computing project profile" />
-        </div>
+      <!-- Project 5: EV Hatchback CFD -->
+      <div class="exp-card fade-in" data-type="project" data-id="evcfd" id="card-evcfd" onclick="openDrawer('evcfd')">
+        <div class="exp-card-img"><img src="ev-cfd-velocity-contour.png" alt="EV hatchback CFD velocity contour" /></div>
         <div class="exp-card-body">
-          <span class="exp-card-tag tag-project">
-            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
-          </span>
-          <div class="exp-card-title">
-            <span data-lang="en">DreamCore House</span>
-            <span data-lang="zh">DreamCore House</span>
-          </div>
-          <div class="exp-card-sub">
-            <span data-lang="en">Physical Computing · Interactive Prototype</span>
-            <span data-lang="zh">实体计算 · 交互原型</span>
-          </div>
+          <span class="exp-card-tag tag-project"><span data-lang="en">Project</span><span data-lang="zh">项目</span></span>
+          <div class="exp-card-title"><span data-lang="en">EV Hatchback CFD Analysis</span><span data-lang="zh">EV 掀背车 CFD 分析</span></div>
+          <div class="exp-card-sub"><span data-lang="en">Vehicle Aerodynamics · Drag Reduction</span><span data-lang="zh">车辆空气动力学 · 减阻分析</span></div>
+          <div class="exp-card-date">2025</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Project 6: Battery Cooling Plate -->
+      <div class="exp-card fade-in" data-type="project" data-id="batterycooling" id="card-batterycooling" onclick="openDrawer('batterycooling')">
+        <div class="exp-card-img"><img src="battery-cooling-hero.png" alt="EV battery cooling plate thermal analysis" /></div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-project"><span data-lang="en">Project</span><span data-lang="zh">项目</span></span>
+          <div class="exp-card-title"><span data-lang="en">EV Battery Cooling Plate</span><span data-lang="zh">EV 电池冷却板分析</span></div>
+          <div class="exp-card-sub"><span data-lang="en">Thermal Fluid Analysis · Cooling Performance</span><span data-lang="zh">热流体分析 · 冷却性能</span></div>
           <div class="exp-card-date">2025</div>
         </div>
         <div class="exp-card-arrow">↗</div>
@@ -2891,6 +3982,7 @@ const drawerData = {
                 </ul>
               </li>
             </ul>
+            </div>
           </div>
         `,
       },
@@ -3423,107 +4515,659 @@ const drawerData = {
   },
   evcfd: {
     type: 'project',
-    titleEn: 'EV Hatchback CFD Study',
+    titleEn: 'EV Hatchback CFD Analysis',
     titleZh: 'EV 掀背车 CFD 分析',
-    roleEn: 'Vehicle Aerodynamics · Battery Cooling',
-    roleZh: '车辆空气动力学 · 电池冷却',
+    roleEn: 'Vehicle Aerodynamics · Drag Reduction',
+    roleZh: '车辆空气动力学 · 减阻分析',
     date: '2025',
-    media: 'ev-cfd-hero.png',
-    descEn: 'A simulation-led design engineering project investigating aerodynamic drag reduction for a conceptual EV hatchback and thermal-fluid performance of an EV battery cooling plate.',
-    descZh: '一个以仿真为核心的设计工程项目，研究概念 EV 掀背车的空气阻力优化，以及电池冷却板的热流体性能。',
+    media: 'none',
+    descEn: 'A CFD-led vehicle aerodynamics study investigating rear-end flow separation, wake control and drag reduction for an EV hatchback.',
+    descZh: '一个以 CFD 为核心的车辆空气动力学项目，研究 EV 掀背车车尾流动分离、尾流控制和减阻策略。',
     sectionsEn: [
       {
         title: 'Project Overview',
-        text: 'The project combines two connected EV performance questions: how vehicle geometry influences aerodynamic drag, and how cooling plate geometry affects battery thermal management.',
+        text: 'This project investigates passive aerodynamic strategies for EV hatchbacks, focusing on rear-end flow separation and wake control. Through CFD simulation, geometry iteration and experimental validation, the study explores how production-feasible rear geometry can reduce drag while maintaining stable and predictable airflow behaviour.',
         html: `
-          <div class="case-visual">
-            <img src="ev-cfd-development.png" alt="EV hatchback sketches and CFD velocity contour" />
-            <div class="case-visual-caption">Vehicle sketch development and CFD velocity contour used to study wake behaviour around the hatchback body.</div>
+          <div class="ev-aero-hero">
+            <img src="ev-cfd-velocity-contour.png" alt="EV hatchback CFD velocity contour" />
+          </div>
+          <div class="ev-metric-grid">
+            <div class="ev-metric"><strong>C<span class="ev-cd-sub">d</span> ≈ 0.50</strong><span>Drag Coefficient</span></div>
+            <div class="ev-metric"><strong>1:17.3</strong><span>Scale Validation</span></div>
+            <div class="ev-metric"><strong>CFD + WT</strong><span>Dual Methodology</span></div>
+          </div>
+          <div class="ev-white-section">
+            <div class="ev-project-content">
+            <div>
+              <div class="ev-project-label">Project Content</div>
+              <h3>Why Rear-End Aerodynamics Matter</h3>
+              <p>EV hatchbacks commonly experience early rear-end flow separation because of their truncated geometry. This creates a large low-pressure wake, increasing pressure drag and reducing overall aerodynamic efficiency.</p>
+            </div>
+            <div class="ev-project-image-placeholder"><img src="ev-project-content.png" alt="Rear-end flow separation and low-pressure wake diagram" /></div>
+          </div>
+            <div class="ev-benchmark-study">
+            <div class="ev-benchmark-title">
+              <div class="ev-project-label">Benchmark Study</div>
+              <h3>Learning from Production EVs</h3>
+            </div>
+            <div class="ev-benchmark-grid">
+              <div class="ev-benchmark-card">
+                <div class="ev-benchmark-image"><img src="ev-benchmark-golf.png" alt="Volkswagen Golf rear benchmark" /></div>
+                <div class="ev-benchmark-body">
+                  <h4>Volkswagen Golf</h4>
+                  <span class="ev-benchmark-highlight">Smooth rear tapering</span>
+                  <p>Gentle curvature delays separation and reduces base drag, while still protecting usable cargo volume.</p>
+                </div>
+              </div>
+              <div class="ev-benchmark-card">
+                <div class="ev-benchmark-image"><img src="ev-benchmark-ioniq.png" alt="Hyundai Ioniq 5 rear benchmark" /></div>
+                <div class="ev-benchmark-body">
+                  <h4>Hyundai Ioniq 5</h4>
+                  <span class="ev-benchmark-highlight">Flat vertical rear</span>
+                  <p>A defined rear edge creates predictable wake behaviour, but the large base area can increase pressure drag.</p>
+                </div>
+              </div>
+              <div class="ev-benchmark-card">
+                <div class="ev-benchmark-image"><img src="ev-benchmark-bmw.png" alt="BMW i3 rear benchmark" /></div>
+                <div class="ev-benchmark-body">
+                  <h4>BMW i3</h4>
+                  <span class="ev-benchmark-highlight">Sharp separation edges</span>
+                  <p>Sharper geometry stabilises where flow separates, reducing uncontrolled turbulent wake growth.</p>
+                </div>
+              </div>
+              <div class="ev-benchmark-card">
+                <div class="ev-benchmark-image"><img src="ev-benchmark-polestar.png" alt="Polestar rear benchmark" /></div>
+                <div class="ev-benchmark-body">
+                  <h4>Polestar 2</h4>
+                  <span class="ev-benchmark-highlight">Integrated roof spoiler</span>
+                  <p>A subtle spoiler guides roof flow downward, delaying separation and reducing the trailing wake region.</p>
+                </div>
+              </div>
+            </div>
+            <div class="ev-benchmark-takeaway">
+              <div class="ev-benchmark-takeaway-icon">💡</div>
+              <p>Lower drag is consistently associated with delayed separation and controlled wake formation rather than aggressive downforce devices. Production geometry, not bolt-on aerodynamics, drives the best results.</p>
+            </div>
+          </div>
+          <div class="ev-concept-development">
+            <div class="ev-project-label">Concept Development</div>
+            <div class="ev-concept-divider"></div>
+            <h3>Iterating Rear-End Flow Control</h3>
+            <div class="ev-concept-grid">
+              <div class="ev-concept-card">
+                <div class="ev-concept-image"><img src="ev-concept-a.png" alt="Concept A minimal roof termination reference" /></div>
+                <div class="ev-concept-body">
+                  <div class="ev-concept-kicker">Concept A</div>
+                  <h4>Minimal Termination</h4>
+                  <ul class="ev-concept-list">
+                    <li class="good">✓ Simple and manufacturable</li>
+                    <li class="good">✓ No tooling complexity</li>
+                    <li class="bad">✗ Early flow separation</li>
+                    <li class="bad">✗ Large turbulent wake</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="ev-concept-card selected">
+                <div class="ev-concept-image"><img src="ev-concept-b.png" alt="Concept B extended roof termination reference" /></div>
+                <div class="ev-concept-body">
+                  <div class="ev-concept-kicker">Concept B</div>
+                  <h4>Extended Roof Termination</h4>
+                  <ul class="ev-concept-list">
+                    <li class="good">✓ Delayed flow separation</li>
+                    <li class="good">✓ Improved wake control</li>
+                    <li class="good">✓ Production-feasible geometry</li>
+                    <li class="bad">✗ Moderate geometric intrusion</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="ev-concept-card">
+                <div class="ev-concept-image"><img src="ev-concept-c.png" alt="Concept C aggressive deflection reference" /></div>
+                <div class="ev-concept-body">
+                  <div class="ev-concept-kicker">Concept C</div>
+                  <h4>Aggressive Deflection</h4>
+                  <ul class="ev-concept-list">
+                    <li class="good">✓ Strong flow deflection</li>
+                    <li class="bad">✗ High drag risk</li>
+                    <li class="bad">✗ Unstable wake behaviour</li>
+                    <li class="bad">✗ Low production relevance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ev-concept-selected-note">
+              <div class="ev-concept-pill">Concept B Selected</div>
+              <p><strong>Best balance between drag reduction, wake stability and manufacturability.</strong> The extended roof termination guides rear flow without aggressive geometry, making it viable for production integration.</p>
+            </div>
+          </div>
+          <div class="ev-integrated-solution">
+            <div class="ev-project-label">Integrated Solution</div>
+            <h3>Final roof termination – Integrated solution</h3>
+            <p>The selected direction was developed as a two-part rear geometry strategy, combining roof-level flow guidance with a secondary tailgate lip to support controlled separation.</p>
+            <div class="ev-integrated-grid">
+              <div class="ev-integrated-card">
+                <img src="ev-integrated-roof-spoiler.png" alt="Integrated roof spoiler design sketch" />
+                <div class="ev-integrated-caption">
+                  <h4>Roof spoiler</h4>
+                  <p>An extended roof termination guides upper airflow more gradually before it separates from the rear body.</p>
+                </div>
+              </div>
+              <div class="ev-integrated-card">
+                <img src="ev-integrated-tailgate-lip.png" alt="Integrated tailgate lip design sketch" />
+                <div class="ev-integrated-caption">
+                  <h4>Tailgate lip</h4>
+                  <p>A controlled lip feature defines the lower separation edge and supports a more predictable wake structure.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ev-final-design">
+            <div class="ev-project-label">Final Design</div>
+            <div class="ev-concept-divider"></div>
+            <h3>Integrated Roof Termination</h3>
+            <p>The final geometry integrates an extended roof termination and controlled tailgate lip to guide rear flow and stabilise wake formation. Rather than generating downforce, the design uses geometry to manage separation and reduce pressure drag.</p>
+            <div class="ev-final-image-placeholder"><img src="ev-final-integrated-roof-termination.png" alt="Integrated roof termination final vehicle design" /></div>
+            <div class="ev-final-feature-grid">
+              <div class="ev-final-feature"><strong>GOE22</strong><span>Aerofoil section profile for roof termination geometry</span></div>
+              <div class="ev-final-feature"><strong>2-stage</strong><span>Staged separation strategy for controlled wake formation</span></div>
+              <div class="ev-final-feature"><strong>Passive</strong><span>No active systems, geometry-driven drag reduction only</span></div>
+              <div class="ev-final-feature"><strong>100%</strong><span>Production-feasible geometry with no exotic manufacturing required</span></div>
+            </div>
+          </div>
+          <div class="ev-cfd-analysis">
+            <div class="ev-project-label">CFD Analysis</div>
+            <div class="ev-concept-divider"></div>
+            <h3>Predicting Flow Behaviour</h3>
+            <p>CFD simulation evaluated velocity distribution, pressure behaviour and wake structure, assessing the aerodynamic implications of the proposed geometry before physical prototyping.</p>
+            <div class="ev-cfd-grid">
+              <div class="ev-cfd-card">
+                <div class="ev-cfd-image"><img src="ev-cfd-velocity-contour.png" alt="Velocity contour CFD result" /></div>
+                <div class="ev-cfd-card-title">Velocity Contour</div>
+              </div>
+              <div class="ev-cfd-card">
+                <div class="ev-cfd-image"><img src="ev-cfd-pressure-field.png" alt="Pressure field CFD result" /></div>
+                <div class="ev-cfd-card-title">Pressure Field</div>
+              </div>
+              <div class="ev-cfd-card">
+                <div class="ev-cfd-image"><img src="ev-cfd-streamlines.png" alt="Streamlines CFD result" /></div>
+                <div class="ev-cfd-card-title">Streamlines</div>
+              </div>
+              <div class="ev-cfd-card">
+                <div class="ev-cfd-image"><img src="ev-cfd-wake-visualisation.png" alt="Wake visualisation CFD result" /></div>
+                <div class="ev-cfd-card-title">Wake Visualisation</div>
+              </div>
+            </div>
+            <p class="ev-cfd-note">CFD results guided geometry iteration before physical validation, helping compare how each rear-end proposal influenced separation, pressure drag and wake stability.</p>
+          </div>
+          <div class="ev-validation">
+            <div class="ev-project-label">Experimental Validation</div>
+            <div class="ev-concept-divider"></div>
+            <h3>From Digital to Physical</h3>
+            <p>To validate CFD predictions, the geometry was translated into a physical 1:17.3 scale model and tested under controlled wind tunnel conditions.</p>
+            <div class="ev-validation-steps">
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">CAD</div>
+                <h4>CAD Simplification</h4>
+                <p>Full geometry simplified to capture key aerodynamic features at reduced scale</p>
+              </div>
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">3D</div>
+                <h4>3D Printing</h4>
+                <p>Physical model produced at 1:17.3 scale with smooth surface finish for testing</p>
+              </div>
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">Flow</div>
+                <h4>Tuft Testing</h4>
+                <p>Yarn tufts applied to visualise surface flow attachment and separation zones</p>
+              </div>
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">WT</div>
+                <h4>Wind Tunnel Setup</h4>
+                <p>Model mounted on balance rig; force measurements and flow visualisation conducted</p>
+              </div>
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">Data</div>
+                <h4>Data Acquisition</h4>
+                <p>Drag coefficient and wake profile measured across multiple Reynolds numbers</p>
+              </div>
+            </div>
+            <div class="ev-validation-finding">
+              <div class="ev-validation-warning">!</div>
+              <p><strong>Key finding:</strong> Experimental testing revealed stronger rear wake behaviour than predicted by CFD, highlighting the critical importance of physical validation in aerodynamic design.</p>
+            </div>
+          </div>
+          <div class="ev-results">
+            <div class="ev-project-label">Results + Validation</div>
+            <div class="ev-concept-divider"></div>
+            <h3>Simulation vs Reality</h3>
+            <div class="ev-results-grid">
+              <div class="ev-result-card">
+                <div class="ev-result-card-header">
+                  <span class="ev-result-pill">CFD</span>
+                  <h4>Computational Results</h4>
+                </div>
+                <div class="ev-result-image"><img src="ev-cfd-velocity-contour.png" alt="Computational velocity contour result" /></div>
+                <div class="ev-result-metrics">
+                  <div class="ev-result-row"><span class="ev-result-label">Drag Coefficient (Cd)</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 50%;"></div></div><span class="ev-result-value">0.50</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Lift Trend</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 36%;"></div></div><span class="ev-result-value">Low</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Wake Stability</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 68%;"></div></div><span class="ev-result-value">Good</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Rear Separation</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 42%;"></div></div><span class="ev-result-value">Moderate</span></div>
+                </div>
+              </div>
+              <div class="ev-result-card experimental">
+                <div class="ev-result-card-header">
+                  <span class="ev-result-pill">Wind Tunnel</span>
+                  <h4>Experimental Results</h4>
+                </div>
+                <div class="ev-result-image"><img src="ev-experimental-validation.png" alt="Experimental wind tunnel validation result" /></div>
+                <div class="ev-result-metrics">
+                  <div class="ev-result-row"><span class="ev-result-label">Drag Coefficient (Cd)</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 62%;"></div></div><span class="ev-result-value">~0.62</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Lift Trend</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 55%;"></div></div><span class="ev-result-value">Medium</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Wake Stability</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 38%;"></div></div><span class="ev-result-value">Moderate</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Rear Separation</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 61%;"></div></div><span class="ev-result-value">Stronger</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ev-result-conclusion">
+              <p>While CFD captured the overall aerodynamic trend, experimental testing revealed <strong>greater wake instability and stronger separation effects</strong>, highlighting the importance of physical validation in aerodynamic design. Scale effects, surface roughness and ground boundary layer conditions contributed to the divergence between simulation and experiment.</p>
+            </div>
+          </div>
+          <div class="ev-takeaways">
+            <div class="ev-concept-divider"></div>
+            <h3>Engineering Takeaways</h3>
+            <div class="ev-takeaway-grid">
+              <div class="ev-takeaway-card">
+                <div class="ev-takeaway-number">01</div>
+                <h4>Simulation + Validation</h4>
+                <p>CFD provides high-resolution insight, but wind tunnel validation revealed wake effects that simulation underestimated, reinforcing the need for dual-methodology design.</p>
+              </div>
+              <div class="ev-takeaway-card">
+                <div class="ev-takeaway-number">02</div>
+                <h4>Geometry-Driven Optimisation</h4>
+                <p>Passive aerodynamic geometry, especially rear termination profile and tailgate lip angle, proved effective at controlling separation without active systems or complex add-ons.</p>
+              </div>
+              <div class="ev-takeaway-card">
+                <div class="ev-takeaway-number">03</div>
+                <h4>Engineering Beyond Styling</h4>
+                <p>Aerodynamic performance is shaped by design decisions that appear stylistic, including roof curvature, tail angle and termination sharpness.</p>
+              </div>
+            </div>
+            <p class="ev-takeaway-summary">This project demonstrates how <strong>aerodynamic design extends beyond visual form</strong>, combining engineering analysis, physical experimentation and iterative reasoning to shape real-world vehicle performance.</p>
+          </div>
           </div>
         `,
-      },
-      {
-        title: 'Part 1 · Vehicle Aerodynamics',
-        text: 'The aerodynamic study focused on reducing rear-end flow separation and pressure drag, both key contributors to energy loss in compact EV body forms.',
-        bullets: [
-          'Refined the vehicle body geometry to improve airflow attachment and overall aerodynamic efficiency',
-          'Conducted CFD simulations and wind tunnel experiments using a 1:17.3 scale model',
-          'Compared simulation behaviour with physical testing to understand numerical and experimental variation',
-        ],
-      },
-      {
-        title: 'Part 2 · Battery Cooling Plate',
-        text: 'The thermal-fluid analysis evaluated an EV battery cooling plate under realistic operating conditions, focusing on flow stability, vortex reduction and heat transfer uniformity.',
-        bullets: [
-          'Developed a rounded-channel cooling plate concept to improve flow stability',
-          'Reduced vortex formation while maintaining a pressure drop of approximately 200 Pa',
-          'Improved heat transfer consistency across the cooling plate for reliable high-power battery operation',
-        ],
-      },
-      {
-        title: 'Engineering Method',
-        text: 'The project combines geometry design, CFD setup, post-processing and physical validation into one engineering workflow.',
-        html: `
-          <div class="case-card-grid">
-            <div class="case-card"><div class="case-card-label">01</div><div class="case-card-title">Geometry refinement</div><p>Iterated the EV hatchback body and cooling channel geometry around aerodynamic and thermal performance goals.</p></div>
-            <div class="case-card"><div class="case-card-label">02</div><div class="case-card-title">CFD simulation</div><p>Used simulation outputs such as velocity contours, wake behaviour and pressure drop to evaluate performance.</p></div>
-            <div class="case-card"><div class="case-card-label">03</div><div class="case-card-title">Validation mindset</div><p>Compared numerical simulation with wind tunnel testing to understand the gap between model and real behaviour.</p></div>
-          </div>
-        `,
-      },
-      {
-        title: 'Reflection',
-        text: 'This project strengthened my ability to connect design form with engineering performance. The outcome was not only a vehicle concept, but a workflow for using simulation evidence to make better design decisions.',
       },
     ],
     sectionsZh: [
       {
         title: '项目概览',
-        text: '这个项目结合了两个与 EV 性能相关的问题：车身几何如何影响空气阻力，以及冷却板几何如何影响电池热管理。',
+        text: 'This project investigates passive aerodynamic strategies for EV hatchbacks, focusing on rear-end flow separation and wake control. Through CFD simulation, geometry iteration and experimental validation, the study explores how production-feasible rear geometry can reduce drag while maintaining stable and predictable airflow behaviour.',
         html: `
-          <div class="case-visual">
-            <img src="ev-cfd-development.png" alt="EV 掀背车草图与 CFD 速度云图" />
-            <div class="case-visual-caption">车辆草图发展与 CFD 速度云图，用于分析掀背车车身周围的尾流行为。</div>
+          <div class="ev-aero-hero">
+            <img src="ev-cfd-velocity-contour.png" alt="EV hatchback CFD velocity contour" />
+          </div>
+          <div class="ev-metric-grid">
+            <div class="ev-metric"><strong>C<span class="ev-cd-sub">d</span> ≈ 0.50</strong><span>Drag Coefficient</span></div>
+            <div class="ev-metric"><strong>1:17.3</strong><span>Scale Validation</span></div>
+            <div class="ev-metric"><strong>CFD + WT</strong><span>Dual Methodology</span></div>
+          </div>
+          <div class="ev-white-section">
+            <div class="ev-project-content">
+            <div>
+              <div class="ev-project-label">Project Content</div>
+              <h3>Why Rear-End Aerodynamics Matter</h3>
+              <p>EV 掀背车由于截断式车尾几何，容易较早产生车尾流动分离，形成较大的低压尾流区域，从而增加压力阻力并降低整体空气动力效率。</p>
+            </div>
+            <div class="ev-project-image-placeholder"><img src="ev-project-content.png" alt="Rear-end flow separation and low-pressure wake diagram" /></div>
+          </div>
+            <div class="ev-benchmark-study">
+            <div class="ev-benchmark-title">
+              <div class="ev-project-label">Benchmark Study</div>
+              <h3>Learning from Production EVs</h3>
+            </div>
+            <div class="ev-benchmark-grid">
+              <div class="ev-benchmark-card">
+                <div class="ev-benchmark-image"><img src="ev-benchmark-golf.png" alt="Volkswagen Golf rear benchmark" /></div>
+                <div class="ev-benchmark-body">
+                  <h4>Volkswagen Golf</h4>
+                  <span class="ev-benchmark-highlight">Smooth rear tapering</span>
+                  <p>平滑的车尾收束可以延迟分离并降低 base drag，同时保留一定后备箱空间。</p>
+                </div>
+              </div>
+              <div class="ev-benchmark-card">
+                <div class="ev-benchmark-image"><img src="ev-benchmark-ioniq.png" alt="Hyundai Ioniq 5 rear benchmark" /></div>
+                <div class="ev-benchmark-body">
+                  <h4>Hyundai Ioniq 5</h4>
+                  <span class="ev-benchmark-highlight">Flat vertical rear</span>
+                  <p>清晰的垂直车尾边界让尾流更可预测，但较大的 base area 会增加压力阻力。</p>
+                </div>
+              </div>
+              <div class="ev-benchmark-card">
+                <div class="ev-benchmark-image"><img src="ev-benchmark-bmw.png" alt="BMW i3 rear benchmark" /></div>
+                <div class="ev-benchmark-body">
+                  <h4>BMW i3</h4>
+                  <span class="ev-benchmark-highlight">Sharp separation edges</span>
+                  <p>尖锐边缘可以稳定气流分离位置，减少不受控的湍流尾流扩张。</p>
+                </div>
+              </div>
+              <div class="ev-benchmark-card">
+                <div class="ev-benchmark-image"><img src="ev-benchmark-polestar.png" alt="Polestar rear benchmark" /></div>
+                <div class="ev-benchmark-body">
+                  <h4>Polestar 2</h4>
+                  <span class="ev-benchmark-highlight">Integrated roof spoiler</span>
+                  <p>集成式扰流设计可以引导车顶气流向下，延迟分离并缩小尾流区域。</p>
+                </div>
+              </div>
+            </div>
+            <div class="ev-benchmark-takeaway">
+              <div class="ev-benchmark-takeaway-icon">💡</div>
+              <p>低阻力通常来自延迟分离和可控尾流，而不是激进的下压力装置。真正影响结果的是量产几何本身，而不是后加的空气动力套件。</p>
+            </div>
+          </div>
+          <div class="ev-concept-development">
+            <div class="ev-project-label">Concept Development</div>
+            <div class="ev-concept-divider"></div>
+            <h3>Iterating Rear-End Flow Control</h3>
+            <div class="ev-concept-grid">
+              <div class="ev-concept-card">
+                <div class="ev-concept-image"><img src="ev-concept-a.png" alt="Concept A minimal roof termination reference" /></div>
+                <div class="ev-concept-body">
+                  <div class="ev-concept-kicker">Concept A</div>
+                  <h4>Minimal Termination</h4>
+                  <ul class="ev-concept-list">
+                    <li class="good">✓ 简单且易制造</li>
+                    <li class="good">✓ 无需复杂 tooling</li>
+                    <li class="bad">✗ 过早产生流动分离</li>
+                    <li class="bad">✗ 较大的湍流尾流</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="ev-concept-card selected">
+                <div class="ev-concept-image"><img src="ev-concept-b.png" alt="Concept B extended roof termination reference" /></div>
+                <div class="ev-concept-body">
+                  <div class="ev-concept-kicker">Concept B</div>
+                  <h4>Extended Roof Termination</h4>
+                  <ul class="ev-concept-list">
+                    <li class="good">✓ 延迟流动分离</li>
+                    <li class="good">✓ 改善尾流控制</li>
+                    <li class="good">✓ 接近量产可行</li>
+                    <li class="bad">✗ 中等几何侵入</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="ev-concept-card">
+                <div class="ev-concept-image"><img src="ev-concept-c.png" alt="Concept C aggressive deflection reference" /></div>
+                <div class="ev-concept-body">
+                  <div class="ev-concept-kicker">Concept C</div>
+                  <h4>Aggressive Deflection</h4>
+                  <ul class="ev-concept-list">
+                    <li class="good">✓ 强气流偏转</li>
+                    <li class="bad">✗ 高阻力风险</li>
+                    <li class="bad">✗ 尾流稳定性较差</li>
+                    <li class="bad">✗ 量产相关性较低</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ev-concept-selected-note">
+              <div class="ev-concept-pill">Concept B Selected</div>
+              <p><strong>在减阻、尾流稳定性和可制造性之间取得最佳平衡。</strong> Extended Roof Termination 可以在不采用激进几何的情况下引导车尾气流，更适合量产整合。</p>
+            </div>
+          </div>
+          <div class="ev-integrated-solution">
+            <div class="ev-project-label">Integrated Solution</div>
+            <h3>Final roof termination – Integrated solution</h3>
+            <p>最终方向被发展成两段式车尾几何策略：通过 roof spoiler 引导上方气流，再用 tailgate lip 定义尾门分离边界，让尾流更可控。</p>
+            <div class="ev-integrated-grid">
+              <div class="ev-integrated-card">
+                <img src="ev-integrated-roof-spoiler.png" alt="Integrated roof spoiler design sketch" />
+                <div class="ev-integrated-caption">
+                  <h4>Roof spoiler</h4>
+                  <p>延长式 roof termination 让车顶气流在离开车身前获得更平顺的导向。</p>
+                </div>
+              </div>
+              <div class="ev-integrated-card">
+                <img src="ev-integrated-tailgate-lip.png" alt="Integrated tailgate lip design sketch" />
+                <div class="ev-integrated-caption">
+                  <h4>Tailgate lip</h4>
+                  <p>尾门 lip 明确下方分离边界，帮助形成更稳定、可预测的尾流结构。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ev-final-design">
+            <div class="ev-project-label">Final Design</div>
+            <div class="ev-concept-divider"></div>
+            <h3>Integrated Roof Termination</h3>
+            <p>最终几何整合了延长式 roof termination 与可控 tailgate lip，用来引导车尾气流并稳定尾流形成。它不是通过制造下压力来解决问题，而是用几何管理分离并降低压力阻力。</p>
+            <div class="ev-final-image-placeholder"><img src="ev-final-integrated-roof-termination.png" alt="Integrated roof termination final vehicle design" /></div>
+            <div class="ev-final-feature-grid">
+              <div class="ev-final-feature"><strong>GOE22</strong><span>用于 roof termination 几何的翼型截面参考</span></div>
+              <div class="ev-final-feature"><strong>2-stage</strong><span>分阶段控制气流分离与尾流形成</span></div>
+              <div class="ev-final-feature"><strong>Passive</strong><span>无主动系统，仅通过几何实现减阻</span></div>
+              <div class="ev-final-feature"><strong>100%</strong><span>接近量产可行，无需特殊制造工艺</span></div>
+            </div>
+          </div>
+          <div class="ev-cfd-analysis">
+            <div class="ev-project-label">CFD Analysis</div>
+            <div class="ev-concept-divider"></div>
+            <h3>Predicting Flow Behaviour</h3>
+            <p>CFD 仿真用于评估速度分布、压力行为和尾流结构，在实体原型制作前判断不同几何方案对空气动力表现的影响。</p>
+            <div class="ev-cfd-grid">
+              <div class="ev-cfd-card">
+                <div class="ev-cfd-image"><img src="ev-cfd-velocity-contour.png" alt="Velocity contour CFD result" /></div>
+                <div class="ev-cfd-card-title">Velocity Contour</div>
+              </div>
+              <div class="ev-cfd-card">
+                <div class="ev-cfd-image"><img src="ev-cfd-pressure-field.png" alt="Pressure field CFD result" /></div>
+                <div class="ev-cfd-card-title">Pressure Field</div>
+              </div>
+              <div class="ev-cfd-card">
+                <div class="ev-cfd-image"><img src="ev-cfd-streamlines.png" alt="Streamlines CFD result" /></div>
+                <div class="ev-cfd-card-title">Streamlines</div>
+              </div>
+              <div class="ev-cfd-card">
+                <div class="ev-cfd-image"><img src="ev-cfd-wake-visualisation.png" alt="Wake visualisation CFD result" /></div>
+                <div class="ev-cfd-card-title">Wake Visualisation</div>
+              </div>
+            </div>
+            <p class="ev-cfd-note">CFD 结果用于指导几何迭代，帮助比较不同车尾方案如何影响气流分离、压力阻力和尾流稳定性。</p>
+          </div>
+          <div class="ev-validation">
+            <div class="ev-project-label">Experimental Validation</div>
+            <div class="ev-concept-divider"></div>
+            <h3>From Digital to Physical</h3>
+            <p>为了验证 CFD 预测结果，最终几何被转化为 1:17.3 比例实体模型，并在受控风洞条件下进行测试。</p>
+            <div class="ev-validation-steps">
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">CAD</div>
+                <h4>CAD Simplification</h4>
+                <p>简化完整几何，在缩比模型中保留关键空气动力特征</p>
+              </div>
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">3D</div>
+                <h4>3D Printing</h4>
+                <p>制作 1:17.3 比例实体模型，并保持平滑表面用于测试</p>
+              </div>
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">Flow</div>
+                <h4>Tuft Testing</h4>
+                <p>使用 yarn tufts 观察表面流动附着和分离区域</p>
+              </div>
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">WT</div>
+                <h4>Wind Tunnel Setup</h4>
+                <p>模型安装在 balance rig 上，进行力测量和流动可视化</p>
+              </div>
+              <div class="ev-validation-step">
+                <div class="ev-validation-icon">Data</div>
+                <h4>Data Acquisition</h4>
+                <p>在多个 Reynolds numbers 下测量阻力系数与尾流表现</p>
+              </div>
+            </div>
+            <div class="ev-validation-finding">
+              <div class="ev-validation-warning">!</div>
+              <p><strong>Key finding:</strong> 实验测试显示车尾尾流强度高于 CFD 预测，说明实体验证在空气动力设计中非常关键。</p>
+            </div>
+          </div>
+          <div class="ev-results">
+            <div class="ev-project-label">Results + Validation</div>
+            <div class="ev-concept-divider"></div>
+            <h3>Simulation vs Reality</h3>
+            <div class="ev-results-grid">
+              <div class="ev-result-card">
+                <div class="ev-result-card-header">
+                  <span class="ev-result-pill">CFD</span>
+                  <h4>Computational Results</h4>
+                </div>
+                <div class="ev-result-image"><img src="ev-cfd-velocity-contour.png" alt="Computational velocity contour result" /></div>
+                <div class="ev-result-metrics">
+                  <div class="ev-result-row"><span class="ev-result-label">Drag Coefficient (Cd)</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 50%;"></div></div><span class="ev-result-value">0.50</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Lift Trend</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 36%;"></div></div><span class="ev-result-value">Low</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Wake Stability</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 68%;"></div></div><span class="ev-result-value">Good</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Rear Separation</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 42%;"></div></div><span class="ev-result-value">Moderate</span></div>
+                </div>
+              </div>
+              <div class="ev-result-card experimental">
+                <div class="ev-result-card-header">
+                  <span class="ev-result-pill">Wind Tunnel</span>
+                  <h4>Experimental Results</h4>
+                </div>
+                <div class="ev-result-image"><img src="ev-experimental-validation.png" alt="Experimental wind tunnel validation result" /></div>
+                <div class="ev-result-metrics">
+                  <div class="ev-result-row"><span class="ev-result-label">Drag Coefficient (Cd)</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 62%;"></div></div><span class="ev-result-value">~0.62</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Lift Trend</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 55%;"></div></div><span class="ev-result-value">Medium</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Wake Stability</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 38%;"></div></div><span class="ev-result-value">Moderate</span></div>
+                  <div class="ev-result-row"><span class="ev-result-label">Rear Separation</span><div class="ev-result-bar"><div class="ev-result-fill" style="width: 61%;"></div></div><span class="ev-result-value">Stronger</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ev-result-conclusion">
+              <p>CFD 捕捉到了整体空气动力趋势，但实验测试显示出 <strong>更强的尾流不稳定性和更明显的分离效应</strong>。这说明实体验证对于空气动力设计非常重要，缩比效应、表面粗糙度和地面边界层都会造成仿真与实验之间的差异。</p>
+            </div>
+          </div>
+          <div class="ev-takeaways">
+            <div class="ev-concept-divider"></div>
+            <h3>Engineering Takeaways</h3>
+            <div class="ev-takeaway-grid">
+              <div class="ev-takeaway-card">
+                <div class="ev-takeaway-number">01</div>
+                <h4>Simulation + Validation</h4>
+                <p>CFD 能提供高分辨率洞察，但风洞实验暴露出仿真低估的尾流效应，说明数字仿真必须与实体验证结合。</p>
+              </div>
+              <div class="ev-takeaway-card">
+                <div class="ev-takeaway-number">02</div>
+                <h4>Geometry-Driven Optimisation</h4>
+                <p>被动空气动力几何，尤其是 rear termination profile 与 tailgate lip angle，可以在不依赖主动系统的情况下控制分离。</p>
+              </div>
+              <div class="ev-takeaway-card">
+                <div class="ev-takeaway-number">03</div>
+                <h4>Engineering Beyond Styling</h4>
+                <p>空气动力表现受到许多看似造型的决策影响，例如车顶曲率、尾部角度和 termination sharpness。</p>
+              </div>
+            </div>
+            <p class="ev-takeaway-summary">This project demonstrates how <strong>aerodynamic design extends beyond visual form</strong>, combining engineering analysis, physical experimentation and iterative reasoning to shape real-world vehicle performance.</p>
+          </div>
           </div>
         `,
-      },
-      {
-        title: 'Part 1 · Vehicle Aerodynamics',
-        text: '空气动力学部分关注减少车尾流动分离和压力阻力，这两者都是紧凑型 EV 车身能量损失的重要来源。',
-        bullets: [
-          '优化车身几何，提高气流附着和整体空气动力效率',
-          '使用 1:17.3 比例模型进行 CFD 仿真和风洞实验',
-          '对比仿真结果与物理测试，理解数值模型和真实行为之间的差异',
-        ],
-      },
-      {
-        title: 'Part 2 · Battery Cooling Plate',
-        text: '热流体分析部分评估 EV 电池冷却板在真实工况下的冷却表现，重点关注流动稳定性、涡流减少和换热均匀性。',
-        bullets: [
-          '设计 rounded-channel 冷却板结构来提升流动稳定性',
-          '减少涡流形成，同时保持约 200 Pa 的压力降',
-          '提升冷却板整体换热均匀性，为高功率电池系统提供更可靠的热管理',
-        ],
-      },
-      {
-        title: 'Engineering Method',
-        text: '项目将几何设计、CFD 设置、结果后处理和物理验证串成一个完整工程流程。',
-        html: `
-          <div class="case-card-grid">
-            <div class="case-card"><div class="case-card-label">01</div><div class="case-card-title">Geometry refinement</div><p>围绕空气动力和热性能目标迭代 EV 掀背车车身与冷却通道几何。</p></div>
-            <div class="case-card"><div class="case-card-label">02</div><div class="case-card-title">CFD simulation</div><p>通过速度云图、尾流行为和压力降等仿真结果评估设计表现。</p></div>
-            <div class="case-card"><div class="case-card-label">03</div><div class="case-card-title">Validation mindset</div><p>对比数值仿真与风洞实验，理解模型预测与真实行为之间的差距。</p></div>
-          </div>
-        `,
-      },
-      {
-        title: 'Reflection',
-        text: '这个项目让我更清楚地把设计形态和工程性能联系起来。最终成果不只是一个车辆概念，而是一套用仿真证据支持设计决策的工作流程。',
       },
     ],
     bulletsEn: [],
     bulletsZh: [],
-    tech: ['ANSYS', 'CFD', 'Thermal Analysis', 'Wind Tunnel Testing', 'Vehicle Aerodynamics'],
+    tech: ['ANSYS', 'CFD', 'Vehicle Aerodynamics', 'Wind Tunnel Testing', 'Drag Reduction'],
+  },
+  batterycooling: {
+    type: 'project',
+    titleEn: 'EV Battery Cooling Plate',
+    titleZh: 'EV 电池冷却板分析',
+    roleEn: 'Thermal Fluid Analysis · Cooling Performance',
+    roleZh: '热流体分析 · 冷却性能',
+    date: '2025',
+    media: 'battery-cooling-hero.png',
+    descEn: 'A thermal-fluid simulation project evaluating how cooling plate channel geometry affects coolant stability, pressure drop and heat transfer uniformity in an EV battery system.',
+    descZh: '一个热流体仿真项目，评估电池冷却板通道几何如何影响冷却液稳定性、压力降和换热均匀性。',
+    sectionsEn: [
+      {
+        title: 'Project Overview',
+        text: 'This project moves from vehicle-scale aerodynamics to component-scale thermal management, focusing on the EV battery cooling plate as a critical performance system.',
+        html: `
+          <div class="case-visual">
+            <img src="battery-cooling-hero.png" alt="EV battery cooling plate CFD overview" />
+            <div class="case-visual-caption">Cooling plate CFD overview showing thermal-fluid behaviour inside the battery cooling system.</div>
+          </div>
+        `,
+      },
+      {
+        title: 'Thermal-Fluid Challenge',
+        text: 'Battery cooling plates need stable flow distribution, low pressure drop and consistent heat removal. Poor channel geometry can create vortices and uneven cooling zones.',
+        bullets: [
+          'Improve coolant flow stability through channel geometry',
+          'Reduce vortex formation and local flow disruption',
+          'Maintain pressure drop around 200 Pa while improving heat transfer uniformity',
+        ],
+      },
+      {
+        title: 'Cooling Plate Analysis',
+        text: 'The analysis explored how rounded-channel geometry can support smoother coolant movement and more reliable thermal performance under EV operating conditions.',
+        html: `
+          <div class="case-visual">
+            <img src="battery-cooling-analysis.png" alt="EV battery cooling plate analysis" />
+            <div class="case-visual-caption">Detailed cooling plate analysis showing channel geometry, pressure behaviour and thermal-fluid performance.</div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Flow</div><div class="case-card-title">Rounded channel geometry</div><p>Rounded channel transitions were used to reduce sharp flow disruption inside the cooling plate.</p></div>
+            <div class="case-card"><div class="case-card-label">Pressure</div><div class="case-card-title">Controlled pressure drop</div><p>The design aimed to maintain an efficient pressure drop while supporting reliable coolant circulation.</p></div>
+            <div class="case-card"><div class="case-card-label">Thermal</div><div class="case-card-title">Uniform heat transfer</div><p>More even flow distribution supports more consistent heat removal across the battery cooling surface.</p></div>
+          </div>
+        `,
+      },
+      {
+        title: 'Design Learning',
+        text: 'This project strengthened my understanding of how small geometric decisions inside a component can affect system-level EV performance, safety and reliability.',
+      },
+    ],
+    sectionsZh: [
+      {
+        title: '项目概览',
+        text: '这个项目从整车尺度的空气动力学转向部件尺度的热管理，把 EV 电池冷却板作为关键性能系统进行分析。',
+        html: `
+          <div class="case-visual">
+            <img src="battery-cooling-hero.png" alt="EV 电池冷却板 CFD 概览" />
+            <div class="case-visual-caption">冷却板 CFD 概览，展示电池冷却系统内部的热流体行为。</div>
+          </div>
+        `,
+      },
+      {
+        title: '热流体挑战',
+        text: '电池冷却板需要稳定的流量分布、较低的压力降和一致的散热表现。不合理的通道几何会产生涡流和局部冷却不均。',
+        bullets: [
+          '通过通道几何提升冷却液流动稳定性',
+          '减少涡流形成和局部流动干扰',
+          '在约 200 Pa 压力降下提升换热均匀性',
+        ],
+      },
+      {
+        title: '冷却板分析',
+        text: '分析探索 rounded-channel 几何如何在 EV 工作条件下支持更顺畅的冷却液运动和更可靠的热性能。',
+        html: `
+          <div class="case-visual">
+            <img src="battery-cooling-analysis.png" alt="EV 电池冷却板分析" />
+            <div class="case-visual-caption">冷却板详细分析，展示通道几何、压力行为和热流体性能。</div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Flow</div><div class="case-card-title">圆角通道几何</div><p>通过 rounded channel 过渡减少冷却板内部的尖锐流动扰动。</p></div>
+            <div class="case-card"><div class="case-card-label">Pressure</div><div class="case-card-title">可控压力降</div><p>设计目标是在保持有效压力降的同时，让冷却液循环更稳定。</p></div>
+            <div class="case-card"><div class="case-card-label">Thermal</div><div class="case-card-title">均匀换热</div><p>更均匀的流量分布可以支持电池冷却表面更一致的热量移除。</p></div>
+          </div>
+        `,
+      },
+      {
+        title: '设计收获',
+        text: '这个项目让我理解到，部件内部很小的几何变化，也会影响 EV 系统层面的性能、安全性和可靠性。',
+      },
+    ],
+    bulletsEn: [],
+    bulletsZh: [],
+    tech: ['ANSYS', 'Thermal Analysis', 'CFD', 'Cooling Plate', 'Battery Thermal Management'],
   },
   gizmo: {
     type: 'project',
@@ -3941,6 +5585,8 @@ function getGameLogicMapHtml(isEn) {
 function openDrawer(id) {
   const data = drawerData[id];
   if (!data) return;
+  const drawerEl = document.getElementById('drawer');
+  drawerEl.classList.toggle('ev-dark', id === 'evcfd');
 
   const lang = currentLang;
   const isEn = lang === 'en';
@@ -4038,13 +5684,15 @@ function openDrawer(id) {
     ${techHtml}
   `;
 
-  document.getElementById('drawer').classList.add('open');
+  drawerEl.classList.add('open');
   document.getElementById('drawer-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function closeDrawer() {
-  document.getElementById('drawer').classList.remove('open');
+  const drawerEl = document.getElementById('drawer');
+  drawerEl.classList.remove('open');
+  drawerEl.classList.remove('ev-dark');
   document.getElementById('drawer-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
