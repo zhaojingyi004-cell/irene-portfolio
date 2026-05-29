@@ -1,0 +1,136 @@
+  circular: {
+    type: 'project',
+    titleEn: 'Circular Economy Aircraft Seat',
+    titleZh: '循环经济航空座椅系统',
+    roleEn: 'Circular Cabin System · Design Engineering',
+    roleZh: '循环客舱系统 · 设计工程',
+    date: '2025.10 – 2026.1',
+    media: null,
+    descEn: 'Reimagining economy-class seating through modularity, rapid maintenance and circular material recovery.',
+    descZh: '通过模块化、快速维护与材料循环回收，重新思考经济舱座椅系统。',
+    sectionsEn: [
+      {
+        title: 'Product Overview',
+        text: 'A circular cabin seating system designed for short-haul aviation, where fast turnaround, maintenance access and end-of-life recovery are as important as passenger comfort.',
+        bullets: [
+          'Design goal: reduce aircraft downtime while improving material circularity',
+          'Target system: economy-class seats, ground maintenance teams, airlines and recycling partners',
+          'Core idea: the seat is not only a product, but a node in a wider circular service ecosystem',
+        ],
+      },
+      {
+        title: 'Design Challenge',
+        text: "Economy aviation runs on systems that weren't designed to end.",
+        bullets: [
+          'Non-circular materials: bonded and mixed constructions prevent high-value material recovery',
+          'Slow maintenance: tool-dependent servicing increases aircraft downtime and labour cost',
+          'Limited flexibility: conventional seating restricts cabin reconfiguration and component updates',
+        ],
+      },
+      {
+        title: 'Systems Thinking',
+        text: 'Rather than redesigning the seat alone, I mapped how maintenance, logistics and material recovery shape circular aviation systems.',
+        bullets: [
+          'Lifecycle uncertainty: seats pass through multiple operators, making ownership and end-of-life responsibility unclear',
+          'Labour-intensive servicing: MRO dependency creates bottlenecks between ground handling and maintenance scheduling',
+          'Material separation barriers: mixed-material assemblies make high-purity recovery difficult at scale',
+        ],
+      },
+      {
+        title: 'Design Opportunity',
+        text: 'Benchmarking revealed that existing modularity is often manufacturing-driven rather than maintenance-driven.',
+        bullets: [
+          'Operational modularity: design for tool-free replacement and rapid servicing',
+          'Gate-level maintenance: reduce dependency on specialist MRO facilities',
+          'Circular recovery: enable cleaner material loops through mono-material design and reversible construction',
+        ],
+      },
+      {
+        title: 'Final System Design',
+        text: 'The final concept is a modular aircraft seat system designed for every stage of its life.',
+        bullets: [
+          'Modular PET soft layer: a three-layer reversible cushion system using 100% PET for easier closed-loop recovery',
+          'Quick-release interface: a push-button rail mechanism enabling sub-60-second replacement without tools',
+          'Accessory modularity: tray table, IFE and power modules attach through a shared interface for route-based cabin configuration',
+        ],
+      },
+      {
+        title: 'Validation & Impact',
+        text: 'The proposal was evaluated through circularity, lifecycle and structural performance lenses.',
+        bullets: [
+          'Primary Structure MCI: 0.77',
+          'Soft Layer System MCI: 0.63',
+          'Lifecycle eco-audit compared against equivalent conventional seating',
+          'Structural logic referenced EASA CS-25 and FAA 16g dynamic loading requirements, with modular interface fatigue tested across 3,000 simulated replacement cycles',
+        ],
+      },
+      {
+        title: 'Reflection',
+        text: 'The most important design decisions were structural and systemic rather than formal: choosing mono-material construction, defining the interface standard and mapping stakeholder flows shaped what the final seat could become.',
+      },
+    ],
+    sectionsZh: [
+      {
+        title: '项目概览',
+        text: '这是一个面向短途航空的循环经济客舱座椅系统。项目关注的不只是乘坐舒适度，也包括飞机周转、维护效率和材料回收。',
+        bullets: [
+          '设计目标：在提升材料循环性的同时减少飞机停场时间',
+          '系统对象：经济舱座椅、地勤维护团队、航空公司与回收合作方',
+          '核心想法：座椅不只是一个产品，而是循环服务系统中的一个节点',
+        ],
+      },
+      {
+        title: '设计挑战',
+        text: '经济舱航空系统并不是为“结束”和“回收”而设计的。',
+        bullets: [
+          '非循环材料：胶合与混合材料结构阻碍高价值材料回收',
+          '维护缓慢：依赖工具和专业维护流程会增加停机时间与人力成本',
+          '灵活性有限：传统座椅系统限制客舱布局调整和组件更新',
+        ],
+      },
+      {
+        title: '系统思维',
+        text: '项目并没有只重新设计一把座椅，而是先梳理维护、物流和材料回收如何共同影响循环航空系统。',
+        bullets: [
+          '生命周期责任不清：座椅会经过多个运营方，所有权与报废责任难以界定',
+          '维护流程依赖人力：MRO 依赖会在地勤能力和维护排期之间形成瓶颈',
+          '材料分离困难：混合材料结构让大规模高纯度回收变得低效',
+        ],
+      },
+      {
+        title: '设计机会',
+        text: '竞品研究显示，现有模块化更多是为了制造装配，而不是为了维护、更换和回收。',
+        bullets: [
+          '运营模块化：为免工具快速更换和快速维护而设计',
+          '登机口级维护：减少对专业 MRO 设施的依赖',
+          '循环回收：通过单一材料策略和可逆连接实现更干净的材料循环',
+        ],
+      },
+      {
+        title: '最终系统设计',
+        text: '最终概念是一套面向完整生命周期的模块化飞机座椅系统。',
+        bullets: [
+          '模块化 PET 软层：三层可逆坐垫系统，使用 100% PET，方便闭环回收',
+          '快速释放接口：按压式导轨结构，无需工具即可在 60 秒内完成更换',
+          '配件模块化：小桌板、IFE 和电源模块使用共享接口，支持不同航线配置',
+        ],
+      },
+      {
+        title: '验证与影响',
+        text: '方案从循环性、生命周期和结构性能三个角度进行评估。',
+        bullets: [
+          '主结构 MCI：0.77',
+          '软层系统 MCI：0.63',
+          '通过生命周期 eco-audit 与同规格传统座椅进行对比',
+          '结构逻辑参考 EASA CS-25 与 FAA 16g 动态载荷要求，模块接口经过 3,000 次模拟更换疲劳测试',
+        ],
+      },
+      {
+        title: 'Reflection',
+        text: '这个项目里最关键的设计决定不是外观，而是结构与系统：单一材料选择、接口标准定义、利益相关者流程映射，共同决定了最终座椅系统的可能性。',
+      },
+    ],
+    bulletsEn: [],
+    bulletsZh: [],
+    tech: ['Fusion 360', 'Flowmapper', 'LCA', 'Systems Thinking', 'Circular Design'],
+  },

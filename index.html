@@ -944,6 +944,424 @@
     background: #e0ddd8;
   }
 
+  .case-contain-grid img {
+    object-fit: contain;
+    background: #f7f5f1;
+    padding: 0.5rem;
+  }
+
+  .case-visual {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #f5f3ef;
+  }
+
+  .case-visual img {
+    width: 100%;
+    display: block;
+  }
+
+  .case-visual video {
+    width: 100%;
+    display: block;
+    background: #111;
+  }
+
+  .case-visual-caption {
+    padding: 0.75rem 0.9rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .case-image-stack {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .case-hero {
+    position: relative;
+    min-height: 520px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #dfe6ea;
+    border: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  .case-hero-main {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .case-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10,14,18,0.7), rgba(10,14,18,0.25) 48%, rgba(10,14,18,0.05));
+  }
+
+  .case-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 420px;
+    padding: 2rem;
+    color: #fff;
+  }
+
+  .case-hero-kicker {
+    display: block;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 0.75rem;
+  }
+
+  .case-hero-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.05;
+    margin-bottom: 0.85rem;
+  }
+
+  .case-hero-copy {
+    display: block;
+    color: rgba(255,255,255,0.82);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .case-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+
+  .case-hero-tags span {
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    padding: 0.35rem 0.7rem;
+    color: rgba(255,255,255,0.86);
+    font-size: 0.72rem;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .case-hero-thumbs {
+    position: absolute;
+    z-index: 2;
+    right: 1.4rem;
+    bottom: 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(130px, 180px));
+    gap: 0.75rem;
+  }
+
+  .case-hero-thumb {
+    background: rgba(247,244,239,0.92);
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+  }
+
+  .case-hero-thumb img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .case-hero-thumb span {
+    display: block;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.72rem;
+    color: #444;
+  }
+
+  .case-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .case-card-grid.two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-card {
+    background: #f7f5f1;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+
+  .case-card-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    margin-bottom: 0.45rem;
+    font-weight: 500;
+  }
+
+  .case-card-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .case-card p {
+    color: #555;
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .case-metric {
+    background: #f7f5f1;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+
+  .case-metric-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .case-metric-label {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  .case-hmw {
+    margin-top: 1rem;
+    padding: 2.2rem;
+    border-radius: 18px;
+    background: #1c1b18;
+    color: #f7f4ef;
+    text-align: center;
+  }
+
+  .case-hmw-label {
+    display: block;
+    color: rgba(247,244,239,0.62);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .case-hmw-question {
+    display: block;
+    max-width: 720px;
+    margin: 0 auto;
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 3vw, 2.25rem);
+    font-style: italic;
+    line-height: 1.35;
+  }
+
+  .case-split {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 1rem;
+    align-items: stretch;
+    margin-top: 1rem;
+  }
+
+  .case-placeholder {
+    min-height: 280px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #262620, #151512);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(247,244,239,0.48);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+  }
+
+  .case-note-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .case-note {
+    background: #f7f5f1;
+    border-left: 3px solid #8a9b82;
+    border-radius: var(--radius);
+    padding: 0.9rem 1rem;
+  }
+
+  .case-note strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  .case-note span {
+    display: block;
+    color: #666;
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .case-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    overflow: hidden;
+    border-radius: var(--radius);
+    font-size: 0.82rem;
+  }
+
+  .case-table th,
+  .case-table td {
+    border: 1px solid var(--border);
+    padding: 0.85rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .case-table th {
+    background: #edeae4;
+    color: #444;
+    font-weight: 500;
+  }
+
+  .case-table td {
+    background: #f7f5f1;
+    color: #555;
+    line-height: 1.55;
+  }
+
+  .case-analysis-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .case-analysis-panel {
+    background: #f7f5f1;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+
+  .case-panel-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+  }
+
+  .case-donut-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .case-donut {
+    --value: 70;
+    width: 132px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin: 0 auto 0.8rem;
+    display: grid;
+    place-items: center;
+    background: conic-gradient(#7f9478 calc(var(--value) * 1%), #e4e0da 0);
+    position: relative;
+  }
+
+  .case-donut::after {
+    content: '';
+    width: 82px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #f7f5f1;
+    position: absolute;
+  }
+
+  .case-donut span {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .case-donut-label {
+    text-align: center;
+    color: #666;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .case-bar-list {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .case-bar-item strong {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.82rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .case-bar-track {
+    height: 0.55rem;
+    border-radius: 999px;
+    background: #e4e0da;
+    overflow: hidden;
+  }
+
+  .case-bar-fill {
+    height: 100%;
+    width: var(--width);
+    border-radius: inherit;
+    background: #7f9478;
+  }
+
+  .case-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
   .drawer-figma-embed {
     width: 100%;
     aspect-ratio: 9 / 12;
@@ -1674,6 +2092,29 @@
       top: 0.9rem;
       right: 0.9rem;
     }
+    .case-card-grid,
+    .case-metrics,
+    .case-split {
+      grid-template-columns: 1fr;
+    }
+    .case-card-grid[style] {
+      grid-template-columns: 1fr !important;
+    }
+    .case-hero {
+      min-height: 680px;
+    }
+    .case-hero::after {
+      background: linear-gradient(180deg, rgba(10,14,18,0.78), rgba(10,14,18,0.22));
+    }
+    .case-hero-content {
+      padding: 1.35rem;
+    }
+    .case-hero-thumbs {
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      grid-template-columns: 1fr;
+    }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -1760,7 +2201,7 @@
           <span data-lang="zh">下载简历 ▾</span>
         </button>
         <div class="cv-dropdown" id="cv-dropdown">
-          <a href="irene-cv-en.pdf" download>
+          <a href="Irene CV.pdf" download>
             <span>📄</span> English CV
           </a>
           <a href="赵婧伊简历.pdf" download>
@@ -2006,7 +2447,7 @@
       <!-- Card 4: Circular Economy -->
       <div class="exp-card fade-in" data-type="project" data-id="circular" id="card-circular" onclick="openDrawer('circular')">
         <div class="exp-card-img">
-          <div class="exp-card-placeholder">✈️</div>
+          <img src="circular-final-render.png" alt="Circular Economy Aircraft Seat" />
         </div>
         <div class="exp-card-body">
           <span class="exp-card-tag tag-project">
@@ -2047,24 +2488,46 @@
         <div class="exp-card-arrow">↗</div>
       </div>
 
-      <!-- Card 6: Placeholder -->
-      <div class="exp-card fade-in" data-type="project" data-id="tbd" id="card-tbd" onclick="openDrawer('tbd')">
+      <!-- Card 6: EV Hatchback CFD -->
+      <div class="exp-card fade-in" data-type="project" data-id="evcfd" id="card-evcfd" onclick="openDrawer('evcfd')">
         <div class="exp-card-img">
-          <div class="exp-card-placeholder">✦</div>
+          <img src="ev-cfd-hero.png" alt="EV Hatchback CFD and battery cooling study" />
         </div>
         <div class="exp-card-body">
           <span class="exp-card-tag tag-project">
             <span data-lang="en">Project</span><span data-lang="zh">项目</span>
           </span>
           <div class="exp-card-title">
-            <span data-lang="en">Coming Soon</span>
-            <span data-lang="zh">即将更新</span>
+            <span data-lang="en">EV Hatchback CFD Study</span>
+            <span data-lang="zh">EV 掀背车 CFD 分析</span>
           </div>
           <div class="exp-card-sub">
-            <span data-lang="en">New project in progress...</span>
-            <span data-lang="zh">新项目进行中...</span>
+            <span data-lang="en">Aerodynamics · Battery Cooling</span>
+            <span data-lang="zh">空气动力学 · 电池冷却</span>
           </div>
-          <div class="exp-card-date">2026</div>
+          <div class="exp-card-date">2025</div>
+        </div>
+        <div class="exp-card-arrow">↗</div>
+      </div>
+
+      <!-- Card 7: Gizmo Physical Computing -->
+      <div class="exp-card fade-in" data-type="project" data-id="gizmo" id="card-gizmo" onclick="openDrawer('gizmo')">
+        <div class="exp-card-img">
+          <img src="gizmo-hero-page.png" alt="DreamCore House physical computing project profile" />
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-card-tag tag-project">
+            <span data-lang="en">Project</span><span data-lang="zh">项目</span>
+          </span>
+          <div class="exp-card-title">
+            <span data-lang="en">DreamCore House</span>
+            <span data-lang="zh">DreamCore House</span>
+          </div>
+          <div class="exp-card-sub">
+            <span data-lang="en">Physical Computing · Interactive Prototype</span>
+            <span data-lang="zh">实体计算 · 交互原型</span>
+          </div>
+          <div class="exp-card-date">2025</div>
         </div>
         <div class="exp-card-arrow">↗</div>
       </div>
@@ -2538,24 +3001,400 @@ const drawerData = {
     type: 'project',
     titleEn: 'Circular Economy Aircraft Seat',
     titleZh: '循环经济航空座椅系统',
-    roleEn: 'Systems Design · Sustainability',
-    roleZh: '系统设计 · 可持续',
+    roleEn: 'Circular Cabin System · Design Engineering',
+    roleZh: '循环客舱系统 · 设计工程',
     date: '2025.10 – 2026.1',
-    media: null,
-    descEn: 'Designed a modular aircraft seat system for short-haul aviation scenarios, improving circularity, maintenance efficiency and material recovery.',
-    descZh: '面向短途航空场景设计模块化飞机座椅系统，提升循环性、维护效率与材料回收能力。',
-    bulletsEn: [
-      'Designed modular aircraft seat system improving circularity, maintenance and material recovery',
-      'Used Flowmapper and stakeholder systems analysis to map material flows, maintenance and reverse logistics',
-      'Developed replaceable soft layers and structural components for rapid repair, replacement and disassembly',
-      'Evaluated circular economy feasibility using MCI, LCA, single-material strategy and competitive research',
+    media: 'none',
+    descEn: 'Reimagining economy-class seating through modularity, rapid maintenance and circular material recovery.',
+    descZh: '通过模块化、快速维护与材料循环回收，重新思考经济舱座椅系统。',
+    sectionsEn: [
+      {
+        title: 'Project Hero',
+        text: 'A concise visual overview of the final cabin context and the two technical systems behind it.',
+        html: `
+          <div class="case-hero">
+            <img class="case-hero-main" src="circular-final-render.png" alt="Circular cabin system hero render" />
+            <div class="case-hero-content">
+              <span class="case-hero-kicker">Circular Cabin System</span>
+              <span class="case-hero-title">A serviceable seat system for circular short-haul aviation.</span>
+              <span class="case-hero-copy">Reimagining economy-class seating through modularity, rapid maintenance and circular material recovery.</span>
+              <div class="case-hero-tags">
+                <span>Tool-free servicing</span>
+                <span>Modular PET soft layer</span>
+                <span>Circular recovery</span>
+              </div>
+            </div>
+            <div class="case-hero-thumbs">
+              <div class="case-hero-thumb">
+                <img src="circular-primary-system.png" alt="Primary structural system" />
+                <span>Primary structural system</span>
+              </div>
+              <div class="case-hero-thumb">
+                <img src="circular-secondary-system.png" alt="Secondary soft-layer system" />
+                <span>Secondary soft-layer system</span>
+              </div>
+            </div>
+          </div>
+        `,
+      },
+      {
+        title: '1. Challenge',
+        text: 'From the report research, three recurring problems shaped the design brief: material circularity, maintenance speed and cabin flexibility.',
+        html: `
+          <div class="case-card-grid">
+            <div class="case-card">
+              <div class="case-card-label">01</div>
+              <div class="case-card-title">Non-circular materials</div>
+              <p>Bonded and mixed constructions prevent material recovery at end-of-life, sending components to landfill.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">02</div>
+              <div class="case-card-title">Slow maintenance</div>
+              <p>Tool-dependent servicing increases aircraft downtime and labour cost, making short-haul turnaround less efficient.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">03</div>
+              <div class="case-card-title">Limited flexibility</div>
+              <p>Conventional seating systems restrict reconfiguration, preventing airlines from adapting cabin density or route needs.</p>
+            </div>
+          </div>
+          <div class="case-hmw">
+            <span class="case-hmw-label">How Might We</span>
+            <span class="case-hmw-question">How might we create an economy-class seating system optimised for short-haul turnover, circularity and rapid maintenance?</span>
+          </div>
+        `,
+      },
+      {
+        title: '2. System Thinking',
+        text: 'I mapped the seat as part of a wider circular ecosystem, where airlines, OEMs, MRO teams, logistics partners, regulators, passengers and recyclers all shape what is possible.',
+        html: `
+          <div class="case-image-stack">
+            <div class="case-visual">
+              <img src="circular-flowmapper.png" alt="Circular cabin system flowmapper" />
+              <div class="case-visual-caption">Flowmapper showing lifecycle stages, friction points and recovery loops around the aircraft seat system.</div>
+            </div>
+            <div class="case-visual">
+              <img src="circular-stakeholder-system.png" alt="Stakeholder ecosystem for circular cabin system" />
+              <div class="case-visual-caption">Stakeholder ecosystem connecting original aviation actors with system-enabled recycling, retrofit, logistics and data feedback loops.</div>
+            </div>
+            <div class="case-note-list">
+              <div class="case-note"><strong>Lifecycle uncertainty</strong><span>Ownership and end-of-life responsibility become unclear when seats move across operators.</span></div>
+              <div class="case-note"><strong>Maintenance bottlenecks</strong><span>MRO dependency creates delays between ground handling and repair scheduling.</span></div>
+              <div class="case-note"><strong>Material separation barriers</strong><span>Mixed-material assemblies make high-purity recovery difficult at scale.</span></div>
+            </div>
+          </div>
+        `,
+      },
+      {
+        title: '3. Benchmark',
+        text: 'Benchmarking revealed a gap between manufacturing logic and maintenance reality: most solutions optimise assembly, but not recovery or rapid servicing.',
+        html: `
+          <div class="case-card-grid">
+            <div class="case-card">
+              <div class="case-card-label">Benchmark</div>
+              <div class="case-card-title">RECARO</div>
+              <p>Strong modular shell architecture, but the logic is mainly assembly-driven rather than maintenance-driven.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">Benchmark</div>
+              <div class="case-card-title">Lufthansa Technik</div>
+              <p>Full MRO capability, but tool-heavy processes create high lead times for replacement workflows.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">Benchmark</div>
+              <div class="case-card-title">Airbus Cabin Vision</div>
+              <p>Flexible cabin-level thinking, but limited focus on seat-level circularity and material recovery.</p>
+            </div>
+          </div>
+          <div class="case-hmw" style="background:#e6eee4;color:#465842;text-align:left;">
+            <span class="case-hmw-question" style="font-size:1.35rem;max-width:none;">Existing modularity is manufacturing-driven rather than maintenance-driven — optimised for assembly, not for recovery or rapid servicing.</span>
+          </div>
+        `,
+      },
+      {
+        title: '4. Opportunity',
+        text: 'The opportunity was to move from a seat object to a serviceable circular system.',
+        html: `
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Opportunity</div><div class="case-card-title">Tool-free servicing</div><p>Enable ground crew to replace components quickly without specialist tools.</p></div>
+            <div class="case-card"><div class="case-card-label">Opportunity</div><div class="case-card-title">Modular architecture</div><p>Use standardised interfaces so components can be exchanged across fleet variants.</p></div>
+            <div class="case-card"><div class="case-card-label">Opportunity</div><div class="case-card-title">Mono-material recovery</div><p>Use cleaner material loops so recovery does not depend on complex separation.</p></div>
+          </div>
+        `,
+      },
+      {
+        title: '5. Final Design: Hard + Soft System',
+        text: 'The final design is split into a hard structural system and a soft material system, so maintenance and recovery can be addressed at different product layers.',
+        html: `
+          <div class="case-image-stack">
+            <div class="case-visual">
+              <img src="circular-primary-system.png" alt="Primary structural system design" />
+              <div class="case-visual-caption">Hard system: primary aluminium frame, rail module, locking fastener, release button and tool-free structural interface.</div>
+            </div>
+            <div class="case-visual">
+              <img src="circular-secondary-system.png" alt="Secondary soft-layer system and accessories" />
+              <div class="case-visual-caption">Soft system: modular PET cushion layers, removable seat/backrest modules and accessory interfaces for service-oriented replacement.</div>
+            </div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Principle</div><div class="case-card-title">Rapid replacement</div><p>Sub-60-second component replacement supports short-haul turnaround.</p></div>
+            <div class="case-card"><div class="case-card-label">Principle</div><div class="case-card-title">Cross-fleet compatibility</div><p>Standard interfaces reduce spare-part complexity across routes and fleets.</p></div>
+            <div class="case-card"><div class="case-card-label">Principle</div><div class="case-card-title">PET circular strategy</div><p>100% PET soft-layer construction supports cleaner closed-loop recovery.</p></div>
+          </div>
+        `,
+      },
+      {
+        title: '6. MCI Analysis',
+        text: 'The system was evaluated through circularity, replacement efficiency, lifecycle impact and structural validation.',
+        html: `
+          <div class="case-analysis-grid">
+            <div class="case-analysis-panel">
+              <div class="case-panel-label">Material Circularity Index</div>
+              <div class="case-donut-row">
+                <div>
+                  <div class="case-donut" style="--value:77"><span>0.77</span></div>
+                  <div class="case-donut-label">Primary Structure</div>
+                </div>
+                <div>
+                  <div class="case-donut" style="--value:63"><span>0.63</span></div>
+                  <div class="case-donut-label">Soft Layer System</div>
+                </div>
+              </div>
+              <div class="case-stat-grid">
+                <div class="case-metric"><span class="case-metric-value">&lt;60s</span><span class="case-metric-label">Replacement time</span></div>
+                <div class="case-metric"><span class="case-metric-value">0</span><span class="case-metric-label">Tools required</span></div>
+                <div class="case-metric"><span class="case-metric-value">16g</span><span class="case-metric-label">Load rating</span></div>
+              </div>
+            </div>
+            <div class="case-analysis-panel">
+              <div class="case-panel-label">Lifecycle Eco-audit</div>
+              <div class="case-bar-list">
+                <div class="case-bar-item"><strong><span>Conventional seat</span><span>100%</span></strong><div class="case-bar-track"><div class="case-bar-fill" style="--width:100%;background:#d5c6bb;"></div></div></div>
+                <div class="case-bar-item"><strong><span>Circular Cabin System</span><span>-33%</span></strong><div class="case-bar-track"><div class="case-bar-fill" style="--width:67%;"></div></div></div>
+                <div class="case-bar-item"><strong><span>Material recovery</span><span>+84%</span></strong><div class="case-bar-track"><div class="case-bar-fill" style="--width:84%;"></div></div></div>
+                <div class="case-note" style="margin-top:0.4rem;"><strong>Structural validation</strong><span>Seat structure referenced EASA CS-25 and FAA 16g dynamic loading requirements. Modular interface fatigue tested across 3,000 simulated replacement cycles.</span></div>
+              </div>
+            </div>
+          </div>
+        `,
+      },
+      {
+        title: '7. Conclusion / Future Opportunities',
+        text: 'The final render shows the proposed seat system in a cabin context. Rather than ending as a single product, the concept points toward a service model for circular cabin maintenance.',
+        html: `
+          <div class="case-visual">
+            <img src="circular-final-render.png" alt="Final cabin render of circular aircraft seat system" />
+            <div class="case-visual-caption">Final cabin render showing the modular seat system in an economy-class aircraft environment.</div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card">
+              <div class="case-card-label">Conclusion</div>
+              <div class="case-card-title">The seat is the entry point</div>
+              <p>The project reframes an aircraft seat as part of a larger circular service ecosystem across maintenance, logistics and material recovery.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">Future</div>
+              <div class="case-card-title">Digital tracking layer</div>
+              <p>A future version could integrate asset tracking to record component use, cleaning, repair history and carbon performance.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">Next step</div>
+              <div class="case-card-title">Prototype validation</div>
+              <p>The next phase would test the quick-release interface, cushion removal workflow and user comfort through physical prototyping.</p>
+            </div>
+          </div>
+        `,
+      },
     ],
-    bulletsZh: [
-      '面向短途航空场景设计模块化飞机座椅系统，提升循环型、维护效率与材料回收能力',
-      '运用Flowmapper与利益相关者系统分析，对材料流、维护流程及逆向物流进行系统映射',
-      '开发可替换软层与结构组件，实现快速维修、更换、拆解与回收流程',
-      '结合单一材料策略、生命周期分析、竞品研究与MCI评估循环经济方案可行性',
+    sectionsZh: [
+      {
+        title: 'Project Hero',
+        text: '用一张最终客舱渲染图和两张技术系统图，先概括这个项目的最终效果与核心设计逻辑。',
+        html: `
+          <div class="case-hero">
+            <img class="case-hero-main" src="circular-final-render.png" alt="循环客舱系统 hero render" />
+            <div class="case-hero-content">
+              <span class="case-hero-kicker">Circular Cabin System</span>
+              <span class="case-hero-title">A serviceable seat system for circular short-haul aviation.</span>
+              <span class="case-hero-copy">通过模块化、快速维护与材料循环回收，重新思考经济舱座椅系统。</span>
+              <div class="case-hero-tags">
+                <span>免工具维护</span>
+                <span>模块化 PET 软层</span>
+                <span>循环回收</span>
+              </div>
+            </div>
+            <div class="case-hero-thumbs">
+              <div class="case-hero-thumb">
+                <img src="circular-primary-system.png" alt="Primary structural system" />
+                <span>Primary structural system</span>
+              </div>
+              <div class="case-hero-thumb">
+                <img src="circular-secondary-system.png" alt="Secondary soft-layer system" />
+                <span>Secondary soft-layer system</span>
+              </div>
+            </div>
+          </div>
+        `,
+      },
+      {
+        title: '1. Challenge',
+        text: '根据 report 里的研究，这个项目的核心问题集中在三个方向：材料循环性、维护速度和客舱灵活性。',
+        html: `
+          <div class="case-card-grid">
+            <div class="case-card">
+              <div class="case-card-label">01</div>
+              <div class="case-card-title">非循环材料</div>
+              <p>胶合和混合材料结构阻碍报废阶段的材料回收，导致组件更容易进入 landfill。</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">02</div>
+              <div class="case-card-title">维护缓慢</div>
+              <p>依赖工具的维护流程会增加飞机停场时间和人力成本，影响短途航空的周转效率。</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">03</div>
+              <div class="case-card-title">灵活性有限</div>
+              <p>传统座椅系统限制客舱重新配置，使航空公司难以根据航线需求调整舱内密度或配置。</p>
+            </div>
+          </div>
+          <div class="case-hmw">
+            <span class="case-hmw-label">How Might We</span>
+            <span class="case-hmw-question">How might we create an economy-class seating system optimised for short-haul turnover, circularity and rapid maintenance?</span>
+          </div>
+        `,
+      },
+      {
+        title: '2. System Thinking',
+        text: '我把座椅放进更大的循环系统里理解：航空公司、OEM、MRO、物流、监管方、乘客和回收方都会影响方案是否可行。',
+        html: `
+          <div class="case-image-stack">
+            <div class="case-visual">
+              <img src="circular-flowmapper.png" alt="循环客舱系统 Flowmapper" />
+              <div class="case-visual-caption">Flowmapper 展示飞机座椅系统的生命周期阶段、摩擦点和回收循环。</div>
+            </div>
+            <div class="case-visual">
+              <img src="circular-stakeholder-system.png" alt="循环客舱系统 stakeholder map" />
+              <div class="case-visual-caption">Stakeholder ecosystem 将原有航空角色与回收、改装、物流和数据反馈循环连接起来。</div>
+            </div>
+            <div class="case-note-list">
+              <div class="case-note"><strong>生命周期责任不清</strong><span>座椅经过多个运营方后，所有权和报废责任会变得模糊。</span></div>
+              <div class="case-note"><strong>维护瓶颈</strong><span>MRO 依赖会在地勤处理能力和维修排期之间形成延迟。</span></div>
+              <div class="case-note"><strong>材料分离困难</strong><span>混合材料结构让大规模高纯度回收变得困难。</span></div>
+            </div>
+          </div>
+        `,
+      },
+      {
+        title: '3. Benchmark',
+        text: 'Benchmark 显示，很多现有模块化方案更偏向制造装配逻辑，而不是维护、更换和回收逻辑。',
+        html: `
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Benchmark</div><div class="case-card-title">RECARO</div><p>模块化外壳架构成熟，但逻辑更偏向 assembly-driven，而不是 maintenance-driven。</p></div>
+            <div class="case-card"><div class="case-card-label">Benchmark</div><div class="case-card-title">Lufthansa Technik</div><p>MRO 能力完整，但流程偏重工具和专业维护，替换周期较长。</p></div>
+            <div class="case-card"><div class="case-card-label">Benchmark</div><div class="case-card-title">Airbus Cabin Vision</div><p>客舱层面的灵活性强，但对座椅层级的循环性和材料回收关注有限。</p></div>
+          </div>
+          <div class="case-hmw" style="background:#e6eee4;color:#465842;text-align:left;">
+            <span class="case-hmw-question" style="font-size:1.35rem;max-width:none;">Existing modularity is manufacturing-driven rather than maintenance-driven — optimised for assembly, not for recovery or rapid servicing.</span>
+          </div>
+        `,
+      },
+      {
+        title: '4. Opportunity',
+        text: '设计机会是把座椅从单个物件转变成一个可维护、可更换、可回收的循环系统。',
+        html: `
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Opportunity</div><div class="case-card-title">免工具维护</div><p>让地勤人员不依赖专业工具也能快速更换组件。</p></div>
+            <div class="case-card"><div class="case-card-label">Opportunity</div><div class="case-card-title">模块化架构</div><p>通过标准接口，让组件可以在不同机队和航线配置中交换。</p></div>
+            <div class="case-card"><div class="case-card-label">Opportunity</div><div class="case-card-title">单一材料回收</div><p>通过更清晰的材料策略，减少复杂分离对回收的影响。</p></div>
+          </div>
+        `,
+      },
+      {
+        title: '5. Final Design: Hard + Soft System',
+        text: '最终设计分为 hard structural system 和 soft material system，让维护与回收分别在不同产品层级被解决。',
+        html: `
+          <div class="case-image-stack">
+            <div class="case-visual">
+              <img src="circular-primary-system.png" alt="Primary structural system design" />
+              <div class="case-visual-caption">Hard system：主铝框架、导轨模块、锁定结构、释放按钮和免工具结构接口。</div>
+            </div>
+            <div class="case-visual">
+              <img src="circular-secondary-system.png" alt="Secondary soft-layer system and accessories" />
+              <div class="case-visual-caption">Soft system：模块化 PET 坐垫层、可拆卸座椅 / 靠背模块，以及面向服务更换的配件接口。</div>
+            </div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Principle</div><div class="case-card-title">快速更换</div><p>60 秒内组件替换，支持短途航班快速周转。</p></div>
+            <div class="case-card"><div class="case-card-label">Principle</div><div class="case-card-title">跨机队兼容</div><p>标准接口减少不同航线和机队之间的备件复杂度。</p></div>
+            <div class="case-card"><div class="case-card-label">Principle</div><div class="case-card-title">PET 循环策略</div><p>100% PET 软层结构支持更清晰的闭环回收。</p></div>
+          </div>
+        `,
+      },
+      {
+        title: '6. MCI Analysis',
+        text: '最后用表格展示 circularity、替换效率、生命周期影响和结构验证结果。',
+        html: `
+          <div class="case-analysis-grid">
+            <div class="case-analysis-panel">
+              <div class="case-panel-label">Material Circularity Index</div>
+              <div class="case-donut-row">
+                <div>
+                  <div class="case-donut" style="--value:77"><span>0.77</span></div>
+                  <div class="case-donut-label">主结构</div>
+                </div>
+                <div>
+                  <div class="case-donut" style="--value:63"><span>0.63</span></div>
+                  <div class="case-donut-label">软层系统</div>
+                </div>
+              </div>
+              <div class="case-stat-grid">
+                <div class="case-metric"><span class="case-metric-value">&lt;60s</span><span class="case-metric-label">替换时间</span></div>
+                <div class="case-metric"><span class="case-metric-value">0</span><span class="case-metric-label">所需工具</span></div>
+                <div class="case-metric"><span class="case-metric-value">16g</span><span class="case-metric-label">载荷要求</span></div>
+              </div>
+            </div>
+            <div class="case-analysis-panel">
+              <div class="case-panel-label">Lifecycle Eco-audit</div>
+              <div class="case-bar-list">
+                <div class="case-bar-item"><strong><span>传统座椅</span><span>100%</span></strong><div class="case-bar-track"><div class="case-bar-fill" style="--width:100%;background:#d5c6bb;"></div></div></div>
+                <div class="case-bar-item"><strong><span>Circular Cabin System</span><span>-33%</span></strong><div class="case-bar-track"><div class="case-bar-fill" style="--width:67%;"></div></div></div>
+                <div class="case-bar-item"><strong><span>材料回收</span><span>+84%</span></strong><div class="case-bar-track"><div class="case-bar-fill" style="--width:84%;"></div></div></div>
+                <div class="case-note" style="margin-top:0.4rem;"><strong>结构验证</strong><span>座椅结构参考 EASA CS-25 与 FAA 16g 动态载荷要求，模块接口经过 3,000 次模拟更换疲劳测试。</span></div>
+              </div>
+            </div>
+          </div>
+        `,
+      },
+      {
+        title: '7. Conclusion / Future Opportunities',
+        text: '这张最终渲染图展示了座椅系统在真实客舱语境里的样子。它不作为 hero，而是作为项目收尾，说明这个设计如何落到使用场景中。',
+        html: `
+          <div class="case-visual">
+            <img src="circular-final-render.png" alt="循环飞机座椅系统最终客舱渲染图" />
+            <div class="case-visual-caption">最终客舱渲染图展示模块化座椅系统在经济舱环境中的落地效果。</div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card">
+              <div class="case-card-label">Conclusion</div>
+              <div class="case-card-title">座椅只是入口</div>
+              <p>这个项目把飞机座椅重新理解为维护、物流和材料回收共同组成的循环服务系统。</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">Future</div>
+              <div class="case-card-title">数字追踪层</div>
+              <p>未来可以加入资产追踪系统，记录组件使用、清洁、维修历史和碳表现。</p>
+            </div>
+            <div class="case-card">
+              <div class="case-card-label">Next step</div>
+              <div class="case-card-title">原型验证</div>
+              <p>下一步可以通过实体原型测试快速释放接口、坐垫拆卸流程和乘坐舒适度。</p>
+            </div>
+          </div>
+        `,
+      },
     ],
+    bulletsEn: [],
+    bulletsZh: [],
     tech: ['Fusion 360', 'Flowmapper', 'LCA', 'Systems Thinking', 'Circular Design'],
   },
   bloom: {
@@ -2582,20 +3421,349 @@ const drawerData = {
     ],
     tech: ['Figma', 'Physical Prototyping', 'User Research', 'Interaction Design', 'Wearable Tech'],
   },
-  tbd: {
+  evcfd: {
     type: 'project',
-    titleEn: 'Coming Soon',
-    titleZh: '即将更新',
-    roleEn: 'New project in progress',
-    roleZh: '新项目进行中',
-    date: '2026',
-    media: null,
-    descEn: 'This project is currently in progress. Check back soon!',
-    descZh: '这个项目正在进行中，敬请期待！',
+    titleEn: 'EV Hatchback CFD Study',
+    titleZh: 'EV 掀背车 CFD 分析',
+    roleEn: 'Vehicle Aerodynamics · Battery Cooling',
+    roleZh: '车辆空气动力学 · 电池冷却',
+    date: '2025',
+    media: 'ev-cfd-hero.png',
+    descEn: 'A simulation-led design engineering project investigating aerodynamic drag reduction for a conceptual EV hatchback and thermal-fluid performance of an EV battery cooling plate.',
+    descZh: '一个以仿真为核心的设计工程项目，研究概念 EV 掀背车的空气阻力优化，以及电池冷却板的热流体性能。',
+    sectionsEn: [
+      {
+        title: 'Project Overview',
+        text: 'The project combines two connected EV performance questions: how vehicle geometry influences aerodynamic drag, and how cooling plate geometry affects battery thermal management.',
+        html: `
+          <div class="case-visual">
+            <img src="ev-cfd-development.png" alt="EV hatchback sketches and CFD velocity contour" />
+            <div class="case-visual-caption">Vehicle sketch development and CFD velocity contour used to study wake behaviour around the hatchback body.</div>
+          </div>
+        `,
+      },
+      {
+        title: 'Part 1 · Vehicle Aerodynamics',
+        text: 'The aerodynamic study focused on reducing rear-end flow separation and pressure drag, both key contributors to energy loss in compact EV body forms.',
+        bullets: [
+          'Refined the vehicle body geometry to improve airflow attachment and overall aerodynamic efficiency',
+          'Conducted CFD simulations and wind tunnel experiments using a 1:17.3 scale model',
+          'Compared simulation behaviour with physical testing to understand numerical and experimental variation',
+        ],
+      },
+      {
+        title: 'Part 2 · Battery Cooling Plate',
+        text: 'The thermal-fluid analysis evaluated an EV battery cooling plate under realistic operating conditions, focusing on flow stability, vortex reduction and heat transfer uniformity.',
+        bullets: [
+          'Developed a rounded-channel cooling plate concept to improve flow stability',
+          'Reduced vortex formation while maintaining a pressure drop of approximately 200 Pa',
+          'Improved heat transfer consistency across the cooling plate for reliable high-power battery operation',
+        ],
+      },
+      {
+        title: 'Engineering Method',
+        text: 'The project combines geometry design, CFD setup, post-processing and physical validation into one engineering workflow.',
+        html: `
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">01</div><div class="case-card-title">Geometry refinement</div><p>Iterated the EV hatchback body and cooling channel geometry around aerodynamic and thermal performance goals.</p></div>
+            <div class="case-card"><div class="case-card-label">02</div><div class="case-card-title">CFD simulation</div><p>Used simulation outputs such as velocity contours, wake behaviour and pressure drop to evaluate performance.</p></div>
+            <div class="case-card"><div class="case-card-label">03</div><div class="case-card-title">Validation mindset</div><p>Compared numerical simulation with wind tunnel testing to understand the gap between model and real behaviour.</p></div>
+          </div>
+        `,
+      },
+      {
+        title: 'Reflection',
+        text: 'This project strengthened my ability to connect design form with engineering performance. The outcome was not only a vehicle concept, but a workflow for using simulation evidence to make better design decisions.',
+      },
+    ],
+    sectionsZh: [
+      {
+        title: '项目概览',
+        text: '这个项目结合了两个与 EV 性能相关的问题：车身几何如何影响空气阻力，以及冷却板几何如何影响电池热管理。',
+        html: `
+          <div class="case-visual">
+            <img src="ev-cfd-development.png" alt="EV 掀背车草图与 CFD 速度云图" />
+            <div class="case-visual-caption">车辆草图发展与 CFD 速度云图，用于分析掀背车车身周围的尾流行为。</div>
+          </div>
+        `,
+      },
+      {
+        title: 'Part 1 · Vehicle Aerodynamics',
+        text: '空气动力学部分关注减少车尾流动分离和压力阻力，这两者都是紧凑型 EV 车身能量损失的重要来源。',
+        bullets: [
+          '优化车身几何，提高气流附着和整体空气动力效率',
+          '使用 1:17.3 比例模型进行 CFD 仿真和风洞实验',
+          '对比仿真结果与物理测试，理解数值模型和真实行为之间的差异',
+        ],
+      },
+      {
+        title: 'Part 2 · Battery Cooling Plate',
+        text: '热流体分析部分评估 EV 电池冷却板在真实工况下的冷却表现，重点关注流动稳定性、涡流减少和换热均匀性。',
+        bullets: [
+          '设计 rounded-channel 冷却板结构来提升流动稳定性',
+          '减少涡流形成，同时保持约 200 Pa 的压力降',
+          '提升冷却板整体换热均匀性，为高功率电池系统提供更可靠的热管理',
+        ],
+      },
+      {
+        title: 'Engineering Method',
+        text: '项目将几何设计、CFD 设置、结果后处理和物理验证串成一个完整工程流程。',
+        html: `
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">01</div><div class="case-card-title">Geometry refinement</div><p>围绕空气动力和热性能目标迭代 EV 掀背车车身与冷却通道几何。</p></div>
+            <div class="case-card"><div class="case-card-label">02</div><div class="case-card-title">CFD simulation</div><p>通过速度云图、尾流行为和压力降等仿真结果评估设计表现。</p></div>
+            <div class="case-card"><div class="case-card-label">03</div><div class="case-card-title">Validation mindset</div><p>对比数值仿真与风洞实验，理解模型预测与真实行为之间的差距。</p></div>
+          </div>
+        `,
+      },
+      {
+        title: 'Reflection',
+        text: '这个项目让我更清楚地把设计形态和工程性能联系起来。最终成果不只是一个车辆概念，而是一套用仿真证据支持设计决策的工作流程。',
+      },
+    ],
     bulletsEn: [],
     bulletsZh: [],
-    tech: [],
+    tech: ['ANSYS', 'CFD', 'Thermal Analysis', 'Wind Tunnel Testing', 'Vehicle Aerodynamics'],
   },
+  gizmo: {
+    type: 'project',
+    titleEn: 'DreamCore House',
+    titleZh: 'DreamCore House',
+    roleEn: 'Physical Computing · Interactive Prototype',
+    roleZh: '实体计算 · 交互原型',
+    date: '2025',
+    media: 'gizmo-hero-page.png',
+    descEn: 'A physical computing project exploring how narrative, movement, sound and electronics can create an interactive miniature environment.',
+    descZh: '一个实体计算项目，探索叙事、机械运动、声音与电子控制如何共同构建一个可交互的微型场景。',
+    sectionsEn: [
+      {
+        title: 'Project Overview',
+        text: 'DreamCore House is an interactive physical prototype built as a small stage-like environment. The device behaves like a shy creature: it dances when alone, freezes when someone opens the door, and responds to a musical password.',
+      },
+      {
+        title: 'Project Film',
+        text: 'A short overview of the concept, interaction flow, mechanism and final prototype, showing how the idea develops from narrative to physical interaction.',
+        html: `
+          <div class="case-visual">
+            <video src="gizmo-project-film.mp4" controls playsinline preload="metadata"></video>
+            <div class="case-visual-caption">Project film: concept, interaction sequence, mechanism development and final prototype behaviour.</div>
+          </div>
+        `,
+      },
+      {
+        title: 'Mechanism Inspiration',
+        text: 'The internal movement system was inspired by traditional carousel mechanisms and profile camshaft systems: continuous rotation is translated into rhythmic vertical motion.',
+        html: `
+          <div class="drawer-image-grid case-contain-grid">
+            <img src="gizmo-inspiration1.png" alt="Carousel mechanism inspiration" />
+            <img src="gizmo-inspiration2.png" alt="Camshaft mechanism inspiration" />
+          </div>
+          <div class="case-visual-caption">Mechanism inspiration: carousel motion and camshaft systems informed how continuous rotation could become rhythmic character movement.</div>
+        `,
+      },
+      {
+        title: 'Interaction Flow',
+        text: 'The interaction was designed as a small behavioural loop: the hidden room dances, freezes when discovered, asks for a musical password, and either unlocks a celebration mode or resets after an incorrect attempt.',
+        html: `
+          <div class="case-visual">
+            <img src="gizmo-interaction.png" alt="DreamCore House interaction flow" />
+            <div class="case-visual-caption">Ideation and interaction flow showing door opening, password entry, correct / wrong responses, reset logic and audio feedback.</div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Idle state</div><div class="case-card-title">Secret dance</div><p>The characters move when no one is watching, creating the feeling of a hidden world.</p></div>
+            <div class="case-card"><div class="case-card-label">Input state</div><div class="case-card-title">Musical password</div><p>The user enters a melody through note buttons, turning sound into an access mechanism.</p></div>
+            <div class="case-card"><div class="case-card-label">Feedback state</div><div class="case-card-title">Unlock or reset</div><p>Correct input triggers celebration; wrong input plays an error prompt and returns the device to its initial loop.</p></div>
+          </div>
+        `,
+      },
+      {
+        title: 'Designed Mechanism',
+        text: 'The final mechanical design uses a gear motor, spur-gear transmission, follower shafts, bevel gears and profile camshafts to synchronise multiple character movements inside a compact enclosure.',
+        html: `
+          <div class="case-visual">
+            <img src="gizmo-mechanism.png" alt="DreamCore House mechanical system design" />
+            <div class="case-visual-caption">Designed mechanism: gear train, idler gears, follower shafts, profile camshafts and bevel gears arranged inside the miniature house.</div>
+          </div>
+          <div class="case-visual">
+            <img src="gizmo-motion-mechanism.png" alt="DreamCore House motion mechanism logic" />
+            <div class="case-visual-caption">Motion mechanism: motor power is distributed through a spur gear train, idler gears, follower shafts and profile camshafts to create rotating and up-down toy movement.</div>
+          </div>
+        `,
+      },
+      {
+        title: 'Circuit System',
+        text: 'The electronic system is built around the Bela platform, integrating note buttons, a confirmation button, lever switch, H-Bridge motor driver, low-voltage gear motor and external speaker.',
+        html: `
+          <div class="case-visual">
+            <img src="gizmo-circuit.png" alt="DreamCore House circuit diagram" />
+            <div class="case-visual-caption">Circuit diagram showing the Bela board, note buttons, confirmation button, lever switch, H-Bridge driver, gear motor, power supply and external speaker.</div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Input module</div><div class="case-card-title">Buttons + lever switch</div><p>Seven note-input buttons connect to Bela pins, with a confirmation button and lever switch used to detect door / mode state changes.</p></div>
+            <div class="case-card"><div class="case-card-label">Output module</div><div class="case-card-title">Motor drive + speaker</div><p>An H-Bridge controls the 3.7V gear motor direction, while an external speaker provides musical cues and feedback sounds.</p></div>
+            <div class="case-card"><div class="case-card-label">Power module</div><div class="case-card-title">Separated low-voltage supply</div><p>A dedicated power supply supports the motor system, reducing electrical noise and keeping the control logic stable.</p></div>
+          </div>
+          <div class="case-note" style="margin-top:1rem;"><strong>System structure summary</strong><span>Left: button input array and lever switch. Center: Bela as the control hub. Right: H-Bridge and gear motor assembly. Bottom: 3.3V power supply board and external speaker. All components share common ground for consistent signal reference.</span></div>
+        `,
+      },
+      {
+        title: 'Code System',
+        text: 'The interaction logic was structured as a small state machine, combining button input, musical password validation, audio playback and motor control on the Bela platform.',
+        html: `
+          <div class="case-card-grid two-col">
+            <div class="case-card"><div class="case-card-label">Input system</div><div class="case-card-title">Discrete note detection</div><p>Seven musical note buttons, one confirmation button and one lever switch are read as digital inputs. Software debouncing keeps button presses stable and prevents accidental repeated triggers.</p></div>
+            <div class="case-card"><div class="case-card-label">State machine</div><div class="case-card-title">Four interaction modes</div><p>The code moves between Dance Mode 1, Password Entry, Dance Mode 2 and Wrong Password Feedback, making the physical object feel responsive rather than purely mechanical.</p></div>
+            <div class="case-card"><div class="case-card-label">Password logic</div><div class="case-card-title">Musical unlock sequence</div><p>The system records only clean HIGH-to-LOW note transitions. The user must enter a 14-note sequence in the correct order to unlock the second dance state.</p></div>
+            <div class="case-card"><div class="case-card-label">Motion + audio</div><div class="case-card-title">Synchronized feedback</div><p>Audio files are preloaded into memory for real-time playback, while software PWM drives the gear motor to create smooth repetitive movement during dance modes.</p></div>
+          </div>
+          <div class="case-note" style="margin-top:1rem;"><strong>Edge case thinking</strong><span>If several note buttons are pressed at once, Bela reads pins sequentially rather than as a true simultaneous chord. This prevents button holding or accidental multi-presses from unlocking the password, so only intentional taps are captured.</span></div>
+        `,
+      },
+      {
+        title: 'Fabrication Process',
+        text: 'The final prototype combined a laser-cut plywood house shell with hand-drawn paper characters mounted onto the internal motion system.',
+        html: `
+          <div class="case-card-grid two-col">
+            <div class="case-card"><div class="case-card-label">House shell</div><div class="case-card-title">CAD to laser cutting</div><p>The enclosure was developed as interlocking panels, with slots, access points and shaft holes aligned to the internal mechanism.</p></div>
+            <div class="case-card"><div class="case-card-label">Characters</div><div class="case-card-title">Drawn + mounted figures</div><p>The paper characters were illustrated by hand, cut out, reinforced, and fixed onto moving shafts to make the interior feel alive.</p></div>
+          </div>
+          <div class="drawer-image-grid" style="margin-top:1rem;">
+            <img src="gizmo-house-cad.png" alt="DreamCore House CAD shell model" />
+            <img src="gizmo-house-laser-layout.png" alt="DreamCore House laser cutting layout" />
+          </div>
+          <div class="case-visual" style="margin-top:1rem;">
+            <img src="gizmo-house-shell.png" alt="Laser-cut plywood DreamCore House shell" />
+            <div class="case-visual-caption">House fabrication: CAD planning, laser-cut panel layout and assembled plywood shell.</div>
+          </div>
+          <div class="drawer-image-grid" style="margin-top:1rem;">
+            <img src="gizmo-people-sketch.png" alt="Hand-drawn DreamCore House character" />
+            <img src="gizmo-people-installed.png" alt="DreamCore House characters installed inside shell" />
+          </div>
+          <div class="case-visual-caption">Character fabrication: hand-drawn figures were translated into lightweight moving elements and installed inside the house.</div>
+        `,
+      },
+      {
+        title: 'Reflection',
+        text: 'This project helped me understand interaction design beyond screens. The experience depends on timing, physical affordances, material feel and the clarity of cause-and-effect between user action, mechanical motion and audio feedback.',
+      },
+    ],
+    sectionsZh: [
+      {
+        title: '项目概览',
+        text: 'DreamCore House 是一个交互式实体原型，像一个小舞台一样。它像一只害羞的小生物：没人看见时会跳舞，有人开门时会停住，并通过 musical password 与用户互动。',
+      },
+      {
+        title: '项目短片',
+        text: '这是一段从概念、交互流程、机械结构到最终原型的整体介绍，展示想法如何变成一个可以互动的实体装置。',
+        html: `
+          <div class="case-visual">
+            <video src="gizmo-project-film.mp4" controls playsinline preload="metadata"></video>
+            <div class="case-visual-caption">项目短片：从概念叙事、交互过程、机械结构到最终原型行为的整体展示。</div>
+          </div>
+        `,
+      },
+      {
+        title: 'Mechanism Inspiration',
+        text: '内部运动系统的灵感来自传统旋转木马和 profile camshaft：把连续旋转转化成有节奏的上下运动。',
+        html: `
+          <div class="drawer-image-grid case-contain-grid">
+            <img src="gizmo-inspiration1.png" alt="Carousel mechanism inspiration" />
+            <img src="gizmo-inspiration2.png" alt="Camshaft mechanism inspiration" />
+          </div>
+          <div class="case-visual-caption">机制灵感：旋转木马运动和 camshaft 系统启发了如何把连续旋转转化成有节奏的角色运动。</div>
+        `,
+      },
+      {
+        title: '交互流程',
+        text: '交互被设计成一个小型行为循环：隐藏房间会跳舞，被发现时停住，要求用户输入 musical password，正确则进入庆祝模式，错误则重置。',
+        html: `
+          <div class="case-visual">
+            <img src="gizmo-interaction.png" alt="DreamCore House interaction flow" />
+            <div class="case-visual-caption">Ideation 与交互流程：开门、输入密码、正确 / 错误反馈、重置逻辑和声音反馈。</div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Idle state</div><div class="case-card-title">秘密跳舞</div><p>没人看见时角色会移动，营造隐藏世界的感觉。</p></div>
+            <div class="case-card"><div class="case-card-label">Input state</div><div class="case-card-title">音乐密码</div><p>用户通过音符按钮输入旋律，把声音变成解锁机制。</p></div>
+            <div class="case-card"><div class="case-card-label">Feedback state</div><div class="case-card-title">解锁或重置</div><p>正确输入触发庆祝，错误输入播放提示并回到初始循环。</p></div>
+          </div>
+        `,
+      },
+      {
+        title: '设计机制',
+        text: '最终机械结构使用齿轮电机、spur-gear transmission、follower shafts、bevel gears 和 profile camshafts，在紧凑空间内同步多个角色运动。',
+        html: `
+          <div class="case-visual">
+            <img src="gizmo-mechanism.png" alt="DreamCore House mechanism design" />
+            <div class="case-visual-caption">设计机制：齿轮组、idler gears、follower shafts、profile camshafts 和 bevel gears 被整合在微型房间内部。</div>
+          </div>
+          <div class="case-visual">
+            <img src="gizmo-motion-mechanism.png" alt="DreamCore House motion mechanism logic" />
+            <div class="case-visual-caption">Motion mechanism：电机动力通过 spur gear train、idler gears、follower shafts 和 profile camshafts 分配，形成角色旋转与上下运动。</div>
+          </div>
+        `,
+      },
+      {
+        title: 'Circuit System',
+        text: '电子系统围绕 Bela 平台搭建，整合音符按钮、确认按钮、lever switch、H-Bridge 电机驱动、低压齿轮电机和外接扬声器。',
+        html: `
+          <div class="case-visual">
+            <img src="gizmo-circuit.png" alt="DreamCore House circuit diagram" />
+            <div class="case-visual-caption">电路图展示 Bela board、音符按钮、确认按钮、lever switch、H-Bridge driver、齿轮电机、电源和外接扬声器的连接关系。</div>
+          </div>
+          <div class="case-card-grid">
+            <div class="case-card"><div class="case-card-label">Input module</div><div class="case-card-title">按钮 + lever switch</div><p>七个音符输入按钮连接到 Bela pins，确认按钮和 lever switch 用来检测门 / 模式状态变化。</p></div>
+            <div class="case-card"><div class="case-card-label">Output module</div><div class="case-card-title">电机驱动 + 扬声器</div><p>H-Bridge 控制 3.7V 齿轮电机方向，外接扬声器提供音乐提示和反馈音效。</p></div>
+            <div class="case-card"><div class="case-card-label">Power module</div><div class="case-card-title">独立低压供电</div><p>独立电源支持电机系统，减少电噪声，并保持控制逻辑稳定。</p></div>
+          </div>
+          <div class="case-note" style="margin-top:1rem;"><strong>System structure summary</strong><span>左侧是按钮输入阵列和 lever switch，中间是 Bela 控制中心，右侧是 H-Bridge 与齿轮电机，底部是 3.3V 电源板和外接扬声器。所有组件共地，保证信号参考一致。</span></div>
+        `,
+      },
+      {
+        title: 'Code System',
+        text: '代码逻辑被整理成一个小型 state machine，在 Bela 平台上整合按钮输入、音乐密码判断、音频播放和电机控制。',
+        html: `
+          <div class="case-card-grid two-col">
+            <div class="case-card"><div class="case-card-label">Input system</div><div class="case-card-title">离散音符检测</div><p>七个音符按钮、一个确认按钮和一个 lever switch 被读取为数字输入。软件 debounce 用来稳定按键，避免误触或重复触发。</p></div>
+            <div class="case-card"><div class="case-card-label">State machine</div><div class="case-card-title">四个交互模式</div><p>系统在 Dance Mode 1、Password Entry、Dance Mode 2 和 Wrong Password Feedback 之间切换，让实体装置更像一个有反应的互动角色。</p></div>
+            <div class="case-card"><div class="case-card-label">Password logic</div><div class="case-card-title">音乐解锁序列</div><p>系统只记录清晰的 HIGH-to-LOW 按键变化。用户需要按正确顺序输入 14 个音符，才能解锁第二段舞蹈状态。</p></div>
+            <div class="case-card"><div class="case-card-label">Motion + audio</div><div class="case-card-title">同步反馈</div><p>音频文件在 setup 阶段预加载，保证实时播放；software PWM 控制齿轮电机，让 dance mode 中的运动更平滑稳定。</p></div>
+          </div>
+          <div class="case-note" style="margin-top:1rem;"><strong>Edge case thinking</strong><span>如果用户同时按下多个音符按钮，Bela 会按 pin 顺序快速读取，而不是真正识别为同时输入。这样可以避免长按或误触直接解锁密码，系统只捕捉有意图的离散点击。</span></div>
+        `,
+      },
+      {
+        title: 'Fabrication Process',
+        text: '最终原型结合了 laser-cut 木板房屋外壳和手绘纸质人偶，并把它们安装到内部运动机构上。',
+        html: `
+          <div class="case-card-grid two-col">
+            <div class="case-card"><div class="case-card-label">House shell</div><div class="case-card-title">CAD 到激光切割</div><p>房子外壳由互锁木板组成，孔位、卡槽和轴的位置需要和内部机构对齐。</p></div>
+            <div class="case-card"><div class="case-card-label">Characters</div><div class="case-card-title">手绘 + 安装人偶</div><p>人偶先手绘、裁切和加固，再固定到运动轴上，让房子内部像一个会动的小舞台。</p></div>
+          </div>
+          <div class="drawer-image-grid" style="margin-top:1rem;">
+            <img src="gizmo-house-cad.png" alt="DreamCore House CAD shell model" />
+            <img src="gizmo-house-laser-layout.png" alt="DreamCore House laser cutting layout" />
+          </div>
+          <div class="case-visual" style="margin-top:1rem;">
+            <img src="gizmo-house-shell.png" alt="Laser-cut plywood DreamCore House shell" />
+            <div class="case-visual-caption">房子外壳制作：从 CAD 规划、laser-cut 板件排布，到木板外壳组装。</div>
+          </div>
+          <div class="drawer-image-grid" style="margin-top:1rem;">
+            <img src="gizmo-people-sketch.png" alt="Hand-drawn DreamCore House character" />
+            <img src="gizmo-people-installed.png" alt="DreamCore House characters installed inside shell" />
+          </div>
+          <div class="case-visual-caption">人偶制作：手绘角色被转化成轻量纸质 moving elements，并安装进房子内部。</div>
+        `,
+      },
+      {
+        title: 'Reflection',
+        text: '这个项目让我把交互设计从屏幕延伸到实体世界。体验的关键不只是功能，而是时机、材料触感、物理 affordance，以及用户动作、机械运动和声音反馈之间是否清晰。',
+      },
+    ],
+    bulletsEn: [],
+    bulletsZh: [],
+    tech: ['Physical Computing', 'Bela', 'Arduino', 'CAD', '3D Printing', 'Electronics'],
+  },
+
 };
 
 // ── LANGUAGE ──
@@ -2795,6 +3963,8 @@ function openDrawer(id) {
         🎬 ${isEn ? 'Video coming soon — replace with your video URL' : '视频即将上线'}
       </div>
     </div>`;
+  } else if (data.media === 'none') {
+    mediaHtml = '';
   } else if (data.media) {
     mediaHtml = `<div class="drawer-media">
       <img src="${data.media}" alt="${isEn ? data.titleEn : data.titleZh}" />
