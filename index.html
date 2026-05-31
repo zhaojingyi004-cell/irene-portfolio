@@ -1230,7 +1230,7 @@
   }
 
   .battery-opportunity-section {
-    margin: 0 -3rem;
+    margin: -1.5rem -3rem 0;
     padding: clamp(2.4rem, 5vw, 4rem) 3rem clamp(2.6rem, 5vw, 4.4rem);
     background: #0d0d0f;
     color: #f5f5f7;
@@ -1352,7 +1352,7 @@
   }
 
   .battery-final-section {
-    margin: 0 -3rem;
+    margin: -1.5rem -3rem 0;
     padding: clamp(2rem, 4vw, 3.4rem) 3rem clamp(2.6rem, 5vw, 4.2rem);
     background: #fff;
     color: #1d1d1f;
@@ -1475,7 +1475,7 @@
   }
 
   .battery-param-section {
-    margin: 0 -3rem;
+    margin: -1.5rem -3rem 0;
     padding: clamp(2rem, 4vw, 3.4rem) 3rem clamp(2.6rem, 5vw, 4.2rem);
     background: #fff;
     color: #1d1d1f;
@@ -1571,7 +1571,7 @@
   }
 
   .battery-thermal-section {
-    margin: 0 -3rem;
+    margin: -1.5rem -3rem 0;
     padding: clamp(3.2rem, 6vw, 5.4rem) 3rem;
     background: #09090b;
     color: #f7f7f8;
@@ -1648,7 +1648,7 @@
   }
 
   .battery-performance-section {
-    margin: 0 -3rem;
+    margin: -1.5rem -3rem 0;
     padding: clamp(2.8rem, 5vw, 4.8rem) 3rem;
     background: #fff;
     color: #1d1d1f;
@@ -1714,6 +1714,109 @@
     letter-spacing: 0.12em;
     line-height: 1.35;
     text-transform: uppercase;
+  }
+
+  /* Battery reflection cards */
+  .battery-reflect-section {
+    margin: -1.5rem -3rem 0;
+    padding: clamp(2rem, 4vw, 3.4rem) 3rem;
+    background: #f7f7f8;
+  }
+
+  .battery-reflect-label {
+    color: #006fe6;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .battery-reflect-rule {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #006fe6, #ff8500);
+    border-radius: 2px;
+    margin-bottom: 1.4rem;
+  }
+
+  .battery-reflect-title {
+    font-family: var(--font-body) !important;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.01em !important;
+    margin-bottom: 2.4rem !important;
+    max-width: 560px;
+    color: #1a1a1a !important;
+    opacity: 1 !important;
+  }
+
+  .battery-reflect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .battery-reflect-card {
+    background: #fff;
+    border: 1px solid #e4e5ea;
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .battery-reflect-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  }
+
+  .battery-reflect-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1.1rem;
+    line-height: 1;
+  }
+
+  .battery-reflect-card-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    color: #1a1a1a;
+  }
+
+  .battery-reflect-card-text {
+    font-size: 0.88rem;
+    color: #55565b;
+    line-height: 1.75;
+  }
+
+  .battery-reflect-future-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a8d94;
+    margin: 2rem 0 1rem;
+  }
+
+  .battery-reflect-future-card {
+    background: rgba(0, 111, 230, 0.05);
+    border: 1px solid rgba(0, 111, 230, 0.18);
+    border-radius: 16px;
+    padding: 1.6rem 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .battery-reflect-future-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0,111,230,0.1);
+  }
+
+  .battery-reflect-future-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #006fe6;
+    margin-bottom: 0.6rem;
   }
 
   .ev-white-section {
@@ -4315,7 +4418,7 @@
 
       <!-- Project 6: Battery Cooling Plate -->
       <div class="exp-card fade-in" data-type="project" data-id="batterycooling" id="card-batterycooling" onclick="openDrawer('batterycooling')">
-        <div class="exp-card-img"><img src="battery-cooling-hero.png" alt="EV battery cooling plate thermal analysis" /></div>
+        <div class="exp-card-img"><img src="battery-cooling-overview-simulation.png" alt="EV battery cooling plate thermal analysis" /></div>
         <div class="exp-card-body">
           <span class="exp-card-tag tag-project"><span data-lang="en">Project</span><span data-lang="zh">项目</span></span>
           <div class="exp-card-title"><span data-lang="en">EV Battery Cooling Plate</span><span data-lang="zh">EV 电池冷却板分析</span></div>
@@ -5785,12 +5888,12 @@ const drawerData = {
     roleZh: '热流体分析 · 冷却性能',
     date: '2025',
     media: 'none',
-    descEn: 'Thermal-fluid optimisation through CFD and parametric channel design.',
-    descZh: '通过 CFD 与参数化通道设计进行热流体优化。',
+    descEn: 'Designing an efficient liquid cooling system for EV battery thermal management through CFD simulation and parametric channel optimisation.',
+    descZh: '通过 CFD 仿真与参数化通道优化，为 EV 电池热管理设计高效液冷系统。',
     sectionsEn: [
       {
-        title: 'Project Overview',
-        text: 'This project investigated thermal management strategies for EV battery systems through the optimisation of cooling channel geometry. Using analytical modelling and CFD simulation, the design explored how distributed serpentine layouts and rounded channel geometry improve temperature uniformity while limiting pressure losses.',
+        title: 'Overview',
+        text: 'This project explored the optimisation of an EV battery cooling plate to improve thermal performance while maintaining acceptable pressure drop. Through benchmarking, analytical calculations and CFD simulation in ANSYS Fluent, multiple channel configurations were evaluated and iterated to achieve more balanced coolant distribution and improved heat dissipation.',
         html: `
           <div class="battery-overview-visual">
             <img src="battery-cooling-overview-simulation.png" alt="Battery cooling plate thermal CFD simulation" />
@@ -5915,7 +6018,7 @@ const drawerData = {
                   <div class="battery-param-pill">Coolant velocity <span>0.5–2.0 m/s</span></div>
                 </div>
               </div>
-              <div class="battery-param-placeholder">Image Placeholder</div>
+              <div class="battery-param-placeholder"><img src="Frame 12.png" alt="Annotated concept diagram showing hybrid serpentine cooling plate geometry" style="width:100%;height:100%;object-fit:cover;border-radius:22px;display:block;" /></div>
             </div>
             <div class="battery-param-note">
               <strong>Selected: 8.5 mm channel height</strong>
@@ -5985,29 +6088,53 @@ const drawerData = {
         `,
       },
       {
-        title: 'Cooling Plate Analysis',
-        text: 'The analysis explored how rounded-channel geometry can support smoother coolant movement and more reliable thermal performance under EV operating conditions.',
+        title: '',
+        text: '',
         html: `
-          <div class="case-visual">
-            <img src="battery-cooling-analysis.png" alt="EV battery cooling plate analysis" />
-            <div class="case-visual-caption">Detailed cooling plate analysis showing channel geometry, pressure behaviour and thermal-fluid performance.</div>
-          </div>
-          <div class="case-card-grid">
-            <div class="case-card"><div class="case-card-label">Flow</div><div class="case-card-title">Rounded channel geometry</div><p>Rounded channel transitions were used to reduce sharp flow disruption inside the cooling plate.</p></div>
-            <div class="case-card"><div class="case-card-label">Pressure</div><div class="case-card-title">Controlled pressure drop</div><p>The design aimed to maintain an efficient pressure drop while supporting reliable coolant circulation.</p></div>
-            <div class="case-card"><div class="case-card-label">Thermal</div><div class="case-card-title">Uniform heat transfer</div><p>More even flow distribution supports more consistent heat removal across the battery cooling surface.</p></div>
+          <div class="battery-reflect-section">
+            <div class="battery-reflect-label">Reflection + Future Work</div>
+            <div class="battery-reflect-rule"></div>
+            <h3 class="battery-reflect-title">What This Project Taught Me</h3>
+            <div class="battery-reflect-grid">
+              <div class="battery-reflect-card">
+                <div class="battery-reflect-icon">📐</div>
+                <div class="battery-reflect-card-title">Geometry matters</div>
+                <div class="battery-reflect-card-text">Channel height, bend radius, and cross-section profile each directly control a thermodynamic or hydraulic behaviour. Treating geometry as a performance variable — not just a manufacturing constraint — unlocked meaningful improvement.</div>
+              </div>
+              <div class="battery-reflect-card">
+                <div class="battery-reflect-icon">⚖️</div>
+                <div class="battery-reflect-card-title">Thermal systems require trade-offs</div>
+                <div class="battery-reflect-card-text">Every gain in thermal uniformity carries a pressure cost, and vice versa. The design space cannot be optimised for both simultaneously without integrating the flow architecture. Understanding the trade-off surface is the real engineering task.</div>
+              </div>
+              <div class="battery-reflect-card">
+                <div class="battery-reflect-icon">🖥️</div>
+                <div class="battery-reflect-card-title">CFD guides — it does not replace judgement</div>
+                <div class="battery-reflect-card-text">Simulation revealed flow behaviour that analytical models could not predict, but also required careful boundary condition setup and interpretation. CFD is a tool for understanding, not a substitute for engineering reasoning about what the results mean.</div>
+              </div>
+            </div>
+            <div class="battery-reflect-future-label">Future Work</div>
+            <div class="battery-reflect-grid">
+              <div class="battery-reflect-future-card">
+                <div class="battery-reflect-future-title">Experimental Validation</div>
+                <div class="battery-reflect-card-text">Physical cold plate prototype with embedded thermocouples and PIV flow visualisation to validate CFD predictions at operating conditions.</div>
+              </div>
+              <div class="battery-reflect-future-card">
+                <div class="battery-reflect-future-title">Multi-objective Optimisation</div>
+                <div class="battery-reflect-card-text">Genetic algorithm-driven parametric sweep across full design space — jointly minimising temperature gradient and pressure drop with Pareto front analysis.</div>
+              </div>
+              <div class="battery-reflect-future-card">
+                <div class="battery-reflect-future-title">System Integration</div>
+                <div class="battery-reflect-card-text">Coupling cooling plate CFD with cell-level electrochemical model to assess real degradation rate reduction under optimised thermal management.</div>
+              </div>
+            </div>
           </div>
         `,
-      },
-      {
-        title: 'Design Learning',
-        text: 'This project strengthened my understanding of how small geometric decisions inside a component can affect system-level EV performance, safety and reliability.',
       },
     ],
     sectionsZh: [
       {
-        title: '项目概览',
-        text: 'This project investigated thermal management strategies for EV battery systems through the optimisation of cooling channel geometry. Using analytical modelling and CFD simulation, the design explored how distributed serpentine layouts and rounded channel geometry improve temperature uniformity while limiting pressure losses.',
+        title: 'Overview',
+        text: '本项目对 EV 电池冷板进行优化，旨在提升热性能的同时将压降控制在可接受范围内。通过基准测试、解析计算以及 ANSYS Fluent 中的 CFD 仿真，对多种通道配置进行了评估与迭代，以实现更均衡的冷却液分布和更好的散热效果。',
         html: `
           <div class="battery-overview-visual">
             <img src="battery-cooling-overview-simulation.png" alt="Battery cooling plate thermal CFD simulation" />
@@ -6132,7 +6259,7 @@ const drawerData = {
                   <div class="battery-param-pill">Coolant velocity <span>0.5–2.0 m/s</span></div>
                 </div>
               </div>
-              <div class="battery-param-placeholder">Image Placeholder</div>
+              <div class="battery-param-placeholder"><img src="Frame 12.png" alt="Annotated concept diagram showing hybrid serpentine cooling plate geometry" style="width:100%;height:100%;object-fit:cover;border-radius:22px;display:block;" /></div>
             </div>
             <div class="battery-param-note">
               <strong>Selected: 8.5 mm channel height</strong>
@@ -6202,23 +6329,47 @@ const drawerData = {
         `,
       },
       {
-        title: '冷却板分析',
-        text: '分析探索 rounded-channel 几何如何在 EV 工作条件下支持更顺畅的冷却液运动和更可靠的热性能。',
+        title: '',
+        text: '',
         html: `
-          <div class="case-visual">
-            <img src="battery-cooling-analysis.png" alt="EV 电池冷却板分析" />
-            <div class="case-visual-caption">冷却板详细分析，展示通道几何、压力行为和热流体性能。</div>
-          </div>
-          <div class="case-card-grid">
-            <div class="case-card"><div class="case-card-label">Flow</div><div class="case-card-title">圆角通道几何</div><p>通过 rounded channel 过渡减少冷却板内部的尖锐流动扰动。</p></div>
-            <div class="case-card"><div class="case-card-label">Pressure</div><div class="case-card-title">可控压力降</div><p>设计目标是在保持有效压力降的同时，让冷却液循环更稳定。</p></div>
-            <div class="case-card"><div class="case-card-label">Thermal</div><div class="case-card-title">均匀换热</div><p>更均匀的流量分布可以支持电池冷却表面更一致的热量移除。</p></div>
+          <div class="battery-reflect-section">
+            <div class="battery-reflect-label">反思 + 未来工作</div>
+            <div class="battery-reflect-rule"></div>
+            <h3 class="battery-reflect-title">这个项目让我学到了什么</h3>
+            <div class="battery-reflect-grid">
+              <div class="battery-reflect-card">
+                <div class="battery-reflect-icon">📐</div>
+                <div class="battery-reflect-card-title">几何结构很重要</div>
+                <div class="battery-reflect-card-text">通道高度、弯曲半径和截面轮廓各自直接控制热力学或水力行为。将几何形状作为性能变量——而不仅仅是制造约束——释放了有意义的改进空间。</div>
+              </div>
+              <div class="battery-reflect-card">
+                <div class="battery-reflect-icon">⚖️</div>
+                <div class="battery-reflect-card-title">热系统需要权衡</div>
+                <div class="battery-reflect-card-text">热均匀性的每一次提升都伴随着压力代价，反之亦然。在不整合流动架构的情况下，设计空间无法同时优化两者。理解权衡面才是真正的工程任务。</div>
+              </div>
+              <div class="battery-reflect-card">
+                <div class="battery-reflect-icon">🖥️</div>
+                <div class="battery-reflect-card-title">CFD 是引导，不是替代判断</div>
+                <div class="battery-reflect-card-text">仿真揭示了分析模型无法预测的流动行为，但也需要仔细设置边界条件和结果解读。CFD 是理解的工具，不能替代工程师对结果意义的判断。</div>
+              </div>
+            </div>
+            <div class="battery-reflect-future-label">未来工作</div>
+            <div class="battery-reflect-grid">
+              <div class="battery-reflect-future-card">
+                <div class="battery-reflect-future-title">实验验证</div>
+                <div class="battery-reflect-card-text">制作内嵌热电偶的冷板原型，结合 PIV 流动可视化技术，在实际工况下验证 CFD 预测结果。</div>
+              </div>
+              <div class="battery-reflect-future-card">
+                <div class="battery-reflect-future-title">多目标优化</div>
+                <div class="battery-reflect-card-text">基于遗传算法的参数化全设计空间扫描，同时最小化温度梯度与压降，并通过 Pareto 前沿分析绘制真实权衡边界。</div>
+              </div>
+              <div class="battery-reflect-future-card">
+                <div class="battery-reflect-future-title">系统集成</div>
+                <div class="battery-reflect-card-text">将冷板 CFD 模型与电池单体电化学模型耦合，评估优化热管理条件下的实际容量衰减抑制效果。</div>
+              </div>
+            </div>
           </div>
         `,
-      },
-      {
-        title: '设计收获',
-        text: '这个项目让我理解到，部件内部很小的几何变化，也会影响 EV 系统层面的性能、安全性和可靠性。',
       },
     ],
     bulletsEn: [],
