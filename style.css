@@ -583,6 +583,78 @@
     color: #7a5a3a;
   }
 
+  /* ── Certified skill badge ── */
+  .tag-cert {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #ffffff;
+    border-color: rgba(120, 180, 120, 0.85);
+    color: #3f7a3a;
+    font-weight: 600;
+    cursor: help;
+    outline: none;
+  }
+
+  .tag-cert:focus-visible {
+    box-shadow: 0 0 0 3px rgba(120, 180, 120, 0.35);
+  }
+
+  .cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding-left: 0.5rem;
+    border-left: 1.5px solid rgba(150, 200, 150, 0.55);
+    color: #5b9450;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .cert-check { flex-shrink: 0; display: block; }
+
+  .cert-tip {
+    position: absolute;
+    bottom: calc(100% + 0.55rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    width: max-content;
+    max-width: 260px;
+    background: #3f6b39;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    text-align: center;
+    padding: 0.45rem 0.65rem;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition), transform var(--transition);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+    z-index: 20;
+  }
+
+  .cert-tip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #3f6b39;
+  }
+
+  .tag-cert:hover .cert-tip,
+  .tag-cert:focus .cert-tip,
+  .tag-cert:focus-visible .cert-tip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
   /* ── EXPERIENCE ── */
   #experience {
     max-width: 100%;
