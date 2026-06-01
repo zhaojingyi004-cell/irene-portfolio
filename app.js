@@ -23,14 +23,7 @@ document.querySelectorAll('.js-lang-href').forEach(link => {
   if (nextHref) link.setAttribute('href', nextHref);
 });
 
-// ── INTRO ──
-window.addEventListener('load', () => {
-  const intro = document.getElementById('intro');
-  setTimeout(() => {
-    intro.classList.add('hidden');
-    setTimeout(() => { intro.style.display = 'none'; }, 900);
-  }, 3300);
-});
+
 
 // ── CV DROPDOWN ──
 function toggleCvDropdown(e) {
@@ -468,4 +461,114 @@ if (humanSection && humanVideos.length) {
   }, { threshold: 0.35 });
 
   humanVideoObserver.observe(humanSection);
+}
+// ── HIGHLIGHT SECTION ──
+const highlightData = [
+  {
+    tagEn: 'Award', tagZh: '荣誉',
+    titleEn: 'DE1 Electronics Grand Prix · 1st Place',
+    titleZh: 'DE1 电子学 Grand Prix · 冠军',
+    descEn: 'Designed and programmed an ESP32-controlled electric racing car as part of Imperial\'s DE1 Electronics module. Competed against multiple teams in the Grand Prix finals and won 1st place.',
+    descZh: '在帝国理工 DE1 电子模块中，设计并用 MicroPython 编程控制 ESP32 电动赛车，参加 Grand Prix 决赛并从多支队伍中赢得冠军。',
+    meta: 'Imperial College London · 2024–2025',
+    img: null, emoji: '🏎️'
+  },
+  {
+    tagEn: 'Exhibition', tagZh: '展览',
+    titleEn: 'Smart Pointe Shoe · Library Exhibition',
+    titleZh: '智能足尖鞋 · 图书馆展览',
+    descEn: 'Designed a pressure-sensitive pointe shoe for ballet dancers with plantar fasciitis, combining color-changing sensors with adjustable arch support. Selected for exhibition in the Imperial College Library.',
+    descZh: '为患有足底筋膜炎的芭蕾舞者设计压感变色足尖鞋，结合可调节足弓支撑与传感系统，被选中在帝国理工图书馆展览。',
+    meta: 'Imperial College London · 2024–2025',
+    img: null, emoji: '🩰'
+  }
+];
+
+let highlightCurrent = 0;
+
+function highlightUpdateContent(index) {
+  const d = highlightData[index];
+  const isEn = currentLang === 'en';
+  const content = document.getElementById('highlightContent');
+  const total = highlightData.length;
+
+  content.classList.add('transitioning');
+  setTimeout(() => {
+    document.getElementById('highlightCounter').textContent =
+      String(index + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+    document.getElementById('highlightTag').textContent = isEn ? d.tagEn : d.tagZh;
+
+    const titleEl = document.getElementById('highlightTitle');
+    titleEl.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.getAttribute('data-lang') === currentLang ? '' : 'none';
+    });
+    const descEl = document.getElementById('highlightDesc');
+    descEl.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.getAttribute('data-lang') === currentLang ? '' : 'none';
+    });
+
+    document.getElementById('highlightMeta').textContent = d.meta;
+    document.querySelectorAll('.highlight-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    content.classList.remove('transitioning');
+  }, 300);
+}
+
+function highlightUpdateStack(newIndex) {
+  const cards = document.querySelectorAll('.highlight-card');
+  const topCard = document.querySelector('.highlight-card[data-pos="0"]');
+  if (!topCard) return;
+
+  topCard.classList.add('animating-out');
+  setTimeout(() => {
+    topCard.classList.remove('animating-out');
+    // Reassign positions: shift everyone up, put old top at bottom
+    const posArr = Array.from(cards).map(c => parseInt(c.getAttribute('data-pos')));
+    const maxPos = cards.length - 1;
+    cards.forEach(card => {
+      let pos = parseInt(card.getAttribute('data-pos'));
+      if (pos === 0) {
+        card.setAttribute('data-pos', maxPos);
+      } else {
+        card.setAttribute('data-pos', pos - 1);
+      }
+    });
+  }, 440);
+}
+
+function highlightNext() {
+  const next = (highlightCurrent + 1) % highlightData.length;
+  highlightUpdateStack(next);
+  highlightCurrent = next;
+  highlightUpdateContent(next);
+}
+
+function highlightGoTo(index, e) {
+  if (e) e.stopPropagation();
+  if (index === highlightCurrent) return;
+  const steps = (index - highlightCurrent + highlightData.length) % highlightData.length;
+  let i = 0;
+  const interval = setInterval(() => {
+    highlightUpdateStack(highlightCurrent);
+    highlightCurrent = (highlightCurrent + 1) % highlightData.length;
+    i++;
+    if (i >= steps) {
+      clearInterval(interval);
+      highlightUpdateContent(highlightCurrent);
+    }
+  }, 100);
+}
+
+// Scroll wheel support
+const stackEl = document.getElementById('highlightStack');
+if (stackEl) {
+  let wheelCooldown = false;
+  stackEl.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (wheelCooldown) return;
+    wheelCooldown = true;
+    highlightNext();
+    setTimeout(() => { wheelCooldown = false; }, 700);
+  }, { passive: false });
 }

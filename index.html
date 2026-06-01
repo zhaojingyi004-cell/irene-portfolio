@@ -19,43 +19,7 @@
 </head>
 <body>
 
-<!-- ── INTRO ANIMATION ── -->
-<div id="intro">
-  <div style="position:relative; display:flex; align-items:center; justify-content:center; width:300px; height:150px;">
-    <svg class="intro-svg" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
-      <!-- Hello path (shown in EN) -->
-      <path id="path-en" class="intro-path"
-        d="M 20 80 L 20 30
-           M 20 55 L 55 55
-           M 55 30 L 55 80
-           M 75 45 Q 75 35 88 35 Q 100 35 100 50 L 100 80
-           M 75 60 L 100 60
-           M 118 35 L 118 80
-           M 118 35 Q 118 25 108 28
-           M 135 35 L 135 80
-           M 135 35 Q 145 35 145 50 L 145 65 Q 145 80 135 80 Q 125 80 125 65 L 125 50 Q 125 35 135 35
-           M 160 35 L 160 80 Q 160 88 170 88 Q 180 88 180 80"
-        fill="none" stroke="var(--text)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
-        stroke-dasharray="800" stroke-dashoffset="800"
-      />
-      <!-- 你好 path (shown in ZH) -->
-      <path id="path-zh" class="intro-path"
-        d="M 80 25 L 80 95
-           M 50 40 L 110 40
-           M 50 60 L 110 60
-           M 60 25 L 60 95
-           M 100 25 L 100 95
-           M 150 30 Q 170 30 170 50 L 170 70 Q 170 90 150 90 Q 130 90 130 70 L 130 50 Q 130 30 150 30
-           M 145 60 L 155 60"
-        fill="none" stroke="var(--text)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
-        stroke-dasharray="800" stroke-dashoffset="800"
-        style="display:none;"
-      />
-    </svg>
-    <div class="intro-word" id="intro-word-zh">你好</div>
-    <div class="intro-word" id="intro-word-en">Hello</div>
-  </div>
-</div>
+
 
 <!-- ── NAV ── -->
 <nav id="navbar">
@@ -65,6 +29,7 @@
   <ul class="nav-links">
     <li><a href="#about" data-nav="about"><span data-lang="en">About</span><span data-lang="zh">关于</span></a></li>
     <li><a href="#experience" data-nav="experience"><span data-lang="en">Experience</span><span data-lang="zh">经历</span></a></li>
+    <li><a href="#highlight" data-nav="highlight"><span data-lang="en">Highlights</span><span data-lang="zh">亮点</span></a></li>
     <li><a href="#human" data-nav="human"><span data-lang="en">Human behind CV</span><span data-lang="zh">简历背后的我</span></a></li>
     <li><a href="#contact" data-nav="contact"><span data-lang="en">Contact</span><span data-lang="zh">联系</span></a></li>
   </ul>
@@ -414,6 +379,51 @@
   <button class="drawer-close" onclick="closeDrawer()">✕</button>
   <div id="drawer-content"></div>
 </div>
+
+<!-- ── HIGHLIGHTS ── -->
+<section id="highlight">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label fade-in">
+      <span data-lang="en">HIGHLIGHTS</span>
+      <span data-lang="zh">亮点时刻</span>
+    </div>
+    <h2 class="exp-headline fade-in">
+      <span data-lang="en">Beyond the brief.</span>
+      <span data-lang="zh">课程之外的我。</span>
+    </h2>
+  </div>
+
+  <div class="highlight-layout fade-in" style="max-width:1100px;margin:2.5rem auto 0;">
+    <!-- Card Stack -->
+    <div class="highlight-stack" id="highlightStack" onclick="highlightNext()">
+      <div class="highlight-card" data-index="0" data-pos="0">
+        <img src="IMG_7438.png" alt="DE1 Electronics Grand Prix" style="object-position: center top;" />
+      </div>
+      <div class="highlight-card" data-index="1" data-pos="1">
+        <img src="微信图片_2026-06-01_150146_239.jpg" alt="Footwear Exhibition" />
+      </div>
+    </div>
+
+    <!-- Right Content -->
+    <div class="highlight-content" id="highlightContent">
+      <div class="highlight-counter" id="highlightCounter">01 / 02</div>
+      <div class="highlight-tag" id="highlightTag">Award</div>
+      <h3 class="highlight-title" id="highlightTitle">
+        <span data-lang="en">DE1 Electronics Grand Prix · 1st Place</span>
+        <span data-lang="zh">DE1 电子学 Grand Prix · 冠军</span>
+      </h3>
+      <p class="highlight-desc" id="highlightDesc">
+        <span data-lang="en">Designed and programmed an ESP32-controlled electric racing car as part of Imperial's DE1 Electronics module. Competed against multiple teams in the Grand Prix finals and won 1st place.</span>
+        <span data-lang="zh">在帝国理工 DE1 电子模块中，设计并用 MicroPython 编程控制 ESP32 电动赛车，参加 Grand Prix 决赛并从多支队伍中赢得冠军。</span>
+      </p>
+      <div class="highlight-meta" id="highlightMeta">Imperial College London · 2024–2025</div>
+      <div class="highlight-dots" id="highlightDots">
+        <div class="highlight-dot active" onclick="highlightGoTo(0, event)"></div>
+        <div class="highlight-dot" onclick="highlightGoTo(1, event)"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── HUMAN BEHIND CV ── -->
 <section id="human">
