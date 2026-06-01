@@ -8,8 +8,8 @@
     --dark-bg: #3a3a3a;
     --dark-text: #f0ede8;
     --border: #e0ddd8;
-    --font-display: 'Poltawski Nowy', serif;
-    --font-body: 'Poppins', sans-serif;
+    --font-display: 'Poltawski Nowy', 'Noto Serif SC', serif;
+    --font-body: 'Poppins', 'Noto Sans SC', sans-serif;
     --radius: 12px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -4257,6 +4257,16 @@
     max-width: none;
     padding-left: 3rem;
     padding-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #human .section-label,
+  #human .human-headline,
+  #human .human-subline {
+    width: 100%;
+    max-width: 1280px;
   }
 
   #human .section-label {
@@ -4290,6 +4300,7 @@
     gap: 1.5rem;
     width: 100%;
     max-width: 1280px;
+    margin: 0 auto;
     justify-content: center;
   }
 
