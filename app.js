@@ -497,16 +497,10 @@ function highlightUpdateContent(index) {
     document.getElementById('highlightCounter').textContent =
       String(index + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
     document.getElementById('highlightTag').textContent = isEn ? d.tagEn : d.tagZh;
-
-    const titleEl = document.getElementById('highlightTitle');
-    titleEl.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display = el.getAttribute('data-lang') === currentLang ? '' : 'none';
-    });
-    const descEl = document.getElementById('highlightDesc');
-    descEl.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display = el.getAttribute('data-lang') === currentLang ? '' : 'none';
-    });
-
+    document.getElementById('highlightTitle').innerHTML =
+      `<span data-lang="en"${isEn ? '' : ' style="display:none"'}>${d.titleEn}</span><span data-lang="zh"${isEn ? ' style="display:none"' : ''}>${d.titleZh}</span>`;
+    document.getElementById('highlightDesc').innerHTML =
+      `<span data-lang="en"${isEn ? '' : ' style="display:none"'}>${d.descEn}</span><span data-lang="zh"${isEn ? ' style="display:none"' : ''}>${d.descZh}</span>`;
     document.getElementById('highlightMeta').textContent = d.meta;
     document.querySelectorAll('.highlight-dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
@@ -572,3 +566,16 @@ if (stackEl) {
     setTimeout(() => { wheelCooldown = false; }, 700);
   }, { passive: false });
 }
+
+// Init highlight content on load
+(function initHighlight() {
+  const d = highlightData[0];
+  const isEn = currentLang === 'en';
+  document.getElementById('highlightCounter').textContent = '01 / 0' + highlightData.length;
+  document.getElementById('highlightTag').textContent = isEn ? d.tagEn : d.tagZh;
+  document.getElementById('highlightTitle').innerHTML =
+    `<span data-lang="en">${d.titleEn}</span><span data-lang="zh" style="display:none">${d.titleZh}</span>`;
+  document.getElementById('highlightDesc').innerHTML =
+    `<span data-lang="en">${d.descEn}</span><span data-lang="zh" style="display:none">${d.descZh}</span>`;
+  document.getElementById('highlightMeta').textContent = d.meta;
+})();
