@@ -4255,11 +4255,8 @@
     background: var(--dark-bg);
     color: var(--dark-text);
     max-width: none;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   #human .section-label,
@@ -4267,6 +4264,9 @@
   #human .human-subline {
     width: 100%;
     max-width: 1280px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    box-sizing: border-box;
   }
 
   #human .section-label {
